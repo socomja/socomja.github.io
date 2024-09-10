@@ -100,3 +100,78 @@ hr,
     border: 1px solid var(--main-color);
     border-radius: 50%;
 }
+
+
+
+
+
+
+
+
+
+
+
+
+				<!-- <div class="haagendazs_number">
+
+					<p>하겐다즈 고객만족센터</p>
+					<strong>070-7549-7020</strong>
+					<ul class="time"><li>* 고객센터 운영시간 : 평일 10:00 ~ 17:00</li>
+						<li>(점심시간 12:00~13:00)</li>
+					</ul><ul class="policy"><li><a href="/member/privacy.html">개인정보처리방침</a></li>
+						<li><a href="/member/agreement.html">이용약관</a></li>
+						<li><a href="/member/email.html">이메일무단수집거부</a></li>
+					</ul></div> -->
+
+
+
+
+
+
+
+
+<!-- <ul>
+                        <li><a href="/board/faq/1">공지사항</a></li>
+                        <li><a href="/board/event/8/?board_no=8&amp;category_no=1">이벤트</a></li>
+                        <li><a href="/store/store.html">매장안내</a></li>
+                        <li><a href="/board/faq/list.html">고객센터</a></li>
+                    </ul> -->
+
+
+
+
+
+
+
+
+<!-- <footer id="footer">
+        <div class="inner">
+            <div class="foot_con">
+                <div class="foot_logo"></div>
+                <address class="kr">
+                    <p>한국하겐다즈 대표: 김미조</p>
+                    <dl>
+                        <dt>주소</dt>
+                        <dd>서울특별시 강남구 테헤란로 311(역삼동, 이남타워 6층)</dd>
+
+                        <dt>통신판매신고</dt>
+                        <dd>강남-8186 | 대표전화: 02-508-8500</dd>
+                    </dl>
+                </address>
+
+                <address class="syp">
+                    <p>주식회사 에스와이피글로벌 대표: 김광용</p>
+                    <dl>
+                        <dt>주소</dt>
+                        <dd>서울특별시 강남구 봉은사로112길 26, 5층 502호(삼성동, 한호빌딩)</dd>
+
+                        <dt>통신판매신고</dt>
+                        <dd>2018-서울강남-00403 | 대표전화: 070-7549-7020</dd>
+
+                        <dt>e-mail</dt>
+                        <dd>imaginary@gmail.com</dd>
+                    </dl>
+                </address>
+            </div>
+        </div>
+    </footer> -->
