@@ -1,4 +1,119 @@
-/* #footer {
+@charset "utf-8";
+@import url("https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/static/pretendard.min.css");
+
+html{
+    font-size: 62.5%;
+    scroll-behavior: smooth;
+}
+
+body{
+    font: 1.6rem/1.5 Pretendard, sans-serif;
+    color: var(--text-color);
+    text-transform: capitalize;
+    word-break: keep-all;
+}
+
+a{
+    text-decoration: none;
+    color: inherit;
+}
+
+a:hover{
+    text-decoration: none;
+    color: var(--main-color);
+}
+
+hr,
+.hidden{
+    position: absolute;
+    margin: -1px;
+    width: 1px;
+    height: 1px;
+    overflow: hidden;
+    clip: rect(0,0,0,0);
+}
+
+.inner{
+    width: 134.4rem;
+    margin: 0 auto;
+    /* background-color: rgba(255, 255, 0, 0.3); */
+}
+
+/* #header{
+    margin: 0 auto;
+} */
+
+#header nav{
+    /* margin: 0 auto; */
+    height: 10rem;
+    display: flex;
+    /* justify-content: space-between; */
+    /* align-items: center; */
+}
+.logo a{
+    display: block;
+    width: 204px;
+    height: 97px;
+    background: url(../img/logo.png) no-repeat 0 0 / contain;
+}
+
+.gnb{
+    
+    display: flex;
+    /* margin: 0 auto; */
+    margin-left: 50px;
+    align-items: end;
+    gap: 20%;
+}
+
+.gnb li a{
+    display: block;
+    padding: 1rem 3rem;
+    font-weight: 700;
+    font-size: 2rem;
+    color: var(--title-color);
+    position: relative;
+}
+
+/* .gnb li a::after{
+    content: '';
+    display: block;
+    position: absolute;
+    top: -20px ;
+    left: 43%;
+    transform: translateX(50%);
+    width: 1rem;
+    height: 1rem;
+    border-radius: 50%;
+    background-color: var(--main-color);
+    opacity: 0;
+    transition: cubic-bezier(0,.57,.45,1.17) 0.4s;
+} */
+
+.gnb li a:hover::after{
+    top: 0;
+    opacity: 1;
+}
+
+.gnb li a:hover{
+    /* color: var(--main-color); */
+}
+
+.util-menu a{
+    display: block;
+    width: 50px;
+    height: 50px;
+    /* background: url(../img/icon-login.svg) no-repeat 50%/ contain; */
+    /* border: 1px solid #000; */
+    border-radius: 50%;
+    margin-right: 70px;
+}
+
+.visual{
+    max-width: 100%;
+}
+
+#footer {
     background: #f3f3f3;
     margin: 0 auto 0;
 }
@@ -57,7 +172,7 @@
     margin-bottom: 10px;
     line-height: 100%;
     letter-spacing: -1px;
-    font-family: HGGGothicssi;
+    font-family: pretendard;
     font-weight: 800
 }
 
@@ -108,4 +223,4 @@
     border-top: 1px solid #d6d6d6;
     padding: 20px 0;
     text-align: center;
-} */
+}
