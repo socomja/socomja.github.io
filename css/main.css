@@ -1,0 +1,50 @@
+@charset "utf-8";
+
+#main{
+    width: 100%;
+    display: block;
+    border: 1px solid #000;
+}
+
+.visual {
+    /* height: 64rem; */
+    max-width: 192rem;
+    max-width: 201rem;
+    margin: 0 auto;
+    /* border: 10px solid #f00; */
+    position: relative;
+    overflow: hidden;
+    /* animation: revealAni 2s; */
+}
+
+.visual img{
+    width: 100%;
+    display: block;
+    margin: 0 auto;
+    /* width: 100%; */
+    /* margin: 0 auto; */
+    /* display: block; */
+    object-fit: cover;
+    filter: brightness(70%);
+}
+
+.visual_title {
+    z-index: 1;
+    position: absolute;
+    top: 30%;
+    left: 8%;
+    transform: translateY(-50%);
+    /* background: red; */
+}
+
+.visual_title h2 {
+    animation: fadeText 1s 1.7s both;
+    font-weight: 900;
+    font-size: 8rem;
+    color: #fff;
+    line-height: 1.1;
+}
+
+.visual_title strong{
+    color: #EE4F94;
+}
