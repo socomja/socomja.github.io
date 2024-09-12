@@ -151,10 +151,10 @@ hr,
 }
 
 #footer .inner {
-    width: 1280px;
-    padding: 0 15px;
+    /* width: 1280px; */
+    /* padding: 0 15px; */
     box-sizing: border-box;
-    margin: 0 auto 40px;
+    /* margin: 0 auto 40px; */
     padding-top: 30px!important;
 }
 
@@ -247,7 +247,8 @@ hr,
     border: 1px solid #bbb;
     min-width: 150px;
     height: 32px;
-    padding-left: 5px;
+    /* margin-left: 500px; */
+    float: right;
     color: #888
 }
 

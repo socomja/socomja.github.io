@@ -48,3 +48,32 @@
 .visual_title strong{
     color: #EE4F94;
 }
+
+.suggestion1{
+    margin: 160px 0;
+}
+
+.suggestion-list{
+    display: flex;
+    flex-wrap: wrap;
+    gap: 150px;
+    gap: 8vw;
+    /* gap: 11.2%; */
+    flex: 1 1 30%;
+}
+
+.suggestion-list li{
+
+}
+
+.suggestion-list li p{
+    font-size: 28px;
+    text-align: center;
+    font-weight: 500;
+}
+
+.banner{
+    max-width: 200.5rem;
+    margin: 0 auto;
+    padding: 250px 0;
+}
