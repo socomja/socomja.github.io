@@ -6,6 +6,10 @@ html{
     scroll-behavior: smooth;
 }
 
+:root {
+    --swiper-navigation-size: 44px
+}
+
 body{
     font: 1.6rem/1.5 Pretendard, sans-serif;
     color: var(--text-color);
