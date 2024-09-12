@@ -133,9 +133,9 @@ hr,
     opacity: 1;
 }
 
-.gnb li a:hover{
-    /* color: var(--main-color); */
-}
+/* .gnb li a:hover{
+    /* color: var(--main-color); 
+} */
 
 .util-menu a{
     display: block;

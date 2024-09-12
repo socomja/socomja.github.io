@@ -1,9 +1,12 @@
 @charset "utf-8";
 
+@media screen and (min-width: 1920px) and (max-width: 2160px),
+       screen and (min-width: 1829px) and (max-width: 2057px) and (-webkit-min-device-pixel-ratio: 1.05),
+       screen and (min-width: 1829px) and (max-width: 2057px) and (min-resolution: 1.05dppx) {
 #main {
     width: 100%;
     display: block;
-    border: 1px solid #000;
+    /* border: 1px solid #000; */
 }
 
 .visual {
@@ -38,7 +41,7 @@
 }
 
 .visual_title h2 {
-    animation: fadeText 1s 1.7s both;
+    animation: fadeText 1s 0.7s both;
     font-weight: 900;
     font-size: 8rem;
     color: #fff;
@@ -62,8 +65,8 @@
     flex: 1 1 30%;
 }
 
-.suggestion-list li {
-}
+/* .suggestion-list li {
+} */
 
 .suggestion-list li p {
     font-size: 28px;
@@ -77,3 +80,4 @@
     padding: 250px 0;
 }
 
+}
