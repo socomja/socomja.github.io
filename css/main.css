@@ -4,7 +4,7 @@
        screen and (min-width: 1829px) and (max-width: 2057px) and (-webkit-min-device-pixel-ratio: 1.05),
        screen and (min-width: 1829px) and (max-width: 2057px) and (min-resolution: 1.05dppx) { */
 
-@media screen and (min-width: 1404px) and (max-width: 2160px) and (min-resolution: 0.65dppx) {
+/* @media screen and (min-width: 1404px) and (max-width: 2160px) and (min-resolution: 0.65dppx) { */
 #main {
     width: 100%;
     display: block;
@@ -14,7 +14,9 @@
 .visual {
     /* height: 64rem; */
     max-width: 192rem;
-    max-width: 200.5rem;
+    height: 860px;
+    /* border: 10px solid #ff3030; */
+
     margin: 0 auto;
     /* border: 10px solid #f00; */
     position: relative;
@@ -22,15 +24,25 @@
     /* animation: revealAni 2s; */
 }
 
-.visual img {
+.video-wrap {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 1920px;
+    height: 1080px;
+}
+
+.visual iframe {
     width: 100%;
-    display: block;
-    margin: 0 auto;
+    height: 100%;
+    /* display: block; */
+    /* margin: -10px auto 0; */
     /* width: 100%; */
     /* margin: 0 auto; */
     /* display: block; */
-    object-fit: cover;
-    filter: brightness(70%);
+    object-fit: contain;
+    filter: brightness(90%);
 }
 
 .visual_title {
@@ -42,13 +54,14 @@
     /* background: red; */
 }
 
+/* 
 .visual_title h2 {
     animation: fadeText 1s 0.7s both;
     font-weight: 900;
     font-size: 8rem;
     color: #fff;
     line-height: 1.1;
-}
+} */
 
 .visual_title strong {
     color: #EE4F94;
@@ -67,8 +80,7 @@
     flex: 1 1 30%;
 }
 
-.suggestion-list li {
-}
+.suggestion-list li {}
 
 .suggestion-list li p {
     font-size: 28px;
@@ -82,4 +94,39 @@
     padding: 250px 0;
 }
 
+.con-list {
+    /* display: flex;
+    flex-direction: column; */
+}
+
+.con-list li {
+    padding: 20rem 0;
+}
+
+.con-list li:nth-last-of-type(2) {
+    text-align: right;
+    float: right;
+}
+
+.con-list li:nth-last-of-type(2) dl {
+    float: right;
+}
+
+.con-list li dl dt {
+    font-weight: 900;
+    font-size: 5rem;
+    margin: 6rem 0 3rem;
+}
+
+.con-list li dl dd {
+    font-weight: 500;
+    font-size: 3.4rem;
+    color: #949393;
+}
+
+.con-list li dl dd+dd {
+    font-size: 2rem;
+    color: #000;
+    font-weight: 700;
+    margin-top: 5rem;
 }

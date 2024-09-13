@@ -1,50 +1,56 @@
 @charset "utf-8";
 @import url("https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/static/pretendard.min.css");
 
-html{
+html {
     font-size: 62.5%;
     scroll-behavior: smooth;
 }
 
 :root {
-    --swiper-navigation-size: 44px
+    --swiper-navigation-size: 44px;
+    --main-color: #41051F;
 }
 
-body{
+::selection {
+    background-color: var(--main-color);
+    color: #f3f3f3;
+}
+
+body {
     font: 1.6rem/1.5 Pretendard, sans-serif;
     color: var(--text-color);
     text-transform: capitalize;
     word-break: keep-all;
 }
 
-a{
+a {
     text-decoration: none;
     color: inherit;
 }
 
-a:hover{
+a:hover {
     text-decoration: none;
     color: var(--main-color);
 }
 
 hr,
-.hidden{
+.hidden {
     position: absolute;
     margin: -1px;
     width: 1px;
     height: 1px;
     overflow: hidden;
-    clip: rect(0,0,0,0);
+    clip: rect(0, 0, 0, 0);
 }
 
-.inner{
+.inner {
     width: 134.4rem;
     /* max-width: 168rem; */
     margin: 0 auto;
     /* background-color: rgba(255, 255, 0, 0.3); */
 }
 
-.h-inner{
+.h-inner {
     width: 134.4rem;
     /* max-width: 168rem; */
     margin: 0 auto;
@@ -56,8 +62,8 @@ hr,
     margin: 0 auto;
 } */
 
-@media (min-width: 2160px){
-    .h-inner{
+@media (min-width: 2160px) {
+    .h-inner {
         /* width: 134.4rem; */
         /* max-width: 168rem; */
         margin: 0 auto;
@@ -65,7 +71,7 @@ hr,
     }
 }
 
-#header nav{
+#header nav {
     /* margin: 0 auto; */
     height: 10rem;
     display: flex;
@@ -73,17 +79,18 @@ hr,
     /* justify-content: space-between; */
     /* align-items: center; */
 }
-.logo a{
+
+.logo a {
     display: block;
     width: 204px;
     height: 97px;
     background: url(../img/logo.png) no-repeat 0 0 / contain;
     position: absolute;
     top: 0;
-    left: -22%;
+    left: -20%;
 }
 
-.logo::before{
+.logo::before {
     content: '';
     display: block;
     height: 100%;
@@ -91,10 +98,10 @@ hr,
     background-color: #41051F;
     position: absolute;
     top: 0;
-    left: -24.49%;
+    left: -22.49%;
 }
 
-.gnb{
+.gnb {
     display: flex;
     width: 100%;
     /* margin: 0 auto; */
@@ -104,7 +111,7 @@ hr,
     /* gap: 20%; */
 }
 
-.gnb li a{
+.gnb li a {
     display: block;
     padding: 1rem 3rem;
     font-weight: 700;
@@ -128,7 +135,7 @@ hr,
     transition: cubic-bezier(0,.57,.45,1.17) 0.4s;
 } */
 
-.gnb li a:hover::after{
+.gnb li a:hover::after {
     top: 0;
     opacity: 1;
 }
@@ -137,7 +144,7 @@ hr,
     /* color: var(--main-color); 
 } */
 
-.util-menu a{
+.util-menu a {
     display: block;
     width: 50px;
     height: 50px;
@@ -159,7 +166,7 @@ hr,
     /* padding: 0 15px; */
     box-sizing: border-box;
     /* margin: 0 auto 40px; */
-    padding-top: 30px!important;
+    padding-top: 30px !important;
 }
 
 #footer .inner * {
@@ -202,7 +209,7 @@ hr,
     margin-bottom: 5px;
 }
 
-#footer .foot_conts .haagendazs_number > strong {
+#footer .foot_conts .haagendazs_number>strong {
     display: block;
     font-size: 36px;
     margin-bottom: 10px;
@@ -268,6 +275,7 @@ hr,
         opacity: 0;
         filter: blur(10px);
     }
+
     100% {
         transform: translateY(0);
         opacity: 1;
