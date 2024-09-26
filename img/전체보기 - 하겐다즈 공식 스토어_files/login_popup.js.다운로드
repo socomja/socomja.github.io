@@ -1,0 +1,343 @@
+let customer_id = '';
+
+CAFE24API.init('tgHZp6LCG5KuklqvIYgrtB')
+CAFE24API.getMemberID(function(memberID){
+    // console.log(memberID);
+    if(typeof base_url === 'undefined'){
+//        if ( Math.random() < 0.5 ){
+//            base_url = 'https://alphasolution.co.kr'
+//        }
+//        else if (Math.random() < 1 ) {
+//            base_url = 'https://saladlab.shop'
+//        }
+        
+        if ( CAFE24API.MALL_ID == 'kyungss' ){
+            base_url = 'https://alphasolution.co.kr'
+        }
+        else if (Math.random() < 1 ) {
+            base_url = 'https://saladlab.shop'
+        }
+        
+        
+    }
+    
+    if(memberID){
+        CAFE24API.getCustomerInfo(function(err, res) {
+            if (err) {
+                // console.log(err)
+            } else {
+                // console.log(res)
+                
+                if ( CAFE24API.MALL_ID == 'kyungss' ){
+                }
+                else if (Math.random() < 1 ) {
+                    alpha_popup_floating(res['customer']);
+                    alpha_popup(res['customer']);
+                }
+
+//                alpha_popup_floating(res['customer']);
+//                alpha_popup(res['customer']);
+            }
+        });
+    }
+});
+
+window.addEventListener('message', function (e) {
+    // if(e.origin == 'https://alph.kr'){
+    if(e.origin == base_url){
+        //console.log(e.origin);
+        if(e.data.from == 'alpha_popup'){
+            if(!(window.opener === null)) {
+                return false;
+            }
+            
+            if(e.data.result == 'success'){
+                document.getElementById('alpha_login_popup').style.display = 'block';
+                document.getElementById('alpha_login_popup_floating').style.display = 'none';
+            }
+            
+            if(e.data.result == 'error'){
+                // console.log(e.data.message)
+                document.getElementById('alpha_login_popup').style.display = 'none';
+                document.getElementById('alpha_login_popup_floating').style.display = 'none';
+            }
+            
+            if(e.data.result == 'alpha_popup_quick'){
+                let url = base_url + '/api/front/order_item/get?item_code=' + e.data.data;
+                let iframe = document.getElementById('alpha_login_popup');
+                iframe.src = url;
+
+                if(window.innerWidth > 640){
+                    iframe.style.width = '100vw';
+                    iframe.style.height = '100vh';
+                    iframe.style.right = '0';
+                    iframe.style.backgroundColor = 'rgba(0,0,0,0.7)';
+
+
+                }
+                else{
+                    iframe.style.width = '100vw';
+                    iframe.style.height = '100vh';
+                    iframe.style.paddingTop = '10vh';
+                    iframe.style.backgroundColor = 'rgba(0,0,0,0.7)';
+
+                }
+
+                let item = {
+                    'host': window.location.host,
+                    'type': 'reviewer',
+                }
+                iframe.onload = function () {
+                    iframe.contentWindow.postMessage(item, base_url);
+                };
+                
+
+            }
+            // if(e.data.result == 'alpha_popup_close_1'){
+            //     console.log('alpha_popup_close_1');
+                
+            //     let local_data = JSON.parse(localStorage.getItem('alpha_popup'));
+            //     console.log('재방문 local_data alpha_popup', local_data);
+            //     if(local_data){
+            //         let today = new Date()
+        
+            //         let local_data_new = [];
+            //         for(let i = 0; i < local_data.length; i++) {
+            //             let expired_at = new Date(local_data[i].date);
+                        
+        
+            //             if(expired_at.getTime() > today.getTime()){
+            //                 local_data_new.push(local_data[i])
+            //             }
+                        
+            //         }
+            //         local_data = local_data_new
+            //     }
+            //     else{
+            //         local_data = [];
+            //     }
+        
+            //     let date = new Date();
+            //     date.setDate(date.getDate() + 1 );
+                
+            //     let data = {
+            //         'date':date,
+            //         'customer' : customer_id,
+            //         'mall_id' : CAFE24API.MALL_ID,
+            //         'shop_no' : CAFE24API.SHOP_NO,
+            //     }
+            //     local_data.push(data);
+            //     localStorage.setItem('alpha_popup',JSON.stringify(local_data));
+            //     document.getElementById('alpha_login_popup').style.display = 'none';
+            //     document.getElementById('alpha_login_popup_floating').style.display = 'block';
+                
+            // }
+            
+            if(e.data.result == 'alpha_popup_close_today'){  
+                let local_data = JSON.parse(localStorage.getItem('alpha_popup'));
+
+                if(local_data){
+                    let today = new Date()
+        
+                    let local_data_new = [];
+                    for(let i = 0; i < local_data.length; i++) {
+                        let expired_at = new Date(local_data[i].date);
+                        
+        
+                        if(expired_at.getTime() > today.getTime()){
+                            local_data_new.push(local_data[i])
+                        }
+                        
+                    }
+                    local_data = local_data_new
+                }
+                else{
+                    local_data = [];
+                }
+        
+                let date = new Date();
+                date.setDate(date.getDate() + 1 );
+                date.setHours(0,0,0);
+                
+                let data = {
+                    'date':date,
+                    'customer' : customer_id,
+                    'mall_id' : CAFE24API.MALL_ID,
+                    'shop_no' : CAFE24API.SHOP_NO,
+                }
+                local_data.push(data);
+                localStorage.setItem('alpha_popup',JSON.stringify(local_data));
+                document.getElementById('alpha_login_popup').style.display = 'none';
+                document.getElementById('alpha_login_popup_floating').style.display = 'block';
+            }
+            if(e.data.result == 'alpha_popup_close_now'){  
+                document.getElementById('alpha_login_popup').style.display = 'none';
+                document.getElementById('alpha_login_popup_floating').style.display = 'block';
+            }
+        }
+        else if(e.data.from == 'alpha_popup_floating'){
+            if(!(window.opener === null)) {
+                return false;
+            }
+            if(e.data.result == 'success'){
+                if(!e.data.is_floating || (!e.data.is_floating_mo && window.innerWidth <= 640)) {
+                    document.getElementById('alpha_login_popup_floating').style.width = '0px';
+                    document.getElementById('alpha_login_popup_floating').style.height = '0px';
+                    return false;
+                }
+                let alpha_revisit_floating = document.getElementById('alpha_login_popup_floating');
+                alpha_revisit_floating.style.zIndex = e.data.z_index;
+                
+                let position = e.data.position_web;
+                let x_axis = e.data.x_web;
+                let y_axis = e.data.y_web;
+                if(window.innerWidth <= 640) {
+                    position = e.data.position_mo;
+                    x_axis = e.data.x_mo;
+                    y_axis = e.data.y_mo;                    
+                }
+                
+                if(position.indexOf('top') > -1){
+                    alpha_revisit_floating.style.top = 'calc(' + y_axis.toString() + 'px' + ' - ' + '16px)'; 
+                }
+                if(position.indexOf('bottom') > -1){
+                    alpha_revisit_floating.style.bottom = 'calc(' + y_axis.toString() + 'px' + ' - ' + '16px)';
+                }
+                if(position.indexOf('right') > -1){
+                    alpha_revisit_floating.style.right = 'calc(' + x_axis.toString() + 'px' + ' - ' + '16px)';
+                }
+                if(position.indexOf('left') > -1){
+                    alpha_revisit_floating.style.left = 'calc(' + x_axis.toString() + 'px' + ' - ' + '16px)';
+                }
+            }
+            if(e.data.result == 'error'){
+                // console.log(e.data.message)
+                document.getElementById('alpha_login_popup_floating').style.display = 'none';
+            }
+        }
+        else if(e.data.from == 'alpha_reviewer'){
+            switch (e.data.data) {
+                case 'reviewer_close':
+                    document.getElementById('alpha_login_popup').style.display = 'none';
+                    document.getElementById('alpha_login_popup_floating').style.display = 'block';
+            }
+        }
+        
+    }
+});
+
+
+
+function alpha_popup(customer){
+    if(parent.document.getElementById('alpha_login_popup')) {
+        return false;
+    }
+    customer_id = customer.member_id;
+    
+    let local_data = JSON.parse(localStorage.getItem('alpha_popup'));
+    if(local_data){
+        let local_index = local_data.findIndex(function(data){
+            return data.customer == customer_id && data.mall_id == CAFE24API.MALL_ID;
+        })
+
+        if(local_index > -1){
+            let today = new Date();
+            let expired_at = new Date(local_data[local_index].date);
+            if(expired_at.getTime() > today.getTime()){
+                if ((window.opener === null)) {
+                    document.getElementById('alpha_login_popup_floating').style.display = 'block';
+                }
+                return 0;
+            }
+        }
+    }
+    
+    
+
+    
+    let iframe2 = document.createElement("iframe");
+    iframe2.style.backgroundColor = 'rgba(0,0,0,0)';
+    iframe2.style.display = 'none';
+    if(window.innerWidth > 640){
+        iframe2.style.width = '100vw';
+        iframe2.style.height = '100vh';
+        iframe2.style.position = 'fixed';
+        iframe2.style.bottom = '0';
+        //iframe2.style.right = '10vw';
+    }
+    else{
+        iframe2.style.width = '100vw';
+        iframe2.style.height = '100vh';
+        iframe2.style.position = 'fixed';
+        iframe2.style.bottom = '0';
+        iframe2.style.left = '0';
+    }
+    
+    iframe2.style.zIndex = '2100000000';
+    iframe2.style.border = 'none';
+    
+    iframe2.id = 'alpha_login_popup';
+    iframe2.scrolling = 'no';
+    
+    iframe2.src = base_url + "/api/front/popup?mall_id=" + CAFE24API.MALL_ID + "&shop_no=" + CAFE24API.SHOP_NO + "&customer="+customer.member_id;
+    // iframe2.src = 'http://127.0.0.1:8000' + "/api/front/popup?mall_id=" + CAFE24API.MALL_ID + "&shop_no=" + CAFE24API.SHOP_NO + "&customer="+customer.member_id;
+    document.body.append(iframe2);
+    iframe2.onload = function () {
+        let item = {
+            'host': window.location.host,
+            'type': 'popup',
+            'customer': customer.member_id,
+            'mall_id': CAFE24API.MALL_ID,
+            'shop_no': CAFE24API.SHOP_NO,
+            'front_url': window.location.href,
+        };
+        document.getElementById('alpha_login_popup').contentWindow.postMessage(item, base_url);
+        // document.getElementById('alpha_login_popup').contentWindow.postMessage(item, 'http://127.0.0.1:8000');
+    };
+}
+
+function alpha_popup_floating(customer){
+    if(parent.document.getElementById('alpha_login_popup_floating')) {
+        return false;
+    }
+    customer_id = customer.member_id;
+    
+    let iframe3 = document.createElement("iframe");
+    iframe3.style.backgroundColor = 'rgba(0,0,0,0)';
+    iframe3.style.display = 'none';
+    if(window.innerWidth > 640){
+        iframe3.style.width = '152px';
+        iframe3.style.height = '152px';
+        iframe3.style.position = 'fixed';
+        iframe3.style.bottom = '6px';
+        iframe3.style.right = '14px';
+    }
+    else{
+        iframe3.style.width = '112px';
+        iframe3.style.height = '112px';
+        iframe3.style.position = 'fixed';
+        iframe3.style.bottom = '6px';
+        iframe3.style.right = '14px';
+    }
+    
+    iframe3.style.zIndex = '99999999';
+    iframe3.style.border = 'none';
+    
+    iframe3.id = 'alpha_login_popup_floating';
+    iframe3.scrolling = 'no';
+    
+    iframe3.src = base_url + "/api/front/floating?mall_id=" + CAFE24API.MALL_ID + "&shop_no=" + CAFE24API.SHOP_NO + "&customer="+customer.member_id;
+    // iframe3.src = 'http://127.0.0.1:8000' + "/api/front/floating?mall_id=" + CAFE24API.MALL_ID + "&shop_no=" + CAFE24API.SHOP_NO + "&customer="+customer.member_id;
+    document.body.append(iframe3);
+    iframe3.onload = function () {
+        let item = {
+            'host': window.location.host,
+            'type': 'popup_floating',
+            'customer': customer.member_id,
+            'mall_id': CAFE24API.MALL_ID,
+            'shop_no': CAFE24API.SHOP_NO,
+            'front_url': window.location.href,
+        };
+        document.getElementById('alpha_login_popup_floating').contentWindow.postMessage(item, base_url);
+    };
+}

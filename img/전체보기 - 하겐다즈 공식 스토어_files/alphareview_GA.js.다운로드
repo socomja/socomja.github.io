@@ -1,0 +1,768 @@
+// ALPHA REVIEW ANALYTICS CODE Ver 22.02.14
+
+
+if (typeof CAFE24API == 'undefined') {
+    CAFE24API.init('tgHZp6LCG5KuklqvIYgrtB')
+}
+
+
+
+if (!localStorage.getItem('beta_ticker') || localStorage.getItem('beta_ticker') == 'none') {
+    let beta_ticker = 'A';
+    if (Math.random() > 0.5) {
+        beta_ticker = 'B'
+    }
+    localStorage.setItem('beta_ticker', beta_ticker)
+}
+
+let params_ga = location.search.substr(location.search.indexOf("?") + 1);
+if (params_ga.indexOf('gtm_debug=x') > -1) {
+    console.log('gtm_debug')
+} else {
+    let CAEF24_loading_counter = 0
+    let CAEF24_loading = setInterval(function(){
+        if(typeof CAFE24API != 'undefined' || CAEF24_loading_counter > 100){
+            console.log(typeof CAFE24API != 'undefined', CAEF24_loading_counter > 30)
+            clearInterval(CAEF24_loading);
+            
+            GA_loading();
+        }
+        console.log('API 로딩 대기중', typeof CAFE24API != 'undefined')
+        CAEF24_loading_counter +=1
+    },50)
+
+}
+
+
+
+function alphGA() {
+    dataLayer.push(arguments);
+}
+
+function GA_loading() {
+    let GA_id = 'G-3GM554XW7S'
+
+
+    let scriptTag_alphaGA = document.createElement('script');
+    scriptTag_alphaGA.src = 'https://www.googletagmanager.com/gtag/js?id=' + GA_id;
+    document.body.appendChild(scriptTag_alphaGA);
+    // console.log('G-3GM554XW7S')
+
+    //알파리뷰 통계 코드로 리뷰의 성과 측정, 리뷰 작성률 향상에 사용됩니다.
+    //기존의 GA와 충돌하지 않도록 구성됐습니다.
+    window.dataLayer = window.dataLayer || [];
+    // function alphGA(){dataLayer.push(arguments);}
+    alphGA('js', new Date());
+    let alphGA_config = {
+        'cookie_prefix': 'alphGA',
+        'groups': 'alph',
+        'page_title': CAFE24API.MALL_ID,
+        'siteName': CAFE24API.MALL_ID,
+        'bench_type': 'none',
+        'ticker_bench_period': localStorage.getItem('beta_ticker'),
+        'page_type': CAPP_ASYNC_METHODS.EC_PATH_ROLE,
+    }
+    if (alphGA_config['ticker_bench_period'] == 'A' || alphGA_config['ticker_bench_period'] == 'B') {
+        alphGA_config['bench_type'] = 'ticker'
+    }
+
+    if (CAFE24API.MALL_ID == 'jinhime2') {
+        alphGA_config['debug_mode'] = true
+    }
+
+    // console.log(alphGA_config)
+
+    alphGA('config', GA_id, alphGA_config);
+
+
+
+    const product_list = document.querySelectorAll("*[id^='anchor']")
+    const observerOption_GA = {
+        // root: document.body,
+        rootMargin: "0px 0px 100px 0px",
+        threshold: 0.01
+    }
+    const product_observer = new IntersectionObserver(function (entries, observer) {
+        for (let i = 0; i < entries.length; i++) {
+            entry = entries[i]
+            if (entry.isIntersecting) {
+                view_item_list(entry.target)
+                observer.unobserve(entry.target) // entry.target에 대해 관찰 종료
+            }
+        }
+    }, observerOption_GA)
+    for (let i = 0; i < product_list.length; i++) {
+        let product = product_list[i]
+
+        if ('IntersectionObserver' in window) {
+            product_observer.observe(product) // el에 대하여 관측 시작
+        }
+
+    }
+
+
+
+
+
+    // 페이지 랜딩
+    if (CAPP_ASYNC_METHODS.EC_PATH_ROLE == 'PRODUCT_DETAIL') {
+        view_item();
+    }
+    if (CAPP_ASYNC_METHODS.EC_PATH_ROLE == 'ORDER_ORDERFORM') {
+        begin_checkout();
+    }
+    if (CAPP_ASYNC_METHODS.EC_PATH_ROLE == 'ORDER_ORDERRESULT') {
+        purchase();
+    }
+
+
+
+    //     $('body').on('click', function (event) {
+
+
+    $('body').click(function (event) {
+
+        //         .click
+        let element = event.target
+        if (element) {
+            var onclick = element.getAttribute('onclick');
+            if ((onclick != null)) {
+                if ((onclick.indexOf('product_submit(2') > -1) && (CAPP_ASYNC_METHODS.EC_PATH_ROLE == 'PRODUCT_DETAIL')) {
+                    add_to_cart();
+                }
+                if ((onclick.indexOf('NPAY_BUY_LINK') > -1) && (CAPP_ASYNC_METHODS.EC_PATH_ROLE == 'PRODUCT_DETAIL')) {
+                    console.log('naverpay_detail')
+                    conversion_buy_npay_button_click_DETAIL();
+                }
+                if ((onclick.indexOf('NPAY_BUY_LINK') > -1) && (CAPP_ASYNC_METHODS.EC_PATH_ROLE == 'ORDER_BASKET')) {
+                    conversion_buy_npay_button_click_BASKET();
+                }
+            }
+            else if(element.id.indexOf('NPAY_BUY_LINK') > -1){
+                if (CAPP_ASYNC_METHODS.EC_PATH_ROLE == 'PRODUCT_DETAIL') {
+                    conversion_buy_npay_button_click_DETAIL();
+                }
+                if (CAPP_ASYNC_METHODS.EC_PATH_ROLE == 'ORDER_BASKET') {
+                    conversion_buy_npay_button_click_BASKET();
+                }
+                
+                
+            }
+            else {
+                var product = element.closest('[id^="anchor"')
+                if (product != null) {
+                    select_item(product)
+                }
+            }
+
+        }
+
+    });
+
+
+
+
+
+    window.addEventListener('message', function (e) {
+
+        if (e.origin != base_url) {
+            return 0
+        }
+        if (e.data.from == 'UTM_widget') {
+
+            if (e.data.data == 'review_click') {
+                engage_review_click(e.data)
+            }
+            if (e.data.data == 'review_exposure') {
+                engage_review_exposure(e.data)
+            }
+            if (e.data.data == 'widget_exposure') {
+                engage_widget_exposure(e.data)
+            }
+            if (e.data.data == 'detailPopup_otherReview_click') {
+                engage_detailPopup_otherReview_click(e.data)
+            }
+            if (e.data.data == 'detailPopup_exposure') {
+                engage_detailPopup_exposure(e.data)
+            }
+
+
+
+
+            if (e.data.data == 'engage_review_more') {
+                engage_review_more(e.data)
+            }
+            if (e.data.data == 'engage_widget_filter1') {
+                engage_widget_filter1(e.data)
+            }
+            if (e.data.data == 'engage_widget_filter2') {
+                engage_widget_filter2(e.data)
+            }
+
+            if (e.data.data == 'engage_widget_static') {
+                engage_widget_static(e.data)
+            }
+
+            
+            // 티커 관련 GA
+            if (e.data.data == 'ticker_exposure'){
+                // console.log('JS__ticker_exposure')
+                engage_ticker_exposure(e.data)
+            }
+            if (e.data.data == 'ticker_cta_click'){
+                // console.log('JS__ticker_cta_click')
+
+                engage_ticker_cta_click(e.data)
+            }
+            if (e.data.data == 'ticker_close'){
+                // console.log('JS__ticker_close')
+                engage_ticker_close(e.data)
+            }
+        }
+    });
+}
+
+function engage_review_click(data) {
+    let product_id = data.product_id
+    let widget_id = data.widget_id
+    let widget_type = data.widget_type
+
+    if (widget_type != 'briefing') {
+        alphGA("event", 'engage_review_click', {
+            'product_id': product_id,
+            'widget_id': widget_id,
+            'widget_type': widget_type,
+            'send_to': 'alph',
+        });
+    } else {
+        alphGA("event", 'engage_review_click', {
+            'product_id': product_id,
+            'widget_id': widget_id,
+            'widget_type': widget_type,
+            'send_to': 'alph',
+
+        });
+
+    }
+}
+
+function engage_review_exposure(data) {
+    let product_id = data.product_id
+    let widget_id = data.widget_id
+    let widget_type = data.widget_type
+
+    if (widget_type != 'briefing') {
+        alphGA("event", 'engage_review_exposure', {
+            'product_id': product_id,
+            'widget_id': widget_id,
+            'widget_type': widget_type,
+            'send_to': 'alph',
+        });
+    } else {
+        alphGA("event", 'engage_review_exposure', {
+            'product_id': product_id,
+            'widget_id': widget_id,
+            'widget_type': widget_type,
+            'send_to': 'alph',
+
+        });
+    }
+}
+
+function engage_widget_exposure(data) {
+    let product_id = data.product_id
+    let widget_id = data.widget_id
+    let widget_type = data.widget_type
+
+    if (widget_type != 'briefing') {
+        alphGA("event", 'engage_widget_exposure', {
+            'product_id': product_id,
+            'widget_id': widget_id,
+            'widget_type': widget_type,
+            'send_to': 'alph',
+        });
+    } else {
+        alphGA("event", 'engage_widget_exposure', {
+            'product_id': product_id,
+            'widget_id': widget_id,
+            'widget_type': widget_type,
+            'send_to': 'alph',
+
+        });
+    }
+}
+
+function engage_detailPopup_otherReview_click(data) {
+    let product_id = data.product_id
+    let widget_id = data.widget_id
+    let widget_type = data.widget_type
+
+
+    if (widget_type != 'briefing') {
+        alphGA("event", 'engage_detailPopup_otherReview_click', {
+            'product_id': product_id,
+            'widget_id': widget_id,
+            'widget_type': widget_type,
+            'send_to': 'alph',
+        });
+    } else {
+        alphGA("event", 'engage_detailPopup_otherReview_click', {
+            'product_id': product_id,
+            'widget_id': widget_id,
+            'widget_type': widget_type,
+            'send_to': 'alph',
+
+        });
+    }
+}
+
+function engage_detailPopup_exposure(data) {
+    let product_id = data.product_id
+    let widget_id = data.widget_id
+    let widget_type = data.widget_type
+
+
+    if (widget_type != 'briefing') {
+        alphGA("event", 'engage_detailPopup_exposure', {
+            'product_id': product_id,
+            'widget_id': widget_id,
+            'widget_type': widget_type,
+            'send_to': 'alph',
+        });
+    } else {
+        alphGA("event", 'engage_detailPopup_exposure', {
+            'product_id': product_id,
+            'widget_id': widget_id,
+            'widget_type': widget_type,
+            'send_to': 'alph',
+
+        });
+    }
+}
+
+function view_item_list(product) {
+    // console.log(product)
+    return 0
+
+    item_id = product.getAttribute('id').split('_')[1]
+
+    item_name = product.querySelector('[data-i18n="PRODUCT.PRD_INFO_PRODUCT_NAME"]')
+    if (item_name) {
+        item_name = item_name.parentNode.parentNode.outerText
+    } else {
+        item_name = product.querySelector('.name').outerText
+    }
+
+
+    price = product.querySelector('[data-i18n="PRODUCT.PRD_INFO_PRODUCT_PRICE"]')
+
+    if (price) {
+        price = price.parentNode.parentNode.outerText.split('원')[0].replace(',', '') * 1
+
+    }
+
+    alphGA("event", 'view_item_list', {
+        'items': [{
+            'item_id': item_id,
+            'item_name': item_name,
+            'price': price,
+     }],
+        'item_list_name': CAPP_ASYNC_METHODS.EC_PATH_ROLE,
+        'item_list_id': CAPP_ASYNC_METHODS.EC_PATH_ROLE,
+        'send_to': 'alph'
+    });
+
+
+    if (!item_name) {
+
+        alphGA("event", 'name_error', {
+            'item_list_id': CAPP_ASYNC_METHODS.EC_PATH_ROLE,
+            'mall_id': CAFE24API.MALL_ID,
+            'send_to': 'alph'
+        })
+    }
+}
+
+function select_item(product) {
+    // console.log('select_item', product)
+    item_id = product.getAttribute('id').split('_')[1]
+
+    item_name = product.querySelector('[data-i18n="PRODUCT.PRD_INFO_PRODUCT_NAME"]')
+    if (item_name) {
+        item_name = item_name.parentNode.parentNode.outerText
+    } else {
+        item_name = product.querySelector('.name').outerText
+    }
+
+
+    price = product.querySelector('[data-i18n="PRODUCT.PRD_INFO_PRODUCT_PRICE"]')
+
+    if (price) {
+        price = price.parentNode.parentNode.outerText.split('원')[0].replace(',', '') * 1
+
+    }
+
+    alphGA("event", 'select_item', {
+        'items': [{
+            'item_id': item_id,
+            'item_name': item_name,
+            'price': price,
+     }],
+        'item_list_name': CAPP_ASYNC_METHODS.EC_PATH_ROLE,
+        'item_list_id': CAPP_ASYNC_METHODS.EC_PATH_ROLE,
+        'send_to': 'alph'
+    });
+
+
+
+    // if (!item_name) {
+
+    //     alphGA("event", 'name_error', {
+    //         'item_list_id': CAPP_ASYNC_METHODS.EC_PATH_ROLE,
+    //         'mall_id': CAFE24API.MALL_ID,
+    //         'send_to': 'alph'
+    //     })
+    // }
+
+}
+
+function view_item() {
+    // console.log('상세페이지 랜딩')
+
+    var alph_items_GA4 = [];
+    alph_items_GA4.push({
+        'item_id': iProductNo,
+        "item_name": product_name.replace(/\<.*?\>/g, ""),
+        "price": product_price,
+        "item_category": iCategoryNo
+    });
+
+    alphGA("event", "view_item", {
+        'currency': "KRW",
+        'value': product_price,
+        'items': alph_items_GA4,
+        'send_to': 'alph',
+
+    });
+}
+
+function add_to_cart() {
+    // console.log('장바구니추가')
+
+    var alph_items_GA4 = [];
+    alph_items_GA4.push({
+        'item_id': iProductNo,
+        "item_name": product_name.replace(/\<.*?\>/g, ""),
+        "price": product_price,
+        "item_category": iCategoryNo
+    });
+
+    alphGA("event", "add_to_cart", {
+        'currency': "KRW",
+        'value': product_price,
+        'items': alph_items_GA4,
+        'send_to': 'alph',
+    });
+}
+
+function conversion_buy_npay_button_click_DETAIL() {
+    var skp_now = new Date();
+    skp_now.setHours(skp_now.getHours() + 9);
+    var skp_date = skp_now.toISOString().slice(0, 10).replace(/-/g, "");
+    var skp_time = skp_now.toISOString().slice(11, 19).replace(/:/g, "");
+    var skp_order_nid = skp_date + '-NPAY' + skp_time;
+
+    var alph_items_GA4 = [];
+    alph_items_GA4.push({
+        'item_id': iProductNo,
+        "item_name": product_name.replace(/\\<.*?\\>/g, ""),
+        "price": product_price,
+        "item_category": iCategoryNo
+    });
+
+    //NPAY
+    alphGA("event", "conversion_buy_npay_button_click", {
+        'transaction_id': skp_order_nid,
+        'value': product_price,
+        'affiliation': '', //향후 최근조회한 리뷰수 넣기
+        'tax': '0',
+        'currency': 'KRW',
+        'items': alph_items_GA4,
+        'send_to': 'alph'
+    });
+}
+
+
+function conversion_buy_npay_button_click_BASKET() {
+    var alph_items_GA4 = [],
+        totalcartprice;
+    try {
+        if (typeof aBasketProductData !== 'undefined') {
+            aBasketProductData.forEach(function (item) {
+                totalcartprice += parseInt(item.product_sale_price) * parseInt(item.check_quantity); //전체 카트 가격
+                alph_items_GA4.push({
+                    'item_id': item.product_no,
+                    'item_name': item.product_name.replace(/\<.*?\>/g, ""),
+                    'item_quantity': item.check_quantity,
+                    'item_category': item.main_cate_no,
+                    'price': parseInt(item.product_sale_price) //정가는 item.product_price
+                });
+            });
+        } else {
+            var single_content = {
+                'id': (typeof iProductNo !== 'undefined') ? iProductNo : 'undefined',
+                'content_name': (typeof product_name !== 'undefined') ? product_name.replace(/\<.*?\>/g, "") : 'undefined',
+                'quantity': (typeof iQuantity !== 'undefined') ? iQuantity : (typeof getQuantity !== 'undefined') ? getQuantity() : 0,
+                'item_price': ((typeof product_price !== 'undefined') ? product_price : '0').replace(/[^0-9]/g, '')
+            }
+        }
+    } catch (err) {
+        console.log(err);
+        alphGA('event', 'bug_report', {
+            'bug_type': '장바구니NPAY구매-Fail-Param',
+            'bug_content': alph_items_GA4,
+            'send_to': 'alph'
+        });
+    }
+
+    var skp_now = new Date();
+    skp_now.setHours(skp_now.getHours() + 9);
+    var skp_date = skp_now.toISOString().slice(0, 10).replace(/-/g, "");
+    var skp_time = skp_now.toISOString().slice(11, 19).replace(/:/g, "");
+    var skp_order_nid = skp_date + '-NPAY' + skp_time;
+
+    //NPAY
+    alphGA("event", "conversion_buy_npay_button_click", {
+        'transaction_id': skp_order_nid,
+        'value': totalcartprice,
+        'affiliation': '', //향후 최근조회한 리뷰수 넣기
+        'tax': '0',
+        'currency': 'KRW',
+        'items': alph_items_GA4,
+        'send_to': 'alph'
+    });
+}
+
+function begin_checkout() {
+    var alph_items_GA4 = [];
+    var checkout_total_value = 0;
+    var c24_raw_data = aBasketProductOrderData;
+
+    function alph_fill_param() {
+        try {
+            for (var i = 0; i < c24_raw_data.length; i++) {
+                alph_items_GA4.push({
+                    'item_name': c24_raw_data[i].product_name.replace(/\<.*?\>/g, " "),
+                    'item_id': c24_raw_data[i].product_no,
+                    'price': c24_raw_data[i].product_sum_price - c24_raw_data[i].product_discount_price, //할인가격으로 반영
+                    'category': c24_raw_data[i].main_cate_no,
+                    'quantity': c24_raw_data[i].quantity
+                });
+                checkout_total_value += c24_raw_data[i].product_sum_price - c24_raw_data[i].product_discount_price //할인가격으로 반영
+            }
+        } catch (err) {
+            console.log(err);
+            alphGA('event', 'bug_report', {
+                'bug_type': '주문시작-Fail-Param',
+                'bug_content': alph_items_GA4,
+                'send_to': 'alph'
+            });
+        }
+    }
+    alph_fill_param();
+
+
+    alphGA("event", "begin_checkout", {
+        'value': checkout_total_value,
+        'affiliation': '', //향후 최근조회한 리뷰수 넣기
+        'currency': 'KRW',
+        'items': alph_items_GA4,
+        'send_to': 'alph'
+    });
+
+}
+
+function purchase() {
+    var c24_raw_data = EC_FRONT_EXTERNAL_SCRIPT_VARIABLE_DATA;
+    var alph_items_GA4 = [];
+
+    function alph_fill_param() {
+        try {
+            if (typeof c24_raw_data !== 'undefined') {
+                c24_raw_data.order_product.forEach(function (item) {
+                    alph_items_GA4.push({
+                        'item_name': item.product_name.replace(/\<.*?\>/g, " "),
+                        'item_id': item.product_no,
+                        'price': item.product_price,
+                        'brand': '',
+                        'item_category': item.category_no_1,
+                        'item_quantity': item.quantity,
+                    });
+
+
+                });
+            }
+        } catch (err) {
+            console.log(err);
+            alphGA('event', 'bug_report', {
+                'bug_type': '주문완료-Fail-Param',
+                'bug_content': alph_items_GA4,
+                'send_to': 'alph'
+
+            });
+        }
+
+
+
+    }
+    alph_fill_param();
+
+    alphGA("event", "purchase", {
+        'transaction_id': c24_raw_data.order_id,
+        'value': c24_raw_data.payed_amount - c24_raw_data.total_basic_ship_fee,
+        'affiliation': '', //향후 최근조회한 리뷰수 넣기
+        'currency': 'KRW',
+        'shipping': c24_raw_data.total_basic_ship_fee,
+        'items': alph_items_GA4,
+        'send_to': 'alph'
+    });
+}
+
+
+
+
+function engage_review_more(data) {
+    let product_id = data.product_id
+    let widget_id = data.widget_id
+    let widget_type = data.widget_type
+
+
+    if (widget_type != 'briefing') {
+        alphGA("event", 'engage_review_more', {
+            'product_id': product_id,
+            'widget_id': widget_id,
+            'widget_type': widget_type,
+            'send_to': 'alph',
+        });
+    } else {
+        alphGA("event", 'engage_review_more', {
+            'product_id': product_id,
+            'widget_id': widget_id,
+            'widget_type': widget_type,
+            'send_to': 'alph',
+
+        });
+    }
+}
+
+function engage_widget_filter1(data) {
+    let product_id = data.product_id
+    let widget_id = data.widget_id
+    let widget_type = data.widget_type
+    let filter_item = data.filter_item
+
+
+    if (widget_type != 'briefing') {
+        alphGA("event", 'engage_widget_filter1', {
+            'product_id': product_id,
+            'widget_id': widget_id,
+            'widget_type': widget_type,
+            'send_to': 'alph',
+        });
+    } else {
+        alphGA("event", 'engage_widget_filter1', {
+            'product_id': product_id,
+            'widget_id': widget_id,
+            'widget_type': widget_type,
+            'filter_item': filter_item,
+            'send_to': 'alph',
+
+        });
+    }
+}
+
+function engage_widget_filter2(data) {
+    let product_id = data.product_id
+    let widget_id = data.widget_id
+    let widget_type = data.widget_type
+    let filter_item = data.filter_item
+
+
+    if (widget_type != 'briefing') {
+        alphGA("event", 'engage_widget_filter2', {
+            'product_id': product_id,
+            'widget_id': widget_id,
+            'widget_type': widget_type,
+            'send_to': 'alph',
+        });
+    } else {
+        alphGA("event", 'engage_widget_filter2', {
+            'product_id': product_id,
+            'widget_id': widget_id,
+            'widget_type': widget_type,
+            'filter_item': filter_item,
+            'send_to': 'alph',
+
+        });
+    }
+}
+
+function engage_widget_static(data) {
+    let product_id = data.product_id
+    let widget_id = data.widget_id
+    let widget_type = data.widget_type
+    let filter_item = data.filter_item
+
+
+    if (widget_type != 'briefing') {
+        alphGA("event", 'engage_widget_static', {
+            'product_id': product_id,
+            'widget_id': widget_id,
+            'widget_type': widget_type,
+            'send_to': 'alph',
+        });
+    } else {
+        alphGA("event", 'engage_widget_static', {
+            'product_id': product_id,
+            'widget_id': widget_id,
+            'widget_type': widget_type,
+            'filter_item': filter_item,
+            'send_to': 'alph',
+
+        });
+    }
+}
+
+
+
+function engage_ticker_exposure(data) {
+    let ticker_design = data.ticker_design
+
+    alphGA("event", 'ticker_exposure', {
+        'ticker_design': ticker_design,
+        'send_to': 'alph',
+    });
+
+}
+
+function engage_ticker_cta_click(data) {
+    let ticker_metric = data.ticker_metric
+    let ticker_design = data.ticker_design
+    let ticker_timing = data.ticker_timing
+
+    alphGA("event", 'ticker_cta_click', {
+        'ticker_metric': ticker_metric,
+        'ticker_design': ticker_design,
+        'ticker_timing': ticker_timing,
+        'send_to': 'alph',
+    });
+}
+
+function engage_ticker_close(data) {
+    let ticker_design = data.ticker_design
+
+    alphGA("event", 'ticker_close', {
+        'ticker_design': ticker_design,
+        'send_to': 'alph',
+    });
+}

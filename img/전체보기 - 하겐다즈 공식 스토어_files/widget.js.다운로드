@@ -1,0 +1,1053 @@
+console.log('widget.js')
+
+if(typeof CAFE24API == 'undefined'){
+    CAFE24API.init('tgHZp6LCG5KuklqvIYgrtB')
+    
+}
+CAFE24API_MALLID = CAFE24API.MALL_ID
+CAFE24API_SHOPNO = CAFE24API.SHOP_NO
+
+let base_url = 'https://alph.kr'
+
+
+const observerOption = {
+    // root: document.body,
+    rootMargin: "1000px 1000px 1000px 1000px",
+    threshold: 0,
+}
+
+// 동작이 준비된 Floating 위젯에 대한 정보를 담은 배열
+let widget_list = [];
+
+let activate_floating_widget_list = []; 
+let activate_infinity_widget_list = [];
+
+let activate_rolling_widget_list = []; 
+let rolling_delay = 0;
+let rolling_start = 0;
+let access_token = '';
+
+const widget_lazy = new IntersectionObserver(function(entries, observer) {
+    for(let i = 0; i < entries.length; i++){
+        entry = entries[i]
+        if (entry.isIntersecting) {
+            let widget = entry.target
+            widget_loading(widget)
+            observer.unobserve(entry.target) // entry.target에 대해 관찰 종료
+        }
+    }
+}, observerOption)
+
+//if ( CAFE24API_MALLID == 'wingsfoot'){
+//    if (Math.random() < 1 ) {
+//        base_url = 'https://saladlab.shop'
+//        widget_initial();
+//    }
+//    else{
+////        widget_initial();
+//    }
+//}
+//else
+if ( Math.random() < 0.3 ){
+//if ( CAFE24API.MALL_ID == 'kyungss' || CAFE24API.MALL_ID == 'miraskitchen' ){
+    base_url = 'https://alphasolution.co.kr'
+    widget_initial();    
+}
+else if (Math.random() < 1 ) {
+    base_url = 'https://saladlab.shop'
+    widget_initial();
+}
+else{
+    widget_initial();
+}
+
+
+alph_au();
+
+
+
+
+function alph_au(){
+    let alph_session = false
+    let cookie_data = document.cookie;
+    
+    if(cookie_data.indexOf('alph_au') == -1){
+        alph_session = true;
+        var expire = new Date();
+        expire.setMinutes(expire.getMinutes() + 30);
+        cookies = 'alph_au=on; path=/';
+        cookies += ';expires=' + expire.toGMTString() + ';';
+        document.cookie = cookies;
+    }
+
+    
+
+    base_url_log = 'https://alph.kr'
+    $.ajax({
+        url: base_url_log + '/api/module/alph_au', // 요청 할 주소
+        async:true,// false 일 경우 동기 요청으로 변경
+        type:'GET', // GET, PUT
+        data: {
+            'mall_id': CAFE24API_MALLID,
+            'shop_no': CAFE24API_SHOPNO,
+            'view': true,
+            'session': alph_session,
+
+        },// 전송할 데이터
+        success:function(json){
+            // console.log('au', json)
+        }
+    });
+}
+
+function widget_initial(){
+    // const alpha_widget = document.querySelectorAll(".alpha_widget")
+
+    const alpha_widget = document.querySelectorAll(".alpha_widget:not([data-initial='true'])")
+    for(let i = 0; i < alpha_widget.length; i++){
+        let widget = alpha_widget[i]
+        widget.dataset.initial = 'true'
+        widget_list.push(widget)
+
+        if('IntersectionObserver' in window && widget.dataset.loading != 'auto'){
+            widget_lazy.observe(widget) // el에 대하여 관측 시작
+        }
+        else{
+            widget_loading(widget)
+        }
+
+
+    }
+    setTimeout(function(){
+        widget_initial()
+    },250)
+}
+
+
+
+
+function widget_loading(widget){
+    
+    if(widget.childElementCount > 0){
+        return 0
+    }
+
+    let code = widget.dataset.code
+    let value = widget.dataset.value
+    let scroll = widget.dataset.scroll
+    let beta = widget.dataset.beta
+
+    if(!code){
+        
+    }
+    
+    if(code == '01081f0d'){
+        return 0
+    }
+
+    // if(beta == 'briefing' && localStorage.getItem('beta_briefing') != 'A'){
+    //     console.log('briefing_betaTest', localStorage.getItem('beta_briefing'))
+    //     return 0
+
+    // }
+    // const alpha_widget = document.querySelectorAll(".alpha_widget")
+    // let i = [].indexOf.call(alpha_widget, widget);
+    let i = [].indexOf.call(widget_list, widget);
+
+    let params = location.search.substr(location.search.indexOf("?") + 1);
+    let product_no_parameter = "";
+    let category_no_parameter = "";
+    params = params.split("&");
+    for (let i = 0; i < params.length; i++) {
+        temp = params[i].split("=");
+        if ([temp[0]] == 'link_product_no') { product_no_parameter = temp[1]; }
+        if ([temp[0]] == 'product_no') { product_no_parameter = temp[1]; }
+        if ([temp[0]] == 'cate_no') { category_no_parameter = temp[1]; }
+
+    }
+
+
+    let module = widget.dataset.module
+    if(module){
+        module_error = true
+        module_list = module.split('|')
+
+        for(let i = 0; i < module_list.length; i++){
+
+            let className = '.xans-product-listmain-' + module_list[i]
+            if(widget.closest(className)){
+                module_error = false
+            }
+            if(module_list[i] == 'recommend'){
+                className = '.xans-product-listrecommend'
+                if(widget.closest(className)){
+                    module_error = false
+                }
+            }
+            if(module_list[i] == 'normal'){
+                className = '.xans-product-listnormal'
+                if(widget.closest(className)){
+                    module_error = false
+                }
+            }
+        }
+        if(module_error){
+            return 0
+        }
+    }
+
+
+    let cateNo = widget.dataset.cateno
+    if(cateNo){
+        cateNo_list = cateNo.split('|')
+
+        category_no = window.iCateNo
+        if(!category_no){
+            category_no = category_no_parameter
+        }
+        if(!category_no){
+            href_list = location.href.split('/')
+            href_idx = href_list.indexOf('category')
+            if(href_idx > -1){
+                href_idx = href_idx + 2
+                category_no = href_list[href_idx]
+            }
+        }
+
+        console.log('category', cateNo, category_no,cateNo_list.indexOf(category_no))
+        if(cateNo_list.indexOf(category_no) == -1){
+            return 0
+        } 
+
+    }
+
+    if(!value || value == '{$product_no}' || value == 'undefined'){
+        if(window.iProductNo && window.iProductNo != -1){
+            value = window.iProductNo
+        }
+        else if(product_no_parameter){
+            value = product_no_parameter
+        }
+       
+        else{
+            value = 'all'
+        }
+    }
+
+    let iframe = document.createElement("iframe");
+    iframe.style.width = '1px';
+
+    if(document.body.offsetWidth <= 540){
+        iframe.style.minWidth = '100%';
+        iframe.style.margin = '0';
+
+    }
+    else{
+        iframe.style.minWidth = 'calc(100% + 80px)';
+        iframe.style.margin = '0 -40px';
+    }
+
+    iframe.style.border = 'none';
+    iframe.style.height = '0px';
+    iframe.style.display = 'block';
+    iframe.style.backgroundColor = 'transparent';
+    iframe.style.position = 'relative';
+
+    iframe.id = 'alpha_widget_' + i.toString();
+
+    iframe.scrolling = 'no';
+    // iframe.loading = 'lazy';
+    
+    iframe_src = base_url + '/api/widget?code=' + code + '&value=' + value + '&idx=' + i.toString() + '&mall_id=' + CAFE24API_MALLID + '&shop_no=' + CAFE24API_SHOPNO + '&origin=' + window.location.origin
+    console.log("value",value)
+    iframe.src = iframe_src
+
+    widget.appendChild(iframe)
+    iframe.onload = function () {
+        let item = {
+            'mall_id': CAFE24API_MALLID,
+            'shop_no': CAFE24API_SHOPNO,
+            'host': window.location.host,
+            'type': 'widget',
+            'data':'onload',
+            'front_url': window.location.href,
+            'width': window.screen.width,
+        }
+        // console.log('iframe_id',iframe.id)
+        
+        document.getElementById(iframe.id).contentWindow.postMessage(item, base_url);
+
+        if(scroll){
+            window.addEventListener('scroll', function() {
+                let scrollY = window.scrollY || window.pageYOffset
+                let widget_bottom = document.getElementById(iframe.id).getBoundingClientRect().bottom + window.pageYOffset
+                
+                if(widget_bottom > 500 && scrollY > widget_bottom - screen.height && scrollY < widget_bottom + 500){
+                    let item = {
+                        'mall_id': CAFE24API_MALLID,
+                        'shop_no': CAFE24API_SHOPNO,
+                        'type': 'widget',
+                        'result':'scroll',
+                    }
+                    document.getElementById(iframe.id).contentWindow.postMessage(item, base_url);
+                }
+                
+            });
+        }
+    };
+}
+
+// iframe_widget = document.createElement("iframe");
+// iframe_widget.style.width = '100vw';
+// iframe_widget.style.height = '100vh';
+// // iframe_widget.style.minHeight = '100%';
+// iframe_widget.style.position = 'fixed';
+// iframe_widget.style.display = 'none';
+// iframe_widget.style.top = '0';
+// iframe_widget.style.left = '0';
+// iframe_widget.style.margin = '0';
+// iframe_widget.style.zIndex = '2147483647';
+// iframe_widget.style.border = 'none';
+// iframe_widget.style.backgroundColor = 'rgba(0,0,0,0.7)';
+// iframe_widget.id = 'alpha_widget_detail';
+// document.body.appendChild(iframe_widget)
+
+scroll_event = true;
+
+window.addEventListener('message', function (e) {
+    if (e.origin == base_url) {
+        if(e.data.from == 'alpha_widget'){
+            if (e.data.result == 'error') {
+                document.getElementById('alph_origin_board').style.display = 'block';
+                document.getElementById('alph_new_board').style.display = 'none';
+
+            } 
+            else {
+                let idx = e.data.idx
+                let id = 'alpha_widget_' + idx.toString()
+                switch (e.data.data) {
+                    case 'widget_start':
+                        document.getElementById(id).style.display = 'block';
+                        document.getElementById(id).setAttribute('start',true);
+                        access_token = e.data.access_token;
+                        break;
+
+                    case 'widget_float':
+                        // console.log('widget_float')
+                        widget_float(e.data, id)
+                        break;
+
+                    case 'widget_rolling':
+                        widget_rolling(e.data, id)
+                        break;
+                            
+                    // 2021-06-23 무한 스크롤링 기능 구조 변경
+                    case 'widget_scroll_infinity':
+                        // console.log(activate_infinity_widget_list)
+                        if (activate_infinity_widget_list.indexOf(id) != -1) {
+                            return;
+                        } else {
+                            let item = {
+                                'mall_id': CAFE24API_MALLID,
+                                'shop_no': CAFE24API_SHOPNO,
+                                'host': window.location.host,
+                                'type': 'widget',
+                                'data':'onload',
+                                'front_url': window.location.href,
+                                'width': window.screen.width,
+                            }
+                            document.getElementById(id).contentWindow.postMessage(item, base_url);
+                            activate_infinity_widget_list.push(id)
+                        }
+                        
+                        // console.log('widget_infinity')
+
+                        window.addEventListener('scroll', function() {
+                            let scrollY = window.scrollY || window.pageYOffset
+                            let widget_bottom = document.getElementById(id).getBoundingClientRect().bottom + window.pageYOffset
+                            
+                            if(widget_bottom > 500 && scrollY > widget_bottom - screen.height && scrollY < widget_bottom + 500){
+                                let item = {
+                                    'mall_id': CAFE24API_MALLID,
+                                    'shop_no': CAFE24API_SHOPNO,
+                                    'type': 'widget',
+                                    'result':'scroll',
+                                }
+                                document.getElementById(id).contentWindow.postMessage(item, base_url);
+                            }
+                        });
+                        break;
+                    case 'widget_scroll':
+
+                        if(scroll_event){
+                            scroll_event = false;
+                            window.addEventListener('scroll', function() {
+                                let scrollY = window.scrollY || window.pageYOffset
+                                let widget_bottom = document.getElementById(id).getBoundingClientRect().bottom + window.pageYOffset - e.data.height
+                                if(widget_bottom > 500 && scrollY > widget_bottom - 750 && scrollY < widget_bottom + 500){
+                                    let item = {
+                                        'mall_id': CAFE24API_MALLID,
+                                        'shop_no': CAFE24API_SHOPNO,
+                                        'type': 'widget',
+                                        'result':'scroll',
+                                    }
+                                    document.getElementById(id).contentWindow.postMessage(item, base_url);
+                                }
+                            });
+                        }
+
+                        break;
+                    case 'height':
+                        document.getElementById(id).style.setProperty('height', e.data.height.toString() + 'px', 'important')
+                        break;    
+                        
+                    case 'overlay_close':
+                        create_overlay()
+
+
+                                            
+                        if(navigator.userAgent.toLowerCase().indexOf("safari") != -1 && navigator.userAgent.toLowerCase().indexOf("chrome") == -1){
+                            // console.log('safari')
+                            history.pushState(null, null, location.href)
+                            history.back()
+                        }
+
+                        break;
+    
+                    case 'overlay':
+                        overlay_url = base_url + "/api/front/detail?site=board&id=" + e.data.review + "&type=" + e.data.type
+                        create_overlay(overlay_url)
+
+                        break;
+                    case 'overlay_new':
+                        overlay_url = base_url + "/api/widget/detail?review_id=" + e.data.review_id + "&widget_id=" + e.data.widget_id + "&value=" + e.data.value + "&index=" + e.data.index + "&sort=" + e.data.sort + "&search_period=" + e.data.search_period + "&search_type=" + e.data.search_type + "&search_keyword=" + e.data.search_keyword
+                        create_overlay(overlay_url)
+
+                        break;
+
+                    case 'story_detail':
+                        overlay_url = base_url + "/api/widget/story?" + e.data.story
+
+                        create_overlay(overlay_url)
+
+                        // iframe_widget.src =  base_url + "/api/widget/story?" + e.data.story
+                        // iframe_widget.style.display='block';
+                        
+                        let data_story = {
+                            'mall_id': CAFE24API_MALLID,
+                            'shop_no': CAFE24API_SHOPNO,
+                            'host': window.location.host,
+                            'type': 'story',
+                            'data':'onload',
+                            'front_url': window.location.href,
+                        }
+                        
+                        let story_onload = setInterval(function(){
+                            if(!iframe_widget.contentWindow){
+                                clearInterval(story_onload);
+                            }
+                            else{
+                                iframe_widget.contentWindow.postMessage(data_story, base_url);
+                            }
+                        },200)
+                        iframe_widget.onload = function () {
+                            clearInterval(story_onload);
+                        };
+//                        iframe_widget.onload = function () {
+//                            // console.log('onload', new Date())
+//                            if(iframe_widget.src.indexOf(base_url) > -1){
+//                                iframe_widget.contentWindow.postMessage(data_story, base_url);
+//                            };
+//                        };
+                        break;
+                    case 'review_product':
+                        let product = document.getElementById('alpha_detail_1')
+                        let absoluteTop = window.pageYOffset + product.getBoundingClientRect().top;
+                        $( 'html, body' ).animate( { scrollTop : absoluteTop }, 400 );
+                        break;
+                    
+                    case 'redirect_to_review':
+                        let review_tab = document.getElementById('alph_new_board')
+                        let review_tab_height = window.pageYOffset + review_tab.getBoundingClientRect().top;
+                        $( 'html, body' ).animate( { scrollTop : review_tab_height }, 400 );
+                        break;
+
+                    case 'write_review':
+                        open_reviewWrite()
+                        
+                        break;
+                        
+                    case 'report_review':
+                        open_reviewReport(e.data.review_id)
+                        break;
+                }
+    
+            }
+        }
+        // else if(e.data.from == 'alpha_reviewer'){
+        //     switch (e.data.data) {
+        //         case 'reviewer_close':
+        //             let reviewer = document.getElementById('alpha_reviewer')
+        //             document.body.removeChild(reviewer);
+                    
+        //             break;
+        //     }
+        // }
+        
+        else{
+            if(e.data.data == 'reviewer_close'){
+                let reviewer = document.getElementById('alpha_reviewer')
+                document.body.removeChild(reviewer);
+            }
+
+
+            if(e.data.data == 'overlay_close'){
+                // create_overlay()
+                delete_overlay()
+
+                
+                                            
+                if(navigator.userAgent.toLowerCase().indexOf("safari") != -1 && navigator.userAgent.toLowerCase().indexOf("chrome") == -1){
+
+                }
+                
+            }
+                            
+            if(e.data.data == 'reviewWrite_close'){
+                close_reviewWrite()
+            }
+            
+            if(e.data.data == 'reviewWrite_redirect'){
+                redirect_reviewWrite(e.data.url)
+            }
+
+            if(e.data.data == 'reviewDetail_redirect'){
+                redirect_reviewDetail(e.data);
+            }
+            if(e.data.data == 'reviewReport_redirect'){
+                redirect_reviewReport(e.data);
+            }
+            
+            if(e.data.data == 'reviewReport_close'){
+                close_reviewReport()
+            }
+        }
+    }
+});
+
+
+if(document.getElementById('alph_origin_board') && document.querySelector('meta[name="path_role"]').getAttribute('content') == 'BOARD_PRODUCT_LIST'){
+    var agent = navigator.userAgent.toLowerCase();
+    if ( (navigator.appName == 'Netscape' && agent.indexOf('trident') != -1) || (agent.indexOf("msie") != -1)) {
+        // ie일 경우
+        let parameter = location.search.substr(location.search.indexOf("?") + 1);
+        if( window.iProductNo || !window.iBoardNo || window.iBoardNo == '4' || parameter.indexOf('board_no=4') > -1 ){
+
+
+        }
+        else{
+            board_error();
+        }
+
+    }else{
+        // ie가 아닐 경우
+        if(typeof board_no !== 'undefined' && board_no.value == 4){
+            
+        }
+        else if(typeof board_no !== 'undefined' && (board_no.value == '2' || board_no.value == '3' || board_no.value == '6' || board_no.value == '8' || board_no.value == '101' || board_no.value == '5' || board_no.value == '9' || board_no.value == '1002' ) ){
+            
+            if(board_no.value != '4'){
+                board_error();
+            }
+        }
+
+        else if( typeof board_no == 'undefined' && window.iProductNo == undefined && window.iBoardNo != 4 ){
+            board_error();
+        }
+        
+        else if(window.iBoardNo != 4 && window.iProductNo == undefined){
+            board_error();
+        }
+    }
+}
+
+
+function widget_float(data, id){
+    if (activate_floating_widget_list.indexOf(id) >= 0){
+        // 이미 동작이 준비된 Floating Widget일 경우
+        return;
+    }else {
+        // 최초 함수 호출일 경우
+        activate_floating_widget_list.push(id);
+    }
+    
+    // console.log(data)
+    // console.log(document.getElementById(id).getAttribute('start'))
+    
+    let position = data['position']
+    let x_axis = data['x_axis']
+    let y_axis = data['y_axis']
+    let scroll_position = data['scroll_position']
+    
+    let widget = document.getElementById(id);
+    widget.style.margin = 'unset'
+    widget.style.position = 'fixed';
+    widget.style.zIndex = data['z_index'];
+    widget.style.display = 'none';
+    
+    if(document.body.offsetWidth > 540){
+        widget.style.minWidth = '450px';
+        if ('floating_type' in data) {
+            if (data['floating_type']  == 'b_light' || data['floating_type'] == 'b_dark')
+                widget.style.minWidth = '490px';
+        }
+    }
+    else if(document.body.offsetWidth > 350){
+        widget.style.minWidth = '350px';
+        if ('floating_type' in data) {
+            if (data['floating_type']  == 'b_light' || data['floating_type'] == 'b_dark')
+                widget.style.minWidth = '100%';
+        }
+    }
+    else{
+        widget.style.minWidth = '99%';
+    }
+
+
+    if(document.body.offsetWidth <= 540){
+        position = data['position_m']
+        x_axis = data['x_axis_m']
+        y_axis = data['y_axis_m']
+        scroll_position = data['scroll_position_m']
+    }
+
+    
+
+    if(position.indexOf('top') > -1){
+        widget.style.top = y_axis.toString() + 'px'
+    }
+    
+    if(position.indexOf('bottom') > -1){
+        widget.style.bottom = y_axis.toString() + 'px'
+    }
+    
+    if(position.indexOf('right') > -1){
+        widget.style.right = x_axis.toString() + 'px'
+    }
+    
+    if(position.indexOf('left') > -1){
+        widget.style.left = x_axis.toString() + 'px'
+    }
+
+    
+
+    window.addEventListener('scroll', function() {
+        let scrollY = window.scrollY || window.pageYOffset
+        let scroll_height = document.body.offsetHeight * (scroll_position / 100)
+        if(scrollY > scroll_height){
+            $(widget).fadeIn();
+            let item = {
+                'mall_id': CAFE24API_MALLID,
+                'shop_no': CAFE24API_SHOPNO,
+                'type': 'widget',
+                'result':'floating',
+            }
+            document.getElementById(id).contentWindow.postMessage(item, base_url);
+            
+        }
+    });
+}
+
+function widget_rolling(data, id){
+    if (activate_rolling_widget_list.indexOf(id) == -1 ){
+        activate_rolling_widget_list.push(id);
+    }
+   
+
+    if(rolling_start == 0){
+        rolling_start = (new Date()).getTime()
+    }
+    let item = {
+        'mall_id': CAFE24API_MALLID,
+        'shop_no': CAFE24API_SHOPNO,
+        'type': 'widget',
+        'data':'rolling',
+        'start': rolling_start
+    }
+    document.getElementById(id).contentWindow.postMessage(item, base_url);
+    // console.log(rolling_start)
+
+}
+
+function board_error(){
+    
+    document.getElementById('alph_origin_board').style.display = 'block';
+    document.getElementById('alph_new_board').style.display = 'none';
+
+    let item_list = document.getElementsByClassName('alph_origin_board')
+    for(let i = 0; i < item_list.length; i++){
+        item = item_list[i];
+        item.style.display = 'block';
+    }
+    
+}
+
+
+function review_count(){
+    if(document.getElementsByClassName('alpha_review_count').length > 0){
+        // console.log('window.iProductNo', window.iProductNo)
+        if(window.iProductNo){
+            value = window.iProductNo
+        }
+        else if(document.querySelector('meta[property="product:productId"]')){
+            value = document.querySelector('meta[property="product:productId"]').getAttribute('content');
+        }
+        else{
+            value = 'all'
+        }
+
+        let url = base_url + '/api/widget/count?value=' + value + '&mall_id=' + CAFE24API_MALLID + '&shop_no=' + CAFE24API_SHOPNO
+        // console.log(url)
+        $.ajax({
+            url: url,
+            success:function(json){
+                console.log('reviewCount', json)
+                $('.alpha_review_count').text(json['count'].toString().replace(/\B(?=(\d{3})+(?!\d))/g, ","))
+            }
+        })
+    }
+}
+
+
+function create_overlay(url){
+    setTimeout(function(){
+        console.log('history',history.length)
+        history.pushState(null, null, location.href)
+        console.log('history',history.length)
+    },50)
+    if(document.getElementById('alpha_widget_detail')){
+        document.body.removeChild(document.getElementById('alpha_widget_detail'))
+    }
+    iframe_widget = document.createElement("iframe");
+    iframe_widget.src = url
+    iframe_widget.style.width = '100vw';
+    iframe_widget.style.height = '100vh';
+    // iframe_widget.style.minHeight = '100%';
+    iframe_widget.style.position = 'fixed';
+    iframe_widget.style.display = 'none';
+    iframe_widget.style.top = '0';
+    iframe_widget.style.left = '0';
+    iframe_widget.style.margin = '0';
+    iframe_widget.style.zIndex = '2147483647';
+    iframe_widget.style.border = 'none';
+    iframe_widget.style.backgroundColor = 'rgba(0,0,0,0.7)';
+    iframe_widget.id = 'alpha_widget_detail';
+    document.body.appendChild(iframe_widget)
+
+
+    let data_overlay = {
+        'mall_id': CAFE24API.MALL_ID,
+        'shop_no': CAFE24API.SHOP_NO,
+        'host': window.location.host,
+        'type': 'detail',
+        'data':'onload',
+        'front_url': window.location.href,
+    }
+
+    iframe_widget.style.display='block';
+    iframe_widget.onload = function () {
+        if(iframe_widget.src.indexOf(base_url) > -1){
+            iframe_widget.contentWindow.postMessage(data_overlay, base_url);
+        };
+    };
+
+}
+
+function delete_overlay(){
+    if(document.getElementById('alpha_widget_detail')){
+        document.body.removeChild(document.getElementById('alpha_widget_detail'))
+    }
+    history.back()
+}
+
+
+
+function open_reviewWrite(){
+    setTimeout(function(){
+        console.log('history', history.length)
+        window.history.pushState(null, null, location.href)
+        console.log('history', history.length)
+    },50)
+
+    product_no = '-1'
+    if(window.iProductNo){
+        product_no = window.iProductNo
+    }
+    else if($( 'meta[property="product:productId"]' ).attr( 'content' )){
+        product_no = $( 'meta[property="product:productId"]' ).attr( 'content' );
+    }
+    
+    customer = ''
+    CAFE24API.getMemberID(function(memberID){
+        if(memberID)(
+            customer = memberID
+        )
+    });
+
+
+    // product_no = 10
+
+    console.log( 'mall_id', CAFE24API_MALLID )
+    console.log( 'shop_no', CAFE24API_SHOPNO)
+    console.log( 'product_no', product_no)
+    console.log( 'customer', customer)
+
+    let url = base_url + '/api/module/review_write?product_no=' + product_no + '&mall_id=' + CAFE24API_MALLID + '&shop_no=' + CAFE24API_SHOPNO +  '&customer=' + customer;
+
+    if(document.getElementById('alpha_reviewWrite')){
+        document.body.removeChild(document.getElementById('alpha_reviewWrite'))
+    }
+    div_reviewWrite = document.createElement("div");
+    
+    div_reviewWrite.style.width = '100vw';
+    div_reviewWrite.style.height = '100vh';
+    div_reviewWrite.style.position = 'fixed';
+    div_reviewWrite.style.display = 'block';
+    div_reviewWrite.style.top = '0';
+    div_reviewWrite.style.left = '0';
+    div_reviewWrite.style.margin = '0';
+    div_reviewWrite.style.zIndex = '2147483647';
+    div_reviewWrite.style.border = 'none';
+    div_reviewWrite.style.backgroundColor = 'rgba(0,0,0,0.7)';
+    div_reviewWrite.id = 'alpha_reviewWrite';
+    document.body.appendChild(div_reviewWrite)
+
+
+    iframe_reviewWrite = document.createElement("iframe");
+    iframe_reviewWrite.style.border = 'none';
+    iframe_reviewWrite.style.width = '400px';
+    iframe_reviewWrite.style.maxWidth = '100vw';
+    iframe_reviewWrite.style.height = '800px';
+    iframe_reviewWrite.style.maxHeight = '100vh';
+    iframe_reviewWrite.style.position = 'absolute';
+    iframe_reviewWrite.style.top = '50%';
+    iframe_reviewWrite.style.left = '50%';
+    iframe_reviewWrite.style.transform = 'translate(-50%,-50%)';
+
+    iframe_reviewWrite.src = url
+    div_reviewWrite.appendChild(iframe_reviewWrite)
+
+    let data_reviewWrite = {
+        'mall_id': CAFE24API.MALL_ID,
+        'shop_no': CAFE24API.SHOP_NO,
+        'host': window.location.host,
+        'type': 'reviewWrite',
+        'data':'onload',
+        'front_url': window.location.href,
+    }
+
+    iframe_reviewWrite.onload = function () {
+        
+        iframe_reviewWrite.contentWindow.postMessage(data_reviewWrite, base_url);
+        console.log('test')
+        
+    };
+
+
+}
+function redirect_reviewWrite(url){
+    var isSafari = /^((?!chrome|android).)*safari/i.test(navigator.userAgent);
+    if (isSafari) {
+        write_alert_container = document.createElement("div");
+        
+        write_alert_container.style.width = '100vw';
+        write_alert_container.style.height = '100vh';
+        write_alert_container.style.position = 'fixed';
+        write_alert_container.style.display = 'block';
+        write_alert_container.style.top = '0';
+        write_alert_container.style.left = '0';
+        write_alert_container.style.margin = '0';
+        write_alert_container.style.zIndex = '2147483647';
+        write_alert_container.style.border = 'none';
+        write_alert_container.style.backgroundColor = 'rgba(0,0,0,0.7)';
+        write_alert_container.id = 'alpha_reviewWrite_popup';
+        write_alert_container.onclick = function() { document.body.removeChild(document.getElementById('alpha_reviewWrite_popup'))}
+        document.body.appendChild(write_alert_container)
+        
+        write_alert = document.createElement("div");
+        write_alert.style.border = 'none';
+        write_alert.style.width = '80vw';
+        write_alert.style.maxWidth = '280px';
+        write_alert.style.position = 'relative';
+        write_alert.style.top = '50%';
+        write_alert.style.left = '50%';
+        write_alert.style.transform = 'translate(-50%,-50%)';
+        write_alert.style.background = 'white';
+        write_alert.style.textAlign = 'center'
+        write_alert.onclick = function() { event.stopPropagation(); }
+
+        strUrl = "'" + url + "'"
+        strTarget = "'_blank'"
+
+        write_alert.innerHTML = 
+        '<div style="box-shadow: rgba(0, 0, 0, 0.15) 0px 2px 8px; padding: 16px 20px 20px; border-radius: 4px;">' + 
+        '<div style="width: 100%; margin-bottom: 16px; font-size: 12px; color: #e6e9ec; text-align: left">Alpha Review</div>' + 
+        '<div style="width: 100%; margin-bottom: 20px;">리뷰 작성 페이지로 이동합니다.</div>' + 
+        '<div style="display: flex; justify-content: space-between">' + 
+        '<button style="width: 100%; border: 1px solid; border-radius: 6px; background-color: #232324; color: white;" class="btn btn-success" onclick="window.open('+ strUrl + ',' + strTarget + '); document.body.removeChild(document.getElementById(\'alpha_reviewWrite_popup\'))">확인</button>' + 
+        '</div></div>'
+        
+        document.getElementById('alpha_reviewWrite_popup').appendChild(write_alert);
+        
+        container =  document.getElementById('alpha_reviewWrite')
+        if (container) {
+            container.style.backgroundColor = 'transparent';
+            container.style.display = 'none';
+        }
+        
+    } else {
+        history.back()
+        let x = document.createElement("A");
+        x.setAttribute("href", url);
+        x.setAttribute("target", '_blank');
+        document.body.appendChild(x);
+        // x.click();
+
+        setTimeout(function(){
+            x.click();
+        },100)
+    }
+    console.log('url', url)
+
+}
+
+function close_reviewWrite(){
+    if(document.getElementById('alpha_reviewWrite')){
+        document.body.removeChild(document.getElementById('alpha_reviewWrite'))
+    }
+    console.log('close_reviewWrite')
+    history.back()
+}
+
+function open_reviewReport(review_id){
+
+    console.log('리뷰 신고 기능', review_id)
+    setTimeout(function(){
+        console.log('history', history.length)
+        window.history.pushState(null, null, location.href)
+        console.log('history', history.length)
+    },50)
+
+    user_id = ''
+    CAFE24API.getMemberID(function(memberID){
+        if(memberID)(
+            user_id = memberID
+        )
+    });
+
+
+    console.log( 'mall_id', CAFE24API_MALLID )
+    console.log( 'shop_no', CAFE24API_SHOPNO)
+    console.log( 'user_id', user_id)
+
+    let url = base_url + '/api/module/review_report?access_token=' + access_token + '&review_id=' + review_id + '&user_id=' + user_id;
+
+    if(document.getElementById('alpha_reviewReport')){
+        document.body.removeChild(document.getElementById('alpha_reviewReport'))
+    }
+    
+    div_reviewReport = document.createElement("div");
+    
+    div_reviewReport.style.width = '100vw';
+    div_reviewReport.style.height = '100vh';
+    div_reviewReport.style.position = 'fixed';
+    div_reviewReport.style.display = 'block';
+    div_reviewReport.style.top = '0';
+    div_reviewReport.style.left = '0';
+    div_reviewReport.style.margin = '0';
+    div_reviewReport.style.zIndex = '2147483647';
+    div_reviewReport.style.border = 'none';
+    div_reviewReport.style.backgroundColor = 'rgba(0,0,0,0.7)';
+    div_reviewReport.id = 'alpha_reviewReport';
+    document.body.appendChild(div_reviewReport)
+
+   
+    iframe_reviewReport = document.createElement("iframe");
+    
+    
+    iframe_reviewReport.style.border = 'none';
+    iframe_reviewReport.style.width = '100vw';
+    iframe_reviewReport.style.height = '100vh';
+    iframe_reviewReport.style.position = 'fixed';
+    iframe_reviewReport.style.display = 'block';
+    iframe_reviewReport.style.top = '0';
+    iframe_reviewReport.style.left = '0';
+    iframe_reviewReport.src = url
+   
+    div_reviewReport.appendChild(iframe_reviewReport)
+
+    let data_reviewReport = {
+        'mall_id': CAFE24API.MALL_ID,
+        'shop_no': CAFE24API.SHOP_NO,
+        'host': window.location.host,
+        'type': 'reviewReport',
+        'data':'onload',
+        'front_url': window.location.href,
+    }
+
+    iframe_reviewReport.onload = function () {
+        
+        console.log("base_url",base_url)
+        
+        iframe_reviewReport.contentWindow.postMessage(data_reviewReport, base_url);
+        
+       
+        console.log('test')
+        
+    };
+
+
+}
+function close_reviewReport(){
+    if(document.getElementById('alpha_reviewReport')){
+        document.body.removeChild(document.getElementById('alpha_reviewReport'))
+    }
+    console.log('close_reviewReport')
+    history.back()
+}
+
+function redirect_reviewDetail(data){
+    console.log('redirect_reviewDetail', data)
+    history.back()
+    let product_no = data['product_no']
+    let origin = location.origin;
+    let url = origin + '/product/detail.html?product_no=' + product_no.toString()
+    let x = document.createElement("A");
+    x.setAttribute("href", url);
+    x.setAttribute("target", '_top');
+    document.body.appendChild(x);
+    // x.click();
+    setTimeout(function(){
+        x.click();
+    },100)
+}
+function redirect_reviewReport(data){
+    console.log('redirect_reviewReport', data)
+    if(document.getElementById('alpha_widget_detail')){
+        history.back()
+    }
+
+    history.back()
+
+    let origin = location.origin;
+    let url = origin + '/member/login.html'
+    let x = document.createElement("A");
+    x.setAttribute("href", url);
+    x.setAttribute("target", '_top');
+    document.body.appendChild(x);
+    setTimeout(function(){
+        x.click();
+    },100)
+}
+
+review_count();

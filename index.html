@@ -71,10 +71,12 @@
                         </a>
                     </li>
                     <li>
-                        <a href="#">
-                            <figure><img src="img/product02.png" alt="product"></figure>
-                            <p>마카롱 바닐라&블루베리</p>
-                        </a>
+                        <div class="list-warp">
+                            <a href="#">
+                                <figure><img src="img/product02.png" alt="product"></figure>
+                                <p>마카롱 바닐라&블루베리</p>
+                            </a>
+                        </div>
                     </li>
                     <li>
                         <a href="#">
@@ -158,7 +160,7 @@
         <section class="con">
             <div class="inner">
                 <ul class="con-list">
-                    <li>
+                    <li data-aos="fade-up-right">
                         <figure>
                             <img src="./img/new.jpg" alt="">
                         </figure>
@@ -171,7 +173,7 @@
                             <dd><a href="#">자세히 보기</a></dd>
                         </dl>
                     </li>
-                    <li>
+                    <li data-aos="fade-up-left">
                         <figure>
                             <img src="img/shop.jpg" alt="">
                         </figure>
@@ -181,7 +183,7 @@
                             <dd><a href="#">자세히 보기</a></dd>
                         </dl>
                     </li>
-                    <li>
+                    <li data-aos="fade-up-right">
                         <figure>
                             <img src="img/strory.jpg" alt="">
                         </figure>
@@ -243,6 +245,9 @@
     <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
     <script src="script/swiper.min.js"></script>
     <script src="./js/index.js"></script>
+    <script>
+        AOS.init();
+    </script>
     <script>
 
         //메인비주얼
