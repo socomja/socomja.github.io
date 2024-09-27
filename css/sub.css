@@ -39,7 +39,46 @@
 }
 
 .con-list li dl {
+    /* transition: 0.4s; */
+    /* display: none; */
     position: absolute;
     bottom: 0;
+    width: 100%;
     left: 0;
+    background: #fff;
+    box-shadow: 4px 4px 4px rgba(0, 0, 0, 0.25);
+    height: 40%;
+    padding-left: 5%;
+    opacity: 0;
+    /* display: flex; */
+}
+
+@keyframes money {
+    0% {
+        opacity: 0;
+    }
+
+    100% {
+        opacity: 100;
+    }
+}
+
+.con-list li:hover dl {
+    animation: money 0.4s;
+    opacity: 1;
+}
+
+.con-list li dl dt {
+    /* word-break: keep-all; */
+    display: block;
+    font-size: 1.5rem;
+    font-weight: 500;
+    /* text-align: center; */
+    padding: 2.25rem 0;
+}
+
+
+.con-list li dl dd {
+    font-size: 2rem;
+    font-weight: 700;
 }
