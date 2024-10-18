@@ -1,0 +1,28 @@
+{
+	"contentrating" : "Everyone",
+	"description" : "https://bestdori.com/community/user/EryetChen, there will be more updating for this wallpaper\n\n# update # 2 i know why the animation feels laggy..........., i add a 400ms on all transtion and forget to remove it lol\n\n# update # 3 i realize transition 400ms is still there ..., change it to 50",
+	"file" : "index.html",
+	"general" : 
+	{
+		"properties" : 
+		{
+			"schemecolor" : 
+			{
+				"order" : 0,
+				"text" : "ui_browse_properties_scheme_color",
+				"type" : "color",
+				"value" : "1 0.8705882352941177 0.41568627450980394"
+			}
+		}
+	},
+	"preview" : "preview.gif",
+	"ratingsex" : "none",
+	"ratingviolence" : "none",
+	"tags" : [ "Anime" ],
+	"title" : "Kanon Matsubara 松原 花音 Showcase - Interactive (1920 x1080 )",
+	"type" : "web",
+	"version" : 2,
+	"visibility" : "public",
+	"workshopid" : "3097629684",
+	"workshopurl" : "steam://url/CommunityFilePage/3097629684"
+}

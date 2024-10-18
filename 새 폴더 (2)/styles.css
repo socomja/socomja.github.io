@@ -23,7 +23,7 @@ header {
     display: flex;
     align-items: center;
     height: 100%;
-
+    
     /* opacity: 0; */
     transition: opacity 0.3s ease;
 }
@@ -53,4 +53,5 @@ header.scrolled .logo {
 .content {
     margin-top: 100vh;
     padding: 20px;
+    background: url(./sparkles.gif) no-repeat;
 }
