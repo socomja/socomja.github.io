@@ -1,0 +1,133 @@
+@charset "utf-8";
+
+.cont_wrap.cont1 {
+    padding: 220px 0 200px;
+    background: url("../img/sub1_bg1.png") no-repeat;
+    background-size: cover
+}
+
+.bh_wrap {
+    width: 100%;
+    max-width: 1310px;
+    margin: 0px auto;
+}
+
+.ta-c {
+    text-align: center !important;
+}
+
+.bh * {
+    -moz-box-sizing: border-box;
+    -webkit-box-sizing: border-box;
+    box-sizing: border-box;
+}
+
+.cont_wrap.cont1 .txt_box img {
+    filter: drop-shadow(0px 0px 20px rgba(255, 255, 255, 0.4))
+}
+
+.cont_wrap.cont1 .txt_box .line {
+    max-width: 146px;
+    height: 1px;
+    margin: 60px auto;
+    background-color: #cacaef
+}
+
+.cont_wrap.cont1 .txt_box p {
+    font-weight: 500;
+    font-size: 20.5px;
+    line-height: 2.56;
+    letter-spacing: -0.51px;
+    color: #f7f7ff;
+    filter: drop-shadow(0px 0px 20px rgba(255, 255, 255, 0.4))
+}
+
+.cont_wrap.cont2 {
+    background-color: #f7f7ff
+}
+
+.cont_wrap.cont2 .banner {
+    padding: 190px 0 130px;
+    display: flex;
+}
+
+.cont_wrap.cont2 .banner .img_box {
+    position: relative;
+    margin-left: -30px
+}
+
+.cont_wrap.cont2 .banner .img_box .v_tuber {
+    position: absolute;
+    left: 210px;
+    bottom: 58px;
+}
+
+.cont_wrap.cont2 .banner .txt_box {
+    margin-left: 250px;
+}
+
+.cont_wrap.cont2 .banner .txt_box span {
+    font-family: "NanumSquareNeo", sans-serif !important;
+    background-color: #8e93f9;
+    color: #f7f7ff;
+    font-weight: 700;
+    display: inline-block;
+    font-size: 22px;
+    letter-spacing: -0.66px;
+    padding: 0 10px;
+    margin: 3px;
+}
+
+
+.cont_wrap.cont2 .banner .txt_box .line {
+    width: 1px;
+    height: 67px;
+    margin: 30px 0;
+    background-color: #d0d0e1
+}
+
+.cont_wrap.cont2 .banner .txt_box p {
+    font-size: 20px;
+    line-height: 1.75;
+    letter-spacing: -0.5px;
+    color: #20202d
+}
+
+/* 
+.cont_wrap.cont2 .info {
+    padding-bottom: 130px
+}
+
+.cont_wrap.cont2 .info .bh_row {
+    margin: 0 -30px
+}
+
+.cont_wrap.cont2 .info .bh_row>div {
+    padding: 0 30px
+}
+
+.cont_wrap.cont2 .info p {
+    margin-top: 35px;
+    font-size: 20px;
+    line-height: 1.75;
+    letter-spacing: -0.5px;
+    color: #20202d
+} */
+
+.info {
+    padding-bottom: 130px;
+}
+
+.info-imgs {
+    display: flex;
+    justify-content: space-between;
+}
+
+.info-text {
+    text-align: center;
+    margin-top: 35px;
+    font-size: 20px;
+    line-height: 1.75;
+    letter-spacing: -0.5px;
+    color: #20202d;
+}
