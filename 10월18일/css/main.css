@@ -155,13 +155,24 @@
 
 .news-list figure,
 .music-list figure {
-    width: 370px;
     height: 210px;
 }
 
 .news-list figure img,
 .music-list figure img {
     width: 100%;
+}
+
+.news-list li,
+.music-list li {
+    width: 370px;
+    border: 1px solid #000;
+}
+
+.news-list p,
+.music-list p {
+    padding: 37px 15px 40px;
+    text-align: center;
 }
 
 .news-img-box,
@@ -176,4 +187,11 @@
 .news-img-box figure,
 .music-img-box figure {
     margin: 20px 0;
+}
+
+.more {
+    text-align: center;
+    display: flex;
+    align-items: center;
+    justify-content: center;
 }
