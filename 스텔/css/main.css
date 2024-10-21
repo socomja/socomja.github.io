@@ -49,11 +49,13 @@
 .cont_wrap.cont2 .banner {
     padding: 190px 0 130px;
     display: flex;
+    /* border: 1px solid #000; */
 }
 
 .cont_wrap.cont2 .banner .img_box {
     position: relative;
-    margin-left: -30px
+    margin-left: -30px;
+    /* width: 50%; */
 }
 
 .v_tuber {
@@ -64,6 +66,7 @@
 
 .cont_wrap.cont2 .banner .txt_box {
     margin-left: 250px;
+    width: 50%;
     /* margin-left: 13.0208%; */
 }
 
