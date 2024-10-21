@@ -51,6 +51,10 @@
     /* border: 1px solid #000; */
     display: flex;
     flex-wrap: wrap;
+    /* width: 1920px; */
+    max-width: 2010px;
+    min-width: 1920px;
+    margin: 0 auto;
 }
 
 
@@ -58,7 +62,7 @@
     margin-left: -30px;
     /* width: 50%; */
     flex: 0 0 auto;
-    width: auto;
+    /* width: auto; */
     max-width: none;
     position: relative;
     height: 300px;
@@ -70,7 +74,7 @@
     vertical-align: middle;
 }
 
-.img_box .bg {
+.bg {
     width: 95rem;
     height: 30rem;
 }
@@ -85,10 +89,10 @@
 .cont_wrap.cont2 .banner .txt_box {
     flex-basis: 0;
     flex-grow: 1;
-    max-width: 100%;
-    margin-left: 250px;
-    width: 50%;
-    /* margin-left: 13.0208%; */
+    margin-left: 200px;
+    /* width: 50%; */
+    /* padding-left: 200px; */
+
 }
 
 .cont_wrap.cont2 .banner .txt_box span {
