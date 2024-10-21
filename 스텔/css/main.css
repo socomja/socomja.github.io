@@ -56,7 +56,7 @@
     margin-left: -30px
 }
 
-.cont_wrap.cont2 .banner .img_box .v_tuber {
+.v_tuber {
     position: absolute;
     left: 210px;
     bottom: 58px;
@@ -64,6 +64,7 @@
 
 .cont_wrap.cont2 .banner .txt_box {
     margin-left: 250px;
+    /* margin-left: 13.0208%; */
 }
 
 .cont_wrap.cont2 .banner .txt_box span {
