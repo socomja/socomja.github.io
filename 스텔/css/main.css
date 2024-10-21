@@ -48,23 +48,44 @@
 
 .cont_wrap.cont2 .banner {
     padding: 190px 0 130px;
-    display: flex;
     /* border: 1px solid #000; */
+    display: flex;
+    flex-wrap: wrap;
 }
 
+
 .cont_wrap.cont2 .banner .img_box {
-    position: relative;
     margin-left: -30px;
     /* width: 50%; */
+    flex: 0 0 auto;
+    width: auto;
+    max-width: none;
+    position: relative;
+    height: 300px;
+}
+
+.img_box img {
+    max-width: 100%;
+    height: auto;
+    vertical-align: middle;
+}
+
+.img_box .bg {
+    width: 95rem;
+    height: 30rem;
 }
 
 .v_tuber {
     position: absolute;
-    left: 210px;
-    bottom: 58px;
+    /* left: 210px; */
+    right: -50px;
+    bottom: 0px;
 }
 
 .cont_wrap.cont2 .banner .txt_box {
+    flex-basis: 0;
+    flex-grow: 1;
+    max-width: 100%;
     margin-left: 250px;
     width: 50%;
     /* margin-left: 13.0208%; */
