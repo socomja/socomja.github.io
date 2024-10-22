@@ -18,5 +18,9 @@
 
 .swiper-button-next,
 .swiper-button-prev {
-    color: red;
+    color: #7987e0 !important;
+}
+
+.swiper-pagination-bullet-active {
+    background: var(--swiper-pagination-color, var(--bh_color_main)) !important;
 }

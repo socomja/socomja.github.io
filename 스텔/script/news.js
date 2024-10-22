@@ -1,5 +1,6 @@
 document.addEventListener('DOMContentLoaded', function () {
     var swiper = new Swiper('.swiper-container', {
+        speed: 750,
         loop: true, // 슬라이드 반복
         pagination: {
             el: '.swiper-pagination',
