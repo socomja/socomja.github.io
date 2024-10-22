@@ -2,7 +2,7 @@
 
 .cont_wrap.cont1 {
     padding: 220px 0 200px;
-    background: url("../img/sub1_bg1.png") no-repeat;
+    background: url("../img/main/sub1_bg1.png") no-repeat;
     background-size: cover
 }
 
@@ -52,7 +52,7 @@
     display: flex;
     flex-wrap: wrap;
     /* width: 1920px; */
-    max-width: 2010px;
+    max-width: 2100px;
     min-width: 1920px;
     margin: 0 auto;
 }
@@ -89,7 +89,7 @@
 .cont_wrap.cont2 .banner .txt_box {
     flex-basis: 0;
     flex-grow: 1;
-    margin-left: 200px;
+    margin-left: 180px;
     /* width: 50%; */
     /* padding-left: 200px; */
 
@@ -162,9 +162,9 @@
 }
 
 .con3 {
-    background: url(../img/mbg.png);
+    background: url(../img/main/mbg.png);
     width: 100%;
-    height: 1730px;
+    height: 1630px;
     position: relative;
     background-position: 50% 50%;
     background-repeat: no-repeat;
@@ -174,6 +174,11 @@
     z-index: 1;
     overflow: hidden;
 }
+
+.news {
+    padding: 10rem 0 10rem;
+}
+
 
 .news-list,
 .music-list {
@@ -195,13 +200,30 @@
 .news-list li,
 .music-list li {
     width: 370px;
-    border: 1px solid #000;
+    /* border: 1px solid #000; */
+    border: solid 1px #d7d7ec;
+}
+
+.news-list a,
+.music-list a {
+    display: block;
+    height: 340px;
+    /* box-sizing: content-box; */
+    background-color: var(--bh_color_white);
+}
+
+.text_wrap {
+    padding: 30px 15px 40px;
 }
 
 .news-list p,
 .music-list p {
-    padding: 37px 15px 40px;
-    text-align: center;
+    word-break: break-all;
+    /* text-align: center; */
+    font-weight: 700;
+    font-size: 2rem;
+    color: #191925;
+    letter-spacing: -0.5px;
 }
 
 .news-img-box,
@@ -218,9 +240,55 @@
     margin: 20px 0;
 }
 
-.more {
-    text-align: center;
+.music-img-box figure {}
+
+.btn-wrap {
     display: flex;
-    align-items: center;
     justify-content: center;
+    align-items: center;
+    margin-top: 3rem;
+}
+
+.btn-more {
+    width: 210px;
+    border-radius: 50px;
+    padding: 18px 0px;
+    text-align: center;
+    overflow: hidden;
+    position: relative;
+}
+
+.btn-wrap img {
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    left: 50%;
+    top: 0;
+    transform: translateX(-50%);
+}
+
+.more {
+    color: var(--bh_color_white);
+    position: relative;
+    z-index: 10;
+}
+
+.btn-wrap svg {
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    overflow: unset;
+}
+
+.move {
+    opacity: 0;
+    /* 처음에 보이지 않도록 설정 */
+    /* transition: opacity 0.3s ease; */
+    /* 부드러운 전환을 위해 추가 */
+}
+
+.move_n {
+    /* transition: opacity 0.3s ease; */
+    /* 부드러운 전환을 위해 추가 */
 }

@@ -209,7 +209,7 @@ hr,
 }
 
 #footer {
-    background: url(../img/foot-bg.png) no-repeat;
+    background: url(../img/common/foot-bg.png) no-repeat;
     background-attachment: unset;
     background-size: cover;
     padding: 50px 0 100px;
