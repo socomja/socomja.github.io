@@ -44,6 +44,7 @@
 
 .cont_wrap.cont2 {
     /* background-color: #f7f7ff */
+    overflow-x: hidden;
 }
 
 .cont_wrap.cont2 .banner {
@@ -172,7 +173,8 @@
     background-size: cover;
     /* padding: 30px 0; */
     z-index: 1;
-    overflow: hidden;
+    /* overflow: hidden; */
+
 }
 
 .news {
@@ -202,6 +204,7 @@
     width: 370px;
     /* border: 1px solid #000; */
     border: solid 1px #d7d7ec;
+    position: relative;
 }
 
 .news-list a,
@@ -268,6 +271,7 @@
 }
 
 .more {
+    font-weight: 700;
     color: var(--bh_color_white);
     position: relative;
     z-index: 10;
@@ -282,13 +286,35 @@
 }
 
 .move {
-    opacity: 0;
-    /* 처음에 보이지 않도록 설정 */
+    /* opacity: 0; */
     /* transition: opacity 0.3s ease; */
-    /* 부드러운 전환을 위해 추가 */
 }
 
 .move_n {
     /* transition: opacity 0.3s ease; */
-    /* 부드러운 전환을 위해 추가 */
+}
+
+.date {
+    position: absolute;
+    left: -1px;
+    top: -1px;
+    transform: translateY(-100%);
+    background-image: linear-gradient(to top, #7987e1, #867dd9);
+    padding: 5px 20px 5px 5px;
+    border-radius: 0 50px 0 0;
+    z-index: 99;
+    display: flex;
+    align-items: center;
+}
+
+.date span {
+    color: var(--bh_color_gray_100);
+    font-size: 18px;
+    font-weight: 700;
+    line-height: 1;
+    font-family: "Montserrat"
+}
+
+.date img {
+    margin-right: 3px;
 }
