@@ -1,0 +1,22 @@
+.swiper-slide img {
+    width: 100%;
+    /* 컨테이너의 너비에 맞춤 */
+    height: 100%;
+    /* 컨테이너의 높이에 맞춤 */
+    object-fit: contain;
+    /* 이미지 비율을 유지하며 잘리지 않게 */
+}
+
+.swiper-container {
+    width: 100%;
+    overflow: hidden;
+    position: relative;
+    margin-bottom: 10rem;
+}
+
+.swiper-wrapper {}
+
+.swiper-button-next,
+.swiper-button-prev {
+    color: red;
+}

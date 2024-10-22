@@ -8,10 +8,12 @@
     <link rel="shortcut icon" href="./img/main/logo.png" />
     <link rel="stylesheet" href="./css/reset.css" />
     <link rel="stylesheet" href="./css/common.css">
-    <link rel="stylesheet" href="./css/main.css">
+    <link rel="stylesheet" href="./css/news.css">
     <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet" />
     <link href="https://fonts.googleapis.com/css?family=Noto+Sans+KR:300,400,500,700&amp;display=swap&amp;subset=korean"
         rel="stylesheet">
+    <link rel="stylesheet" href="https://unpkg.com/swiper/swiper-bundle.min.css">
+
     <link href="https://fonts.googleapis.com/css?family=Oswald:300,400&amp;display=swap" rel="stylesheet">
 </head>
 
@@ -36,6 +38,33 @@
     <hr />
     <!-- e:header -->
     <main id="main" class="">
+        <section class="news-banner swiper-container">
+            <div class="swiper-wrapper">
+                <div class="swiper-slide">
+                    <figure><img src="img/news/banner1.png" alt=""></figure>
+                </div>
+                <div class="swiper-slide">
+                    <figure><img src="img/news/banner2.png" alt="">
+                    </figure>
+                </div>
+                <div class="swiper-slide">
+                    <figure><img src="img/news/banner3.png" alt=""></figure>
+                </div>
+                <div class="swiper-slide">
+                    <figure><img src="img/news/banner4.png" alt=""></figure>
+                </div>
+                <div class="swiper-slide">
+                    <figure><img src="img/news/banner5.png" alt=""></figure>
+                </div>
+            </div>
+
+            <!-- Add Pagination if needed -->
+            <div class="swiper-pagination"></div>
+
+            <!-- Add Navigation buttons if needed -->
+            <div class="swiper-button-next"></div>
+            <div class="swiper-button-prev"></div>
+        </section>
 
     </main>
     <hr />
@@ -59,7 +88,8 @@
     <a href="#top" class="btn-top"><i class="hidden">TOP</i></a>
     <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
     <script src="script/jquery.js"></script>
-    <script src="script/main.js"></script>
+    <script src="https://unpkg.com/swiper/swiper-bundle.min.js"></script>
+    <script src="script/news.js"></script>
 </body>
 
 </html>
