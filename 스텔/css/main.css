@@ -204,7 +204,7 @@
     /* border: 1px solid #000; */
     border: solid 1px #d7d7ec;
     position: relative;
-    transition: 0.4s;
+    transition: 0.25s ease-in;
 }
 
 .news-list a {
@@ -292,7 +292,6 @@
     /* transition: 0.4s; */
     border: solid 10px transparent;
 }
-
 
 .music-list li:hover .text_wrap {
     opacity: 1;
