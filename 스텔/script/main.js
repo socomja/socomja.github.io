@@ -50,6 +50,8 @@ $(() => {
     });
 
 
+
+
     // const $btnMore = $('.btn-more')
     // const $moveN = $(".move_n")
 

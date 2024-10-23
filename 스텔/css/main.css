@@ -288,6 +288,12 @@
     transition: 0.2s linear;
 }
 
+.music-list li {
+    transition: border 0.25s ease-in !important;
+    /* 여기서 border에만 transition을 적용 */
+}
+
+
 .music-list li:hover {
     /* transition: 0.4s; */
     border: solid 10px transparent;
