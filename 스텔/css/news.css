@@ -11,7 +11,6 @@
     width: 100%;
     overflow: hidden;
     position: relative;
-    margin-bottom: 10rem;
 }
 
 .swiper-wrapper {}
@@ -23,4 +22,56 @@
 
 .swiper-pagination-bullet-active {
     background: var(--swiper-pagination-color, var(--bh_color_main)) !important;
+}
+
+.all-news-img {
+    text-align: center;
+}
+
+.all-news-img figure {
+    margin-bottom: 2rem;
+}
+
+.all-news-img figure:nth-child(2) {
+    margin-bottom: 5rem;
+}
+
+.all-news {
+    padding: 7rem 0 6rem;
+    text-align: center;
+    background: url(../img/news/bigstar.png) no-repeat;
+    background-color: #f7f7ff;
+    background-position: calc(100% + 100px) -150px;
+}
+
+.news-tab {
+    /* font-size: 0; */
+    display: flex;
+    flex-wrap: wrap;
+    margin: 0 -12.5px;
+    justify-content: center;
+}
+
+.news-tab li {
+    text-align: center;
+    font-size: 16.5px;
+    border: solid 1px #867dd9;
+    border-radius: 50px;
+    transition: all 0.2s;
+    padding: 12px 17px;
+    line-height: 1;
+    color: #867dd9;
+    letter-spacing: -0.41px;
+    min-width: 76px;
+}
+
+.news-tab a.on li {
+    color: var(--bh_color_white);
+    border-color: var(--bh_color_main);
+    background: linear-gradient(180deg, #8F88E0 38.02%, #90A9ED 100%);
+}
+
+.news-tab a {
+    display: block;
+    padding: 0 12.5px;
 }
