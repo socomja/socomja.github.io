@@ -14,4 +14,5 @@ document.addEventListener('DOMContentLoaded', function () {
             delay: 3000, // 3초마다 자동 슬라이드 전환
         },
     });
+
 });
