@@ -21,6 +21,22 @@ $(() => {
     // 모든 버튼과 카드를 선택합니다.
     const buttons = document.querySelectorAll('.news-tab a');
     const cards = document.querySelectorAll('.news-card a');
+    const itemCount = document.querySelector('.item_count span'); // 항목 수 표시 요소
+
+    // 카테고리별 항목 수를 계산하여 업데이트하는 함수
+    const updateItemCount = (category) => {
+        let count = 0;
+
+        cards.forEach(card => {
+            const categoryText = card.querySelector('.event-type span').innerText.trim();
+            if (category === "ALL" || categoryText === category) {
+                count++;
+            }
+        });
+
+        // 총 항목 수 업데이트
+        itemCount.innerText = `총 ${count}건`;
+    };
 
     // 버튼 클릭 시 필터링 함수
     buttons.forEach(button => {
@@ -44,7 +60,14 @@ $(() => {
             // 선택된 버튼 스타일 업데이트 (선택된 버튼만 'on' 클래스 추가)
             buttons.forEach(btn => btn.classList.remove('on'));
             button.classList.add('on');
+
+            // 항목 수 업데이트
+            updateItemCount(filterText);
         });
     });
+
+    // 초기 상태에서 ALL 버튼 클릭 시 항목 수 업데이트
+    updateItemCount("ALL");
+
 
 })
