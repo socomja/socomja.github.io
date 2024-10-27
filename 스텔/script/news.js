@@ -18,35 +18,32 @@ document.addEventListener('DOMContentLoaded', function () {
 });
 
 $(() => {
+    // 모든 버튼과 카드를 선택합니다.
+    const buttons = document.querySelectorAll('.news-tab a');
+    const cards = document.querySelectorAll('.news-card a');
 
-    // 모든 버튼과 카드 요소들을 선택
-    const buttons = document.querySelectorAll(".news-tab a");
-    const cards = document.querySelectorAll(".news-card");
-
-
-    // 각 버튼에 클릭 이벤트 추가
+    // 버튼 클릭 시 필터링 함수
     buttons.forEach(button => {
-        button.addEventListener("click", (event) => {
-            event.preventDefault();
+        button.addEventListener('click', (e) => {
+            e.preventDefault(); // 기본 동작을 막습니다.
 
-            // 클릭된 버튼 텍스트 가져오기
-            const filter = button.textContent.trim();
+            // 선택한 버튼의 텍스트를 가져옵니다.
+            const filterText = button.innerText.trim();
 
-            // 모든 버튼에서 활성화 클래스를 제거하고 클릭된 버튼에만 추가
-            buttons.forEach(btn => btn.classList.remove("on"));
-            button.classList.add("on");
-
-            // 각 카드의 내용을 확인하여 표시/숨김 처리
+            // 모든 카드를 순회하면서 조건에 맞게 표시 또는 숨깁니다.
             cards.forEach(card => {
-                // 각 카드의 카테고리 가져오기
-                const category = card.querySelector(".event-type span").textContent.trim();
+                const category = card.querySelector('.event-type span').innerText.trim();
 
-                if (filter === "ALL" || filter === category) {
-                    card.style.display = "block"; // 해당 카테고리가 맞으면 표시
+                if (filterText === "ALL" || category === filterText) {
+                    card.style.display = "block"; // 표시
                 } else {
-                    card.style.display = "none"; // 아니면 숨김 처리
+                    card.style.display = "none"; // 숨기기
                 }
             });
+
+            // 선택된 버튼 스타일 업데이트 (선택된 버튼만 'on' 클래스 추가)
+            buttons.forEach(btn => btn.classList.remove('on'));
+            button.classList.add('on');
         });
     });
 
