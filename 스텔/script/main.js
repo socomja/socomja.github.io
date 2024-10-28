@@ -16,19 +16,25 @@
 // });
 
 $(() => {
-    // .news-list 내의 모든 <li> 요소를 선택
     const newsItems = document.querySelectorAll('.news-list li a');
 
     newsItems.forEach(item => {
+        const date = item.parentElement.querySelector('.date'); // <a> 요소의 부모 <li>에서 .date 요소 선택
+
         item.addEventListener('mouseenter', () => {
-            item.style.transform = 'scale(1.05)'; // 살짝 확대
-            item.style.transition = 'transform 0.3s ease'; // 부드러운 전환
+            item.style.transform = 'scale(1.05)';
+            item.style.transition = 'transform 0.3s ease';
+            date.style.transform = 'translate(-6%, -125%)';
+            date.style.transition = 'transform 0.3s ease';// .date 위치 조정
         });
 
         item.addEventListener('mouseleave', () => {
-            item.style.transform = 'scale(1)'; // 원래 크기로 돌아감
+            item.style.transform = 'scale(1)';
+            date.style.transform = 'translateY(-100%)'; // 원래 위치로 복구
         });
     });
+
+
 
 
 

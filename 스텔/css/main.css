@@ -203,11 +203,12 @@
     width: 370px;
     /* border: 1px solid #000; */
     border: solid 1px #d7d7ec;
-    position: relative;
     transition: 0.25s ease-in;
+    position: relative;
 }
 
 .news-list a {
+    position: relative;
     display: block;
     height: 340px;
     /* box-sizing: content-box; */
@@ -353,6 +354,7 @@
 }
 
 .date {
+    transform: 0.4s;
     position: absolute;
     left: -1px;
     top: -1px;
@@ -396,5 +398,4 @@
 .news-list li:hover {
     -webkit-animation: shadow-drop-2-center 0.4s cubic-bezier(0.250, 0.460, 0.450, 0.940) both;
     animation: shadow-drop-2-center 0.4s cubic-bezier(0.250, 0.460, 0.450, 0.940) both;
-
 }
