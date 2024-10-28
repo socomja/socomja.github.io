@@ -18,8 +18,27 @@ document.addEventListener('DOMContentLoaded', function () {
 });
 
 $(() => {
+    // const $itemCountSpan = $('.item_count span')
+    // const $cards = $('.news-card > li')
+    // const maxVisibleCount = $cards.length - 1
+    // let currentVisibleCount = 3
+
+    // function updateNewsCard() {
+    //     for (let i = 0; i < maxVisibleCount; i++) {
+    //         $cards.eq(i).css('display', i < currentVisibleCount ? 'block' : 'none')
+    //     }
+    //     // $itemCountSpan.textContent = `총 ${currentVisibleCount}건`;
+    // }
+
+    // $('.news-card .btn-more').on('click', function (e) {
+    //     e.originalEvent.preventDefault()
+    //     currentVisibleCount = maxVisibleCount
+    //     updateNewsCard()
+    // })
+
+    // updateNewsCard()
     const buttons = document.querySelectorAll(".news-tab a");
-    const cards = document.querySelectorAll(".news-card li");
+    const cards = document.querySelectorAll(".news-card li a");
     const itemCount = document.querySelector(".item_count span");
     const initialVisibleCount = 4;
 
@@ -31,7 +50,7 @@ $(() => {
         button.addEventListener("click", (event) => {
             event.preventDefault();
 
-            const filter = button.querySelector("li").textContent.trim();
+            const filter = button.querySelector(".news-tab li").textContent.trim();
 
             buttons.forEach(btn => btn.classList.remove("on"));
             button.classList.add("on");

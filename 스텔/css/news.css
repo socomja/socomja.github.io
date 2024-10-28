@@ -92,7 +92,8 @@
     position: relative;
 }
 
-.news-card li::after {
+
+.news-card li a::after {
     content: '';
     width: 11px;
     height: 11px;
@@ -103,7 +104,7 @@
     bottom: 5px;
 }
 
-.news-card li {
+.news-card li a {
     position: relative;
     display: flex;
     border: solid 1px #d7d7ec;
