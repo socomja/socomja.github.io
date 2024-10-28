@@ -16,36 +16,17 @@
 // });
 
 $(() => {
-    AOS.init();
+    // .news-list 내의 모든 <li> 요소를 선택
+    const newsItems = document.querySelectorAll('.news-list li a');
 
-    $('.btn-more').each(function () {
-        const $btnMore = $(this);
-        const $path = $btnMore.find('.btn_line');
-        const $circle = $btnMore.find('.move');
-        const moveSpeed = 0.005;
+    newsItems.forEach(item => {
+        item.addEventListener('mouseenter', () => {
+            item.style.transform = 'scale(1.05)'; // 살짝 확대
+            item.style.transition = 'transform 0.3s ease'; // 부드러운 전환
+        });
 
-        let animationId;
-        let currentPoint = 0;
-
-        function updatePosition() {
-            currentPoint = (currentPoint + moveSpeed) % 1;
-            const pathLength = $path[0].getTotalLength();
-            const point = $path[0].getPointAtLength(currentPoint * pathLength);
-
-            $circle.attr({
-                cx: point.x,
-                cy: point.y
-            });
-
-            animationId = requestAnimationFrame(updatePosition);
-        }
-
-        $btnMore.on('mouseover', updatePosition);
-        $btnMore.on('mouseout', () => {
-            if (animationId) {
-                cancelAnimationFrame(animationId);
-                animationId = undefined;
-            }
+        item.addEventListener('mouseleave', () => {
+            item.style.transform = 'scale(1)'; // 원래 크기로 돌아감
         });
     });
 
