@@ -1,0 +1,63 @@
+.all-music-img {
+    text-align: center;
+}
+
+.all-music-img figure {
+    margin-bottom: 2rem;
+}
+
+.all-music-img figure:nth-child(2) {
+    margin-bottom: 5rem;
+}
+
+.all-music {
+    padding: 7rem 0 6rem;
+    text-align: center;
+    background: url(../img/music/bigstar.png) no-repeat;
+    background-color: #f7f7ff;
+    background-position: calc(100% + 100px) -150px;
+}
+
+.music-tab {
+    /* font-size: 0; */
+    display: flex;
+    flex-wrap: wrap;
+    margin: 0 -12.5px;
+    justify-content: center;
+}
+
+.music-tab li {
+    text-align: center;
+    font-size: 16.5px;
+    border: solid 1px #867dd9;
+    border-radius: 50px;
+    transition: all 0.4s;
+    padding: 12px 17px;
+    line-height: 1;
+    color: #867dd9;
+    letter-spacing: -0.41px;
+    min-width: 76px;
+}
+
+.music-tab li:hover {
+    color: var(--bh_color_white);
+    border-color: var(--bh_color_main);
+    background: linear-gradient(180deg, #bcaaff 38.02%, #baccff 100%);
+}
+
+
+.music-tab a.on li {
+    color: var(--bh_color_white);
+    border-color: var(--bh_color_main);
+    background: linear-gradient(180deg, #8e75e7 38.02%, #90A9ED 100%);
+}
+
+.music-tab a {
+    display: block;
+    padding: 0 12.5px;
+}
+
+.item_count {
+    float: left;
+    padding: 20px 0;
+}
