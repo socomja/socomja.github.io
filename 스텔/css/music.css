@@ -53,11 +53,36 @@
 }
 
 .music-tab a {
-    display: block;
+    /* display: block; */
     padding: 0 12.5px;
 }
 
 .item_count {
     float: left;
     padding: 20px 0;
+    display: flex;
+}
+
+/* img {
+    width: 10%;
+} */
+
+.music-card {
+    display: inline-flex;
+    /* justify-content: space-between; */
+    align-items: center;
+    /* display: none; */
+    flex-wrap: wrap;
+}
+
+.music-card li {
+    flex: 1 1 30%;
+    width: 450px;
+    height: 540px;
+    padding: 0 35px;
+    background: #f7f7ff;
+}
+
+.music-card-img img {
+    width: 100%;
 }

@@ -39,7 +39,7 @@ $(() => {
             let visibleCount = 0;
 
             cards.forEach(card => {
-                const category = card.querySelector(".event-type span").textContent.trim();
+                const category = card.querySelector(".song-type span").textContent.trim();
 
                 if (filter === "ALL" || filter === category) {
                     card.parentElement.style.display = "block";
