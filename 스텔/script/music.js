@@ -42,7 +42,7 @@ $(() => {
                 const category = card.querySelector(".song-type span").textContent.trim();
 
                 if (filter === "ALL" || filter === category) {
-                    card.parentElement.style.display = "block";
+                    card.parentElement.style.display = "inline-flex";
                     visibleCount++;
                 } else {
                     card.parentElement.style.display = "none";
