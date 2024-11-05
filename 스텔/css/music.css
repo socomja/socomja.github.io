@@ -78,9 +78,9 @@
 }
 
 .music-card li {
-    flex: 1 1 30%;
+    flex: 0 1 30%;
     /* width: 380px; */
-    height: 340px;
+    height: 360px;
     /* padding: 0 35px; */
     background: #f7f7ff;
     position: relative;
@@ -98,7 +98,7 @@
 .song-type {
     transform: 0.4s;
     position: absolute;
-    left: -1px;
+    left: -0px;
     top: -1px;
     transform: translateY(-100%);
     background-image: linear-gradient(to top, #7987e1, #867dd9);
@@ -123,14 +123,15 @@
 
 .music-card-textbox {
     text-align: left;
-    margin-top: 1.8rem;
+    margin-top: 3.5rem;
+    /* padding: 30px 5px 30px; */
     margin-left: 1rem;
 }
 
 .music-card-textbox h3 {
     font-weight: 800;
     text-align: left;
-    margin-bottom: 15px;
+    margin-bottom: 5px;
     overflow: hidden;
     text-overflow: ellipsis;
     font-size: 24px;
