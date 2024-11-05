@@ -87,6 +87,7 @@
     border: solid 1px #d7d7ec;
     background-color: var(--bh_color_white);
 
+
 }
 
 .music-card-img {}
@@ -122,6 +123,7 @@
 }
 
 .music-card-textbox {
+    transition: 0.4s;
     text-align: left;
     margin-top: 3.5rem;
     /* padding: 30px 5px 30px; */
@@ -137,4 +139,14 @@
     font-size: 24px;
     line-height: 1.25;
     color: #191925;
+    transition: 0.2s;
+}
+
+.music-card li:hover h3 {
+    color: var(--bh_color_main);
+}
+
+.highlight {
+    transition: color 0.2s;
+    /* Smooth color transition */
 }
