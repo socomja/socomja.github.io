@@ -45,11 +45,10 @@
     background: linear-gradient(180deg, #bcaaff 38.02%, #baccff 100%);
 }
 
-
 .music-tab a.on li {
     color: var(--bh_color_white);
     border-color: var(--bh_color_main);
-    background: linear-gradient(180deg, #8e75e7 38.02%, #90A9ED 100%);
+    background: linear-gradient(180deg, #8e75e7 38.02%, #90a9ed 100%);
 }
 
 .music-tab a {
@@ -86,11 +85,12 @@
     position: relative;
     border: solid 1px #d7d7ec;
     background-color: var(--bh_color_white);
-
-
 }
 
-.music-card-img {}
+.music-card-wrap {
+    display: flex;
+    flex-direction: column;
+}
 
 .music-card-img img {
     width: 100%;
@@ -115,19 +115,27 @@
     font-size: 18px;
     font-weight: 700;
     line-height: 1;
-    font-family: "Montserrat"
+    font-family: "Montserrat";
 }
 
 .song-type img {
     margin-right: 3px;
 }
 
+.music-card li a {
+    display: inline-flex;
+    flex-direction: column;
+    height: 100%;
+}
+
 .music-card-textbox {
     transition: 0.4s;
     text-align: left;
-    margin-top: 3.5rem;
-    /* padding: 30px 5px 30px; */
-    margin-left: 1rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    flex: 1 1 100%;
+    padding: 1rem 2rem;
 }
 
 .music-card-textbox h3 {

@@ -9,6 +9,10 @@
     <link rel="stylesheet" href="./css/reset.css" />
     <link rel="stylesheet" href="./css/common.css">
     <link rel="stylesheet" href="./css/music.css">
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <script src="script/jquery.js"></script>
+    <script src="script/common.js"></script>
+    <script src="./script/music.js"></script>
     <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet" />
     <link href="https://fonts.googleapis.com/css?family=Noto+Sans+KR:300,400,500,700&amp;display=swap&amp;subset=korean"
         rel="stylesheet">
@@ -59,373 +63,374 @@
                         <li>OTHERS</li>
                     </a>
                 </ul>
-                <div class="item_count">
-                    <span>총 180건</span>
+                <div class="music-card-wrap">
+                    <div class="item_count">
+                        <span>총 180건</span>
+                    </div>
+                    <ul class="music-card">
+                        <li>
+                            <a href="#">
+                                <div class="music-card-img">
+                                    <figure><img src="img/music/리코x린.jpg" alt=""></figure>
+                                </div>
+                                <div class="music-card-textbox">
+                                    <div class="song-type">
+                                        <img src="img/news/w_star.png" alt="">
+                                        <span>cover</span>
+                                    </div>
+                                    <h3>GETCHA!『Giga&KIRA』Cover</h3>
+                                    <p>Yuzuha Riko x Aokumo Rin</p>
+                                </div>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="#">
+                                <div class="music-card-img">
+                                    <figure><img src="img/music/히나-새벽과 반딧불이.jpg" alt=""></figure>
+                                </div>
+                                <div class="music-card-textbox">
+                                    <div class="song-type">
+                                        <img src="img/news/w_star.png" alt="">
+                                        <span>cover</span>
+                                    </div>
+                                    <h3>새벽과 반딧불이(夜明けと蛍) Cover</h3>
+                                    <p>Shirayuki Hina</p>
+                                </div>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="#">
+                                <div class="music-card-img">
+                                    <figure><img src="img/music/리코-맑은날.jpg" alt=""></figure>
+                                </div>
+                                <div class="music-card-textbox">
+                                    <div class="song-type">
+                                        <img src="img/news/w_star.png" alt="">
+                                        <span>cover</span>
+                                    </div>
+                                    <h3>맑은 날『ヨルシカ - 晴る』Cover</h3>
+                                    <p>Yuzuha Riko</p>
+                                </div>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="#">
+                                <div class="music-card-img">
+                                    <figure><img src="img/music/린-Rumor.jpg" alt=""></figure>
+                                </div>
+                                <div class="music-card-textbox">
+                                    <div class="song-type">
+                                        <img src="img/news/w_star.png" alt="">
+                                        <span>cover</span>
+                                    </div>
+                                    <h3>Rumor ルーマー『Police Piccadilly』Cover</h3>
+                                    <p>Aokumo Rin</p>
+                                </div>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="#">
+                                <div class="music-card-img">
+                                    <figure><img src="img/music/칸나-푸른보석과 어린용.jpg" alt=""></figure>
+                                </div>
+                                <div class="music-card-textbox">
+                                    <div class="song-type">
+                                        <img src="img/news/w_star.png" alt="">
+                                        <span>single</span>
+                                    </div>
+                                    <h3>푸른 보석과 어린 용『3rd single</h3>
+                                    <p>Airi Kanna</p>
+                                </div>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="#">
+                                <div class="music-card-img">
+                                    <figure><img src="img/music/시로-우주 비행사의 노래.jpg" alt=""></figure>
+                                </div>
+                                <div class="music-card-textbox">
+                                    <div class="song-type">
+                                        <img src="img/news/w_star.png" alt="">
+                                        <span>cover</span>
+                                    </div>
+                                    <h3>우주 비행사의 노래 『Sakamoto Maaya』 Cover</h3>
+                                    <p>Neneko Mashiro</p>
+                                </div>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="#">
+                                <div class="music-card-img">
+                                    <figure><img src="img/music/리제-눈이 녹을 때.jpg" alt=""></figure>
+                                </div>
+                                <div class="music-card-textbox">
+                                    <div class="song-type">
+                                        <img src="img/news/w_star.png" alt="">
+                                        <span>cover</span>
+                                    </div>
+                                    <h3>눈이 녹을 때『tayori』Cover</h3>
+                                    <p>Akane Lize</p>
+                                </div>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="#">
+                                <div class="music-card-img">
+                                    <figure><img src="img/music/타비-그여름 어느 날은.jpg" alt=""></figure>
+                                </div>
+                                <div class="music-card-textbox">
+                                    <div class="song-type">
+                                        <img src="img/news/w_star.png" alt="">
+                                        <span>cover</span>
+                                    </div>
+                                    <h3>그 여름의 어느 날은『Luna 』Cover</h3>
+                                    <p>Arahashi Tabi</p>
+                                </div>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="#">
+                                <div class="music-card-img">
+                                    <figure><img src="img/music/리코-괴수의 꽃노래.jpg" alt=""></figure>
+                                </div>
+                                <div class="music-card-textbox">
+                                    <div class="song-type">
+                                        <img src="img/news/w_star.png" alt="">
+                                        <span>cover</span>
+                                    </div>
+                                    <h3>괴수의 꽃노래『Vaundy』Cover</h3>
+                                    <p>Yuzuha Riko</p>
+                                </div>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="#">
+                                <div class="music-card-img">
+                                    <figure><img src="img/music/밀키웨이.jpg" alt=""></figure>
+                                </div>
+                                <div class="music-card-textbox">
+                                    <div class="song-type">
+                                        <img src="img/news/w_star.png" alt="">
+                                        <span>album</span>
+                                    </div>
+                                    <h3>Milky Way『스텔라이브』</h3>
+                                    <p>StelLive</p>
+                                </div>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="#">
+                                <div class="music-card-img">
+                                    <figure><img src="img/music/유니-슈퍼도파.jpg" alt=""></figure>
+                                </div>
+                                <div class="music-card-textbox">
+                                    <div class="song-type">
+                                        <img src="img/news/w_star.png" alt="">
+                                        <span>single</span>
+                                    </div>
+                                    <h3>SUPADOPA『2nd Single』</h3>
+                                    <p>Ayatsuno Yuni</p>
+                                </div>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="#">
+                                <div class="music-card-img">
+                                    <figure><img src="img/music/2기생-stars Align.jpg" alt=""></figure>
+                                </div>
+                                <div class="music-card-textbox">
+                                    <div class="song-type">
+                                        <img src="img/news/w_star.png" alt="">
+                                        <span>single</span>
+                                    </div>
+                                    <h3>Stars Align『Universe』</h3>
+                                    <p>Universe</p>
+                                </div>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="#">
+                                <div class="music-card-img">
+                                    <figure><img src="img/music/Frozen Eclipse.jpg" alt=""></figure>
+                                </div>
+                                <div class="music-card-textbox">
+                                    <div class="song-type">
+                                        <img src="img/news/w_star.png" alt="">
+                                        <span>others</span>
+                                    </div>
+                                    <h3>Frozen Eclipse『EpicSeven』</h3>
+                                    <p>Airi Kanna </p>
+                                </div>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="#">
+                                <div class="music-card-img">
+                                    <figure><img src="img/music/부키-여우비.jpg" alt=""></figure>
+                                </div>
+                                <div class=" music-card-textbox">
+                                    <div class="song-type">
+                                        <img src="img/news/w_star.png" alt="">
+                                        <span>cover</span>
+                                    </div>
+                                    <h3>여우비『이선희』Cover</h3>
+                                    <p>Tenko Shibuki </p>
+                                </div>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="#">
+                                <div class="music-card-img">
+                                    <figure><img src="img/music/나나-푸른 산호초.jpg" alt=""></figure>
+                                </div>
+                                <div class=" music-card-textbox">
+                                    <div class="song-type">
+                                        <img src="img/news/w_star.png" alt="">
+                                        <span>cover</span>
+                                    </div>
+                                    <h3>푸른 산호초『青い珊瑚礁』Cover</h3>
+                                    <p>Hanako Nana</p>
+                                </div>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="#">
+                                <div class="music-card-img">
+                                    <figure><img src="img/music/히나-I Really Want to Stay At Your House.jpg" alt=""></figure>
+                                </div>
+                                <div class=" music-card-textbox">
+                                    <div class="song-type">
+                                        <img src="img/news/w_star.png" alt="">
+                                        <span>cover</span>
+                                    </div>
+                                    <h3>I Really Want to Stay At Your House Cover</h3>
+                                    <p>Shirayuki Hina</p>
+                                </div>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="#">
+                                <div class="music-card-img">
+                                    <figure><img src="img/music/칸나-애타는 한 가슴을.jpg" alt=""></figure>
+                                </div>
+                                <div class=" music-card-textbox">
+                                    <div class="song-type">
+                                        <img src="img/news/w_star.png" alt="">
+                                        <span>cover</span>
+                                    </div>
+                                    <h3>애타는 한 가슴을 달랠 수 있다면『Robin』Cover</h3>
+                                    <p>Airi Kanna</p>
+                                </div>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="#">
+                                <div class="music-card-img">
+                                    <figure><img src="img/music/3기-our.jpg" alt=""></figure>
+                                </div>
+                                <div class=" music-card-textbox">
+                                    <div class="song-type">
+                                        <img src="img/news/w_star.png" alt="">
+                                        <span>single</span>
+                                    </div>
+                                    <h3>Our Tales『Cliche』</h3>
+                                    <p>Cliche</p>
+                                </div>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="#">
+                                <div class="music-card-img">
+                                    <figure><img src="img/music/시로-퀘스천.jpg" alt=""></figure>
+                                </div>
+                                <div class=" music-card-textbox">
+                                    <div class="song-type">
+                                        <img src="img/news/w_star.png" alt="">
+                                        <span>cover</span>
+                                    </div>
+                                    <h3>퀘스천『 meiyo 』Cover</h3>
+                                    <p>Neneko Mashiro</p>
+                                </div>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="#">
+                                <div class="music-card-img">
+                                    <figure><img src="img/music/부키-너에게 매롱.jpg" alt=""></figure>
+                                </div>
+                                <div class=" music-card-textbox">
+                                    <div class="song-type">
+                                        <img src="img/news/w_star.png" alt="">
+                                        <span>cover</span>
+                                    </div>
+                                    <h3>너에게 메롱『一二三』Cover</h3>
+                                    <p>Tenko Shibuki</p>
+                                </div>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="#">
+                                <div class="music-card-img">
+                                    <figure><img src="img/music/타비-첫사랑.jpg" alt=""></figure>
+                                </div>
+                                <div class=" music-card-textbox">
+                                    <div class="song-type">
+                                        <img src="img/news/w_star.png" alt="">
+                                        <span>cover</span>
+                                    </div>
+                                    <h3>첫사랑『 백아 』cover</h3>
+                                    <p>Arahashi Tabi</p>
+                                </div>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="#">
+                                <div class="music-card-img">
+                                    <figure><img src="img/music/히나-피날레.jpg" alt=""></figure>
+                                </div>
+                                <div class=" music-card-textbox">
+                                    <div class="song-type">
+                                        <img src="img/news/w_star.png" alt="">
+                                        <span>cover</span>
+                                    </div>
+                                    <h3>피날레『eill』Cover</h3>
+                                    <p>Shirayuki Hina</p>
+                                </div>
+                            </a>
+                        </li>
+                        </li>
+                        <li>
+                            <a href="#">
+                                <div class="music-card-img">
+                                    <figure><img src="img/music/유니-굿바이 선언.jpg" alt=""></figure>
+                                </div>
+                                <div class=" music-card-textbox">
+                                    <div class="song-type">
+                                        <img src="img/news/w_star.png" alt="">
+                                        <span>cover</span>
+                                    </div>
+                                    <h3>굿바이 선언『chinozo』Cover</h3>
+                                    <p>SAyatsuno Yuni</p>
+                                </div>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="#">
+                                <div class="music-card-img">
+                                    <figure><img src="img/music/타비-육성재.jpg" alt=""></figure>
+                                </div>
+                                <div class="music-card-textbox">
+                                    <div class="song-type">
+                                        <img src="img/news/w_star.png" alt="">
+                                        <span>cover</span>
+                                    </div>
+                                    <h3>BE SOMEBODY『육성재』Cover</h3>
+                                    <p>Arahashi Tabi</p>
+                                </div>
+                            </a>
+                        </li>
+                    </ul>
                 </div>
-                <ul class="music-card">
-                    <li>
-                        <a href="#">
-                            <div class="music-card-img">
-                                <figure><img src="img/music/리코x린.jpg" alt=""></figure>
-                            </div>
-                            <div class="music-card-textbox">
-                                <div class="song-type">
-                                    <img src="img/news/w_star.png" alt="">
-                                    <span>cover</span>
-                                </div>
-                                <h3>GETCHA!『Giga&KIRA』Cover</h3>
-                                <p>Yuzuha Riko x Aokumo Rin</p>
-                            </div>
-                        </a>
-                    </li>
-                    <li>
-                        <a href="#">
-                            <div class="music-card-img">
-                                <figure><img src="img/music/히나-새벽과 반딧불이.jpg" alt=""></figure>
-                            </div>
-                            <div class="music-card-textbox">
-                                <div class="song-type">
-                                    <img src="img/news/w_star.png" alt="">
-                                    <span>cover</span>
-                                </div>
-                                <h3>새벽과 반딧불이(夜明けと蛍) Cover</h3>
-                                <p>Shirayuki Hina</p>
-                            </div>
-                        </a>
-                    </li>
-                    <li>
-                        <a href="#">
-                            <div class="music-card-img">
-                                <figure><img src="img/music/리코-맑은날.jpg" alt=""></figure>
-                            </div>
-                            <div class="music-card-textbox">
-                                <div class="song-type">
-                                    <img src="img/news/w_star.png" alt="">
-                                    <span>cover</span>
-                                </div>
-                                <h3>맑은 날『ヨルシカ - 晴る』Cover</h3>
-                                <p>Yuzuha Riko</p>
-                            </div>
-                        </a>
-                    </li>
-                    <li>
-                        <a href="#">
-                            <div class="music-card-img">
-                                <figure><img src="img/music/린-Rumor.jpg" alt=""></figure>
-                            </div>
-                            <div class="music-card-textbox">
-                                <div class="song-type">
-                                    <img src="img/news/w_star.png" alt="">
-                                    <span>cover</span>
-                                </div>
-                                <h3>Rumor ルーマー『Police Piccadilly』Cover</h3>
-                                <p>Aokumo Rin</p>
-                            </div>
-                        </a>
-                    </li>
-                    <li>
-                        <a href="#">
-                            <div class="music-card-img">
-                                <figure><img src="img/music/칸나-푸른보석과 어린용.jpg" alt=""></figure>
-                            </div>
-                            <div class="music-card-textbox">
-                                <div class="song-type">
-                                    <img src="img/news/w_star.png" alt="">
-                                    <span>single</span>
-                                </div>
-                                <h3>푸른 보석과 어린 용『3rd single</h3>
-                                <p>Airi Kanna</p>
-                            </div>
-                        </a>
-                    </li>
-                    <li>
-                        <a href="#">
-                            <div class="music-card-img">
-                                <figure><img src="img/music/시로-우주 비행사의 노래.jpg" alt=""></figure>
-                            </div>
-                            <div class="music-card-textbox">
-                                <div class="song-type">
-                                    <img src="img/news/w_star.png" alt="">
-                                    <span>cover</span>
-                                </div>
-                                <h3>우주 비행사의 노래 『Sakamoto Maaya』 Cover</h3>
-                                <p>Neneko Mashiro</p>
-                            </div>
-                        </a>
-                    </li>
-                    <li>
-                        <a href="#">
-                            <div class="music-card-img">
-                                <figure><img src="img/music/리제-눈이 녹을 때.jpg" alt=""></figure>
-                            </div>
-                            <div class="music-card-textbox">
-                                <div class="song-type">
-                                    <img src="img/news/w_star.png" alt="">
-                                    <span>cover</span>
-                                </div>
-                                <h3>눈이 녹을 때『tayori』Cover</h3>
-                                <p>Akane Lize</p>
-                            </div>
-                        </a>
-                    </li>
-                    <li>
-                        <a href="#">
-                            <div class="music-card-img">
-                                <figure><img src="img/music/타비-그여름 어느 날은.jpg" alt=""></figure>
-                            </div>
-                            <div class="music-card-textbox">
-                                <div class="song-type">
-                                    <img src="img/news/w_star.png" alt="">
-                                    <span>cover</span>
-                                </div>
-                                <h3>그 여름의 어느 날은『Luna 』Cover</h3>
-                                <p>Arahashi Tabi</p>
-                            </div>
-                        </a>
-                    </li>
-                    <li>
-                        <a href="#">
-                            <div class="music-card-img">
-                                <figure><img src="img/music/리코-괴수의 꽃노래.jpg" alt=""></figure>
-                            </div>
-                            <div class="music-card-textbox">
-                                <div class="song-type">
-                                    <img src="img/news/w_star.png" alt="">
-                                    <span>cover</span>
-                                </div>
-                                <h3>괴수의 꽃노래『Vaundy』Cover</h3>
-                                <p>Yuzuha Riko</p>
-                            </div>
-                        </a>
-                    </li>
-                    <li>
-                        <a href="#">
-                            <div class="music-card-img">
-                                <figure><img src="img/music/밀키웨이.jpg" alt=""></figure>
-                            </div>
-                            <div class="music-card-textbox">
-                                <div class="song-type">
-                                    <img src="img/news/w_star.png" alt="">
-                                    <span>album</span>
-                                </div>
-                                <h3>Milky Way『스텔라이브』</h3>
-                                <p>StelLive</p>
-                            </div>
-                        </a>
-                    </li>
-                    <li>
-                        <a href="#">
-                            <div class="music-card-img">
-                                <figure><img src="img/music/유니-슈퍼도파.jpg" alt=""></figure>
-                            </div>
-                            <div class="music-card-textbox">
-                                <div class="song-type">
-                                    <img src="img/news/w_star.png" alt="">
-                                    <span>single</span>
-                                </div>
-                                <h3>SUPADOPA『2nd Single』</h3>
-                                <p>Ayatsuno Yuni</p>
-                            </div>
-                        </a>
-                    </li>
-                    <li>
-                        <a href="#">
-                            <div class="music-card-img">
-                                <figure><img src="img/music/2기생-stars Align.jpg" alt=""></figure>
-                            </div>
-                            <div class="music-card-textbox">
-                                <div class="song-type">
-                                    <img src="img/news/w_star.png" alt="">
-                                    <span>single</span>
-                                </div>
-                                <h3>Stars Align『Universe』</h3>
-                                <p>Universe</p>
-                            </div>
-                        </a>
-                    </li>
-                    <li>
-                        <a href="#">
-                            <div class="music-card-img">
-                                <figure><img src="img/music/Frozen Eclipse.jpg" alt=""></figure>
-                            </div>
-                            <div class="music-card-textbox">
-                                <div class="song-type">
-                                    <img src="img/news/w_star.png" alt="">
-                                    <span>others</span>
-                                </div>
-                                <h3>Frozen Eclipse『EpicSeven』</h3>
-                                <p>Airi Kanna </p>
-                            </div>
-                        </a>
-                    </li>
-                    <li>
-                        <a href="#">
-                            <div class="music-card-img">
-                                <figure><img src="img/music/부키-여우비.jpg" alt=""></figure>
-                            </div>
-                            <div class=" music-card-textbox">
-                                <div class="song-type">
-                                    <img src="img/news/w_star.png" alt="">
-                                    <span>cover</span>
-                                </div>
-                                <h3>여우비『이선희』Cover</h3>
-                                <p>Tenko Shibuki </p>
-                            </div>
-                        </a>
-                    </li>
-
-                    <li>
-                        <a href="#">
-                            <div class="music-card-img">
-                                <figure><img src="img/music/나나-푸른 산호초.jpg" alt=""></figure>
-                            </div>
-                            <div class=" music-card-textbox">
-                                <div class="song-type">
-                                    <img src="img/news/w_star.png" alt="">
-                                    <span>cover</span>
-                                </div>
-                                <h3>푸른 산호초『青い珊瑚礁』Cover</h3>
-                                <p>Hanako Nana</p>
-                            </div>
-                        </a>
-                    </li>
-                    <li>
-                        <a href="#">
-                            <div class="music-card-img">
-                                <figure><img src="img/music/히나-I Really Want to Stay At Your House.jpg" alt=""></figure>
-                            </div>
-                            <div class=" music-card-textbox">
-                                <div class="song-type">
-                                    <img src="img/news/w_star.png" alt="">
-                                    <span>cover</span>
-                                </div>
-                                <h3>I Really Want to Stay At Your House Cover</h3>
-                                <p>Shirayuki Hina</p>
-                            </div>
-                        </a>
-                    </li>
-                    <li>
-                        <a href="#">
-                            <div class="music-card-img">
-                                <figure><img src="img/music/칸나-애타는 한 가슴을.jpg" alt=""></figure>
-                            </div>
-                            <div class=" music-card-textbox">
-                                <div class="song-type">
-                                    <img src="img/news/w_star.png" alt="">
-                                    <span>cover</span>
-                                </div>
-                                <h3>애타는 한 가슴을 달랠 수 있다면『Robin』Cover</h3>
-                                <p>Airi Kanna</p>
-                            </div>
-                        </a>
-                    </li>
-                    <li>
-                        <a href="#">
-                            <div class="music-card-img">
-                                <figure><img src="img/music/3기-our.jpg" alt=""></figure>
-                            </div>
-                            <div class=" music-card-textbox">
-                                <div class="song-type">
-                                    <img src="img/news/w_star.png" alt="">
-                                    <span>single</span>
-                                </div>
-                                <h3>Our Tales『Cliche』</h3>
-                                <p>Cliche</p>
-                            </div>
-                        </a>
-                    </li>
-                    <li>
-                        <a href="#">
-                            <div class="music-card-img">
-                                <figure><img src="img/music/시로-퀘스천.jpg" alt=""></figure>
-                            </div>
-                            <div class=" music-card-textbox">
-                                <div class="song-type">
-                                    <img src="img/news/w_star.png" alt="">
-                                    <span>cover</span>
-                                </div>
-                                <h3>퀘스천『 meiyo 』Cover</h3>
-                                <p>Neneko Mashiro</p>
-                            </div>
-                        </a>
-                    </li>
-                    <li>
-                        <a href="#">
-                            <div class="music-card-img">
-                                <figure><img src="img/music/부키-너에게 매롱.jpg" alt=""></figure>
-                            </div>
-                            <div class=" music-card-textbox">
-                                <div class="song-type">
-                                    <img src="img/news/w_star.png" alt="">
-                                    <span>cover</span>
-                                </div>
-                                <h3>너에게 메롱『一二三』Cover</h3>
-                                <p>Tenko Shibuki</p>
-                            </div>
-                        </a>
-                    </li>
-                    <li>
-                        <a href="#">
-                            <div class="music-card-img">
-                                <figure><img src="img/music/타비-첫사랑.jpg" alt=""></figure>
-                            </div>
-                            <div class=" music-card-textbox">
-                                <div class="song-type">
-                                    <img src="img/news/w_star.png" alt="">
-                                    <span>cover</span>
-                                </div>
-                                <h3>첫사랑『 백아 』cover</h3>
-                                <p>Arahashi Tabi</p>
-                            </div>
-                        </a>
-                    </li>
-                    <li>
-                        <a href="#">
-                            <div class="music-card-img">
-                                <figure><img src="img/music/히나-피날레.jpg" alt=""></figure>
-                            </div>
-                            <div class=" music-card-textbox">
-                                <div class="song-type">
-                                    <img src="img/news/w_star.png" alt="">
-                                    <span>cover</span>
-                                </div>
-                                <h3>피날레『eill』Cover</h3>
-                                <p>Shirayuki Hina</p>
-                            </div>
-                        </a>
-                    </li>
-                    </li>
-                    <li>
-                        <a href="#">
-                            <div class="music-card-img">
-                                <figure><img src="img/music/유니-굿바이 선언.jpg" alt=""></figure>
-                            </div>
-                            <div class=" music-card-textbox">
-                                <div class="song-type">
-                                    <img src="img/news/w_star.png" alt="">
-                                    <span>cover</span>
-                                </div>
-                                <h3>굿바이 선언『chinozo』Cover</h3>
-                                <p>SAyatsuno Yuni</p>
-                            </div>
-                        </a>
-                    </li>
-                    <li>
-                        <a href="#">
-                            <div class="music-card-img">
-                                <figure><img src="img/music/타비-육성재.jpg" alt=""></figure>
-                            </div>
-                            <div class="music-card-textbox">
-                                <div class="song-type">
-                                    <img src="img/news/w_star.png" alt="">
-                                    <span>cover</span>
-                                </div>
-                                <h3>BE SOMEBODY『육성재』Cover</h3>
-                                <p>Arahashi Tabi</p>
-                            </div>
-                        </a>
-                    </li>
-                </ul>
                 <div class="btn-wrap" data-aos="zoom-in">
                     <a class="btn-more" href="#">
                         <img src="img/main/more_btn_bg.png" alt="">
@@ -465,10 +470,7 @@
     </footer>
 
     <a href="#top" class="btn-top"><i class="hidden">TOP</i></a>
-    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
-    <script src="script/jquery.js"></script>
-    <script src="script/common.js"></script>
-    <script src="script/music.js"></script>
+    <!-- <script src="script/music.js"></script> -->
 </body>
 
 </html>
