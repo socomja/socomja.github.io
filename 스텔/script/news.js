@@ -1,76 +1,82 @@
-
-document.addEventListener('DOMContentLoaded', function () {
-    var swiper = new Swiper('.swiper-container', {
+$(() => {
+    var swiper = new Swiper(".swiper-container", {
         speed: 750,
         loop: true,
         pagination: {
-            el: '.swiper-pagination',
+            el: ".swiper-pagination",
             clickable: true,
         },
         navigation: {
-            nextEl: '.swiper-button-next',
-            prevEl: '.swiper-button-prev',
+            nextEl: ".swiper-button-next",
+            prevEl: ".swiper-button-prev",
         },
         autoplay: {
             delay: 3000,
         },
     });
-});
 
-$(() => {
-    // const $itemCountSpan = $('.item_count span')
-    // const $cards = $('.news-card > li')
-    // const maxVisibleCount = $cards.length - 1
-    // let currentVisibleCount = 3
+    const defaultVisibleCount = 4;
+    const moreCount = 4;
+    const defaultCategory = "ALL";
 
-    // function updateNewsCard() {
-    //     for (let i = 0; i < maxVisibleCount; i++) {
-    //         $cards.eq(i).css('display', i < currentVisibleCount ? 'block' : 'none')
-    //     }
-    //     // $itemCountSpan.textContent = `총 ${currentVisibleCount}건`;
-    // }
+    const $filterButtons = $(".news-tab a");
+    const $itemCountLabel = $(".item_count span");
+    const $cards = $(".news-card li");
+    const $btnMore = $(".btn-more");
 
-    // $('.news-card .btn-more').on('click', function (e) {
-    //     e.originalEvent.preventDefault()
-    //     currentVisibleCount = maxVisibleCount
-    //     updateNewsCard()
-    // })
+    const currentData = {
+        count: defaultVisibleCount,
+        category: defaultCategory,
+    };
 
-    // updateNewsCard()
-    const buttons = document.querySelectorAll(".news-tab a");
-    const cards = document.querySelectorAll(".news-card li a");
-    const itemCount = document.querySelector(".item_count span");
-    const initialVisibleCount = 4;
-
-    function updateItemCount(count) {
-        itemCount.textContent = `총 ${count}건`;
+    function setItemCount(count) {
+        $itemCountLabel.text(`총 ${count}건`);
     }
 
-    buttons.forEach(button => {
-        button.addEventListener("click", (event) => {
-            event.preventDefault();
+    function filterItems(category) {
+        console.log(`filtering ${category}`);
+        let validCount = 0;
+        const isAllShow = category === "ALL";
+        $cards.each((_, card) => {
+            const $card = $(card);
+            const cardCategory = $card.find(".event-type span").text().trim().toUpperCase(); // otherwise, .attr()
+            const isValidCard = isAllShow || cardCategory === category;
 
-            const filter = button.querySelector(".news-tab li").textContent.trim();
-
-            buttons.forEach(btn => btn.classList.remove("on"));
-            button.classList.add("on");
-
-            let visibleCount = 0;
-
-            cards.forEach(card => {
-                const category = card.querySelector(".event-type span").textContent.trim();
-
-                if (filter === "ALL" || filter === category) {
-                    card.parentElement.style.display = "block";
-                    visibleCount++;
+            if (isValidCard) {
+                if (validCount < currentData.count) {
+                    $card.show();
                 } else {
-                    card.parentElement.style.display = "none";
+                    $card.hide();
                 }
-            });
+                ++validCount;
+            } else {
+                $card.hide();
+            }
+        });
+        setItemCount(validCount);
+        $btnMore.toggle(validCount > currentData.count);
+        AOS.refresh(); // when filtering AOS broken, AOS update...
+    }
 
-            updateItemCount(visibleCount);
+    $filterButtons.each((_, button) => {
+        const $button = $(button);
+        const category = $button.children("li").text().trim().toUpperCase();
+
+        $button.on("click", () => {
+            currentData.count = defaultVisibleCount;
+            currentData.category = category;
+
+            $button.addClass("on");
+            $button.siblings().removeClass("on");
+            filterItems(category);
+            return false; // otherwise, event.originalEvent.preventDefault();
         });
     });
+    $btnMore.on("click", () => {
+        currentData.count += moreCount;
+        filterItems(currentData.category);
+        return false;
+    });
 
-    updateItemCount(cards.length);
+    filterItems(currentData.category);
 });
