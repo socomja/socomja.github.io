@@ -8,6 +8,24 @@ $(() => {
     const $cards = $(".music-card li");
     const $btnMore = $(".btn-more");
 
+    const newsItems = document.querySelectorAll('.music-card li');
+
+    newsItems.forEach(item => {
+        const date = item.parentElement.querySelector('.date'); // <a> 요소의 부모 <li>에서 .date 요소 선택
+
+        item.addEventListener('mouseenter', () => {
+            item.style.transform = 'scale(1.07)';
+            item.style.transition = 'transform 0.3s ease';
+            date.style.transform = 'translate(-6%, -125%)';
+            date.style.transition = 'transform 0.3s ease';// .date 위치 조정
+        });
+
+        item.addEventListener('mouseleave', () => {
+            item.style.transform = 'scale(1)';
+            date.style.transform = 'translateY(-100%)'; // 원래 위치로 복구
+        });
+    });
+
     const currentData = {
         count: defaultVisibleCount,
         category: defaultCategory,
