@@ -387,6 +387,7 @@ hr,
         width: 90.6976%;
     }
     .icon {
+        width: 100%;
         gap: unset;
         justify-content: space-between;
     }
