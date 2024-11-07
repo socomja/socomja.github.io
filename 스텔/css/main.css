@@ -3,7 +3,7 @@
 .cont_wrap.cont1 {
     padding: 220px 0 200px;
     background: url("../img/main/sub1_bg1.png") no-repeat;
-    background-size: cover
+    background-size: cover;
 }
 
 .bh_wrap {
@@ -23,14 +23,14 @@
 }
 
 .cont_wrap.cont1 .txt_box img {
-    filter: drop-shadow(0px 0px 20px rgba(255, 255, 255, 0.4))
+    filter: drop-shadow(0px 0px 20px rgba(255, 255, 255, 0.4));
 }
 
 .cont_wrap.cont1 .txt_box .line {
     max-width: 146px;
     height: 1px;
     margin: 60px auto;
-    background-color: #cacaef
+    background-color: #cacaef;
 }
 
 .cont_wrap.cont1 .txt_box p {
@@ -39,7 +39,7 @@
     line-height: 2.56;
     letter-spacing: -0.51px;
     color: #f7f7ff;
-    filter: drop-shadow(0px 0px 20px rgba(255, 255, 255, 0.4))
+    filter: drop-shadow(0px 0px 20px rgba(255, 255, 255, 0.4));
 }
 
 .cont_wrap.cont2 {
@@ -49,24 +49,20 @@
 
 .cont_wrap.cont2 .banner {
     padding: 190px 0 130px;
-    /* border: 1px solid #000; */
     display: flex;
-    flex-wrap: wrap;
-    /* width: 1920px; */
     max-width: 2100px;
-    min-width: 1920px;
     margin: 0 auto;
+    gap: 180px;
 }
-
 
 .cont_wrap.cont2 .banner .img_box {
     margin-left: -30px;
-    /* width: 50%; */
     flex: 0 0 auto;
-    /* width: auto; */
-    max-width: none;
+    width: 100%;
     position: relative;
     height: 300px;
+    max-width: 950px;
+    background: url(../img/main/sub1_img1.png) no-repeat 0% / cover;
 }
 
 .img_box img {
@@ -82,18 +78,9 @@
 
 .v_tuber {
     position: absolute;
-    /* left: 210px; */
+    /* left: 194px; */
     right: -50px;
     bottom: 0px;
-}
-
-.cont_wrap.cont2 .banner .txt_box {
-    flex-basis: 0;
-    flex-grow: 1;
-    margin-left: 180px;
-    /* width: 50%; */
-    /* padding-left: 200px; */
-
 }
 
 .cont_wrap.cont2 .banner .txt_box span {
@@ -108,19 +95,18 @@
     margin: 3px;
 }
 
-
 .cont_wrap.cont2 .banner .txt_box .line {
     width: 1px;
     height: 67px;
     margin: 30px 0;
-    background-color: #d0d0e1
+    background-color: #d0d0e1;
 }
 
 .cont_wrap.cont2 .banner .txt_box p {
     font-size: 20px;
     line-height: 1.75;
     letter-spacing: -0.5px;
-    color: #20202d
+    color: #20202d;
 }
 
 /* 
@@ -165,7 +151,7 @@
 .con3 {
     background: url(../img/main/mbg.png);
     width: 100%;
-    height: 1730px;
+    /* height: 1730px; */
     position: relative;
     background-position: 50% 50%;
     background-repeat: no-repeat;
@@ -174,23 +160,38 @@
     /* padding: 30px 0; */
     z-index: 1;
     /* overflow: hidden; */
-
+    padding: 0 0 10rem;
 }
 
 .news {
     padding: 8rem 0 10rem;
 }
 
-
 .news-list,
 .music-list {
-    justify-content: space-between;
-    align-items: center;
+    margin-top: 4rem;
     display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 5rem;
+    flex-wrap: nowrap;
+}
+.music-list {
+    margin-top: 0;
+    gap: 12rem;
+}
+.music-list li {
+    aspect-ratio: 1/1;
+    max-width: 368px;
+}
+
+.news-list li {
+    flex: 1 1 100%;
 }
 
 .news-list figure {
-    height: 210px;
+    /* height: 210px; */
+    aspect-ratio: 1/0.5706;
 }
 
 .news-list figure img,
@@ -198,19 +199,19 @@
     width: 100%;
 }
 
-.news-list li,
-.music-list li {
-    width: 370px;
-    /* border: 1px solid #000; */
-    border: solid 1px #d7d7ec;
+.news-list li {
     transition: 0.25s ease-in;
     position: relative;
+}
+
+.music-border {
+    border: solid 1px #d7d7ec;
 }
 
 .news-list a {
     position: relative;
     display: block;
-    height: 340px;
+    min-height: 340px;
     /* box-sizing: content-box; */
     background-color: var(--bh_color_white);
 }
@@ -243,9 +244,13 @@
     margin: 20px 0;
 }
 
-/* .music-list li {
-    width: 350px !important;
-} */
+.music-list li {
+    scale: 1;
+    transition: 0.4s;
+}
+.music-list li:hover {
+    scale: 0.96;
+}
 
 .music-list figure {
     width: 100%;
@@ -271,8 +276,6 @@
     }
 } */
 
-
-
 .music-list .text_wrap {
     width: 100%;
     background: #f7f7ff;
@@ -289,10 +292,9 @@
     transition: 0.2s linear;
 }
 
-.music-list li:hover {
-    /* transition: 0.4s; */
+/* .music-list li:hover {
     border: solid 10px transparent;
-}
+} */
 
 .music-list li:hover .text_wrap {
     opacity: 1;
@@ -302,9 +304,8 @@
     color: var(--bh_color_main);
 }
 
-.music-img-box figure {}
-
-
+.music-img-box figure {
+}
 
 .date {
     transform: 0.4s;
@@ -325,7 +326,7 @@
     font-size: 18px;
     font-weight: 700;
     line-height: 1;
-    font-family: "Montserrat"
+    font-family: "Montserrat";
 }
 
 .date img {
@@ -349,6 +350,71 @@
 }
 
 .news-list li:hover {
-    -webkit-animation: shadow-drop-2-center 0.4s cubic-bezier(0.250, 0.460, 0.450, 0.940) both;
-    animation: shadow-drop-2-center 0.4s cubic-bezier(0.250, 0.460, 0.450, 0.940) both;
+    -webkit-animation: shadow-drop-2-center 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94) both;
+    animation: shadow-drop-2-center 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94) both;
+}
+
+@media screen and (max-width: 1024px) {
+}
+@media screen and (max-width: 1344px) {
+    .inner {
+        width: 90%;
+    }
+}
+
+@media screen and (max-width: 1024px) {
+    .cont_wrap.cont2 .banner {
+        flex-direction: column;
+        gap: 60px; /* 상단 */
+        padding-bottom: 60px; /* 하단 */
+    }
+    .cont_wrap.cont2 .banner .img_box {
+        width: 100%;
+        max-width: 100%;
+        height: auto;
+        margin-left: 0;
+        aspect-ratio: 1/0.3144;
+    }
+    .cont_wrap.cont2 .banner .txt_box {
+        padding: 0 10rem;
+    }
+    .cont_wrap.cont2 .banner .txt_box .line {
+        width: 67px;
+        height: 1px;
+        margin: 30px auto;
+    }
+    .v_tuber {
+        /* left: 210px; */
+        left: 50%;
+        transform: translateX(-50%);
+    }
+    .info-imgs {
+        flex-direction: column;
+        align-items: center;
+        gap: 3rem;
+    }
+    .info-text {
+        margin-top: 60px;
+    }
+
+    .news-list,
+    .music-list {
+        flex-wrap: wrap;
+        gap: 8rem 4rem;
+        justify-content: flex-start;
+    }
+    .music-list {
+        justify-content: space-between;
+        padding: 0 6rem;
+    }
+    .news-list li,
+    .music-list li {
+        flex: 0 1 45%;
+    }
+    .music-list li {
+        width: 200px;
+    }
+}
+
+@media screen and (max-width: 430px) {
 }
