@@ -14,6 +14,8 @@
 
 .ta-c {
     text-align: center !important;
+    padding: 0 20px;
+    word-break: keep-all;
 }
 
 .bh * {
@@ -48,11 +50,13 @@
 }
 
 .cont_wrap.cont2 .banner {
-    padding: 190px 0 130px;
+    /* padding: 190px 0 130px; */
+    padding: clamp(120px, 22.619vw, 190px) 0 130px;
     display: flex;
     max-width: 2100px;
     margin: 0 auto;
-    gap: 180px;
+    /* gap: 180px; */
+    gap: clamp(30px, 5.8593vw, 180px); /* tablet: 60 */
 }
 
 .cont_wrap.cont2 .banner .img_box {
@@ -131,7 +135,8 @@
 } */
 
 .info {
-    padding-bottom: 130px;
+    /* padding-bottom: 130px; */
+    padding-bottom: clamp(60px, 15.2941vw, 130px);
 }
 
 .info-imgs {
@@ -177,7 +182,6 @@
     flex-wrap: nowrap;
 }
 .music-list {
-    margin-top: 0;
     gap: 12rem;
 }
 .music-list li {
@@ -211,7 +215,7 @@
 .news-list a {
     position: relative;
     display: block;
-    min-height: 340px;
+    /* min-height: 340px; */
     /* box-sizing: content-box; */
     background-color: var(--bh_color_white);
 }
@@ -364,12 +368,12 @@
 
 @media screen and (max-width: 1024px) {
     .cont_wrap.cont1 {
-        padding: 120px 0 100px;
+        padding: 220px 0;
     }
 
     .cont_wrap.cont2 .banner {
         flex-direction: column;
-        gap: 60px; /* 상단 */
+        /* gap: 60px; 상단 */
         padding-bottom: 60px; /* 하단 */
     }
     .cont_wrap.cont2 .banner .img_box {
@@ -405,9 +409,6 @@
     .music-list {
         flex-wrap: wrap;
         gap: 8rem 4rem;
-        justify-content: flex-start;
-    }
-    .music-list {
         justify-content: space-between;
         padding: 0 6rem;
     }
@@ -421,4 +422,35 @@
 }
 
 @media screen and (max-width: 430px) {
+    .cont_wrap.cont1 {
+        padding: 80px 0;
+    }
+    .cont_wrap.cont1 .txt_box p {
+        line-height: 1.6;
+        font-weight: 400;
+    }
+    .cont_wrap.cont1 .txt_box p br {
+        display: none;
+    }
+
+    .cont_wrap.cont2 .banner .txt_box {
+        padding: 0 1.5rem;
+        text-align: center;
+    }
+
+    .con2-text br,
+    .info-text br {
+        display: none;
+    }
+
+    .news-list,
+    .music-list {
+        gap: 8rem 0rem;
+        padding: 0;
+        justify-content: center;
+    }
+    .news-list li,
+    .music-list li {
+        flex: 0 1 100%;
+    }
 }
