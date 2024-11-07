@@ -196,6 +196,9 @@ body {
     /* overflow: hidden; */
     padding: 0 0 10rem;
 }
+.con3 > section {
+    width: 100%;
+}
 
 .news {
     padding: 8rem 0 10rem;
