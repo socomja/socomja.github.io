@@ -366,7 +366,7 @@ hr,
     /* transition: opacity 0.3s ease; */
 }
 
-@media screen and (max-width: 1344px) {
+@media screen and (max-width: 1430px) {
     .inner {
         width: 90%;
     }
