@@ -363,6 +363,10 @@
 }
 
 @media screen and (max-width: 1024px) {
+    .cont_wrap.cont1 {
+        padding: 120px 0 100px;
+    }
+
     .cont_wrap.cont2 .banner {
         flex-direction: column;
         gap: 60px; /* 상단 */

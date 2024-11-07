@@ -134,6 +134,24 @@ hr,
     clip: rect(0, 0, 0, 0);
 }
 
+.btn-menu {
+    display: none;
+}
+.btn-menu::after {
+    content: "\EF3E";
+    display: flex;
+    align-items: center;
+    justify-content: end;
+    font-size: 4rem;
+    width: 72px;
+    height: 68px;
+    font-family: "remixicon" !important;
+    font-style: normal;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    background: #fff;
+}
+
 /* #header{
     position: relative;
     width: 100%;
@@ -348,6 +366,12 @@ hr,
 }
 
 @media screen and (max-width: 1024px) {
+    .gnb {
+        display: none;
+    }
+    .btn-menu {
+        display: block;
+    }
 }
 
 @media screen and (max-width: 430px) {
