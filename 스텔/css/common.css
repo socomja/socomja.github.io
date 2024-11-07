@@ -107,6 +107,7 @@ body {
     font-size: 1.6rem;
     line-height: 1.6;
     -webkit-font-smoothing: antialiased;
+    min-width: 340px;
 }
 
 a {
@@ -370,6 +371,9 @@ hr,
 }
 
 @media screen and (max-width: 1024px) {
+    .inner {
+        width: 92.1875%;
+    }
     .gnb {
         display: none;
     }
@@ -379,4 +383,11 @@ hr,
 }
 
 @media screen and (max-width: 430px) {
+    .inner {
+        width: 90.6976%;
+    }
+    .icon {
+        gap: unset;
+        justify-content: space-between;
+    }
 }
