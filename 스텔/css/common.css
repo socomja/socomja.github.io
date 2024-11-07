@@ -305,7 +305,9 @@ hr,
 
 .icon {
     display: flex;
-    gap: 100px;
+    /* gap: 100px; */
+    /* gap: 40px; */
+    gap: clamp(40px, 6.8359vw, 100px);
     align-items: center;
     justify-content: center;
 }
@@ -388,7 +390,7 @@ hr,
     }
     .icon {
         width: 100%;
-        gap: unset;
-        justify-content: space-between;
+        /* gap: 40px; */
+        justify-content: center;
     }
 }
