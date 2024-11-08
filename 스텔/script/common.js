@@ -1,5 +1,18 @@
+
+
 // 모든 .icon 안의 <a> 태그를 선택
 $(() => {
+    const mobileNav = $(".mobile-gnb");
+    $(".btn-menu").on("click", function () {
+        mobileNav.addClass("active");
+    });
+    $(".close-area").on("click", function () {
+        if (mobileNav.hasClass("active")) {
+            mobileNav.removeClass("active");
+        }
+    });
+
+
     const icons = document.querySelectorAll('.icon a');
 
     icons.forEach(icon => {

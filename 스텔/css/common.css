@@ -5,62 +5,49 @@
 @font-face {
     font-family: "NanumSquareNeoLight";
     src: url(https://hangeul.pstatic.net/hangeul_static/webfont/NanumSquareNeo/NanumSquareNeoTTF-aLt.eot);
-    src: url(https://hangeul.pstatic.net/hangeul_static/webfont/NanumSquareNeo/NanumSquareNeoTTF-aLt.eot?#iefix)
-            format("embedded-opentype"),
+    src: url(https://hangeul.pstatic.net/hangeul_static/webfont/NanumSquareNeo/NanumSquareNeoTTF-aLt.eot?#iefix) format("embedded-opentype"),
         url(https://hangeul.pstatic.net/hangeul_static/webfont/NanumSquareNeo/NanumSquareNeoTTF-aLt.woff) format("woff"),
-        url(https://hangeul.pstatic.net/hangeul_static/webfont/NanumSquareNeo/NanumSquareNeoTTF-aLt.ttf)
-            format("truetype");
+        url(https://hangeul.pstatic.net/hangeul_static/webfont/NanumSquareNeo/NanumSquareNeoTTF-aLt.ttf) format("truetype");
 }
 
 @font-face {
     font-family: "NanumSquareNeo";
     src: url(https://hangeul.pstatic.net/hangeul_static/webfont/NanumSquareNeo/NanumSquareNeoTTF-bRg.eot);
-    src: url(https://hangeul.pstatic.net/hangeul_static/webfont/NanumSquareNeo/NanumSquareNeoTTF-bRg.eot?#iefix)
-            format("embedded-opentype"),
+    src: url(https://hangeul.pstatic.net/hangeul_static/webfont/NanumSquareNeo/NanumSquareNeoTTF-bRg.eot?#iefix) format("embedded-opentype"),
         url(https://hangeul.pstatic.net/hangeul_static/webfont/NanumSquareNeo/NanumSquareNeoTTF-bRg.woff) format("woff"),
-        url(https://hangeul.pstatic.net/hangeul_static/webfont/NanumSquareNeo/NanumSquareNeoTTF-bRg.ttf)
-            format("truetype");
+        url(https://hangeul.pstatic.net/hangeul_static/webfont/NanumSquareNeo/NanumSquareNeoTTF-bRg.ttf) format("truetype");
 }
 
 @font-face {
     font-family: "NanumSquareNeoBold";
     src: url(https://hangeul.pstatic.net/hangeul_static/webfont/NanumSquareNeo/NanumSquareNeoTTF-cBd.eot);
-    src: url(https://hangeul.pstatic.net/hangeul_static/webfont/NanumSquareNeo/NanumSquareNeoTTF-cBd.eot?#iefix)
-            format("embedded-opentype"),
+    src: url(https://hangeul.pstatic.net/hangeul_static/webfont/NanumSquareNeo/NanumSquareNeoTTF-cBd.eot?#iefix) format("embedded-opentype"),
         url(https://hangeul.pstatic.net/hangeul_static/webfont/NanumSquareNeo/NanumSquareNeoTTF-cBd.woff) format("woff"),
-        url(https://hangeul.pstatic.net/hangeul_static/webfont/NanumSquareNeo/NanumSquareNeoTTF-cBd.ttf)
-            format("truetype");
+        url(https://hangeul.pstatic.net/hangeul_static/webfont/NanumSquareNeo/NanumSquareNeoTTF-cBd.ttf) format("truetype");
 }
 
 @font-face {
     font-family: "NanumSquareNeoExtraBold";
     src: url(https://hangeul.pstatic.net/hangeul_static/webfont/NanumSquareNeo/NanumSquareNeoTTF-dEb.eot);
-    src: url(https://hangeul.pstatic.net/hangeul_static/webfont/NanumSquareNeo/NanumSquareNeoTTF-dEb.eot?#iefix)
-            format("embedded-opentype"),
+    src: url(https://hangeul.pstatic.net/hangeul_static/webfont/NanumSquareNeo/NanumSquareNeoTTF-dEb.eot?#iefix) format("embedded-opentype"),
         url(https://hangeul.pstatic.net/hangeul_static/webfont/NanumSquareNeo/NanumSquareNeoTTF-dEb.woff) format("woff"),
-        url(https://hangeul.pstatic.net/hangeul_static/webfont/NanumSquareNeo/NanumSquareNeoTTF-dEb.ttf)
-            format("truetype");
+        url(https://hangeul.pstatic.net/hangeul_static/webfont/NanumSquareNeo/NanumSquareNeoTTF-dEb.ttf) format("truetype");
 }
 
 @font-face {
     font-family: "NanumSquareNeoHeavy";
     src: url(https://hangeul.pstatic.net/hangeul_static/webfont/NanumSquareNeo/NanumSquareNeoTTF-eHv.eot);
-    src: url(https://hangeul.pstatic.net/hangeul_static/webfont/NanumSquareNeo/NanumSquareNeoTTF-eHv.eot?#iefix)
-            format("embedded-opentype"),
+    src: url(https://hangeul.pstatic.net/hangeul_static/webfont/NanumSquareNeo/NanumSquareNeoTTF-eHv.eot?#iefix) format("embedded-opentype"),
         url(https://hangeul.pstatic.net/hangeul_static/webfont/NanumSquareNeo/NanumSquareNeoTTF-eHv.woff) format("woff"),
-        url(https://hangeul.pstatic.net/hangeul_static/webfont/NanumSquareNeo/NanumSquareNeoTTF-eHv.ttf)
-            format("truetype");
+        url(https://hangeul.pstatic.net/hangeul_static/webfont/NanumSquareNeo/NanumSquareNeoTTF-eHv.ttf) format("truetype");
 }
 
 @font-face {
     font-family: "NanumSquareNeoVariable";
     src: url(https://hangeul.pstatic.net/hangeul_static/webfont/NanumSquareNeo/NanumSquareNeo-Variable.eot);
-    src: url(https://hangeul.pstatic.net/hangeul_static/webfont/NanumSquareNeo/NanumSquareNeo-Variable.eot?#iefix)
-            format("embedded-opentype"),
-        url(https://hangeul.pstatic.net/hangeul_static/webfont/NanumSquareNeo/NanumSquareNeo-Variable.woff)
-            format("woff"),
-        url(https://hangeul.pstatic.net/hangeul_static/webfont/NanumSquareNeo/NanumSquareNeo-Variable.ttf)
-            format("truetype");
+    src: url(https://hangeul.pstatic.net/hangeul_static/webfont/NanumSquareNeo/NanumSquareNeo-Variable.eot?#iefix) format("embedded-opentype"),
+        url(https://hangeul.pstatic.net/hangeul_static/webfont/NanumSquareNeo/NanumSquareNeo-Variable.woff) format("woff"),
+        url(https://hangeul.pstatic.net/hangeul_static/webfont/NanumSquareNeo/NanumSquareNeo-Variable.ttf) format("truetype");
 }
 
 :root {
@@ -138,6 +125,7 @@ hr,
 .btn-menu {
     display: none;
 }
+
 .btn-menu::after {
     content: "\EF3E";
     display: flex;
@@ -186,7 +174,8 @@ hr,
 } */
 
 .inner {
-    width: 134.4rem; /* l/r 288, l+r 576 */
+    width: 134.4rem;
+    /* l/r 288, l+r 576 */
     margin: 0 auto;
     /* background-color: rgba(255, 255, 0, 0.3); */
 }
@@ -257,15 +246,41 @@ hr,
     color: var(--bh_color_main);
 }
 
-.gnb li a.active {
+.gnb li a.active_tab {
     color: var(--bh_color_main);
 }
 
-.gnb li a.active::after {
+.gnb li a.active_tab::after {
     bottom: 5px;
     opacity: 1;
     transform: scaleX(1) translateX(11.5%);
 }
+
+.mobile-gnb {
+    position: fixed;
+    top: 0;
+    right: -100%;
+    width: 43rem;
+    height: 100vh;
+    background: #fff;
+    overflow-y: auto;
+    z-index: 100;
+    transition: 0.4s;
+}
+
+.mobile-gnb.active {
+    right: 0;
+}
+
+.mobile-gnb.active+.close-area {
+    position: fixed;
+    left: 0;
+    top: 0;
+    width: 100vw;
+    height: 100vw;
+    z-index: 90;
+}
+
 
 #footer {
     background: url(../img/common/foot-bg.png) no-repeat;
@@ -288,6 +303,7 @@ hr,
     margin: 2.5rem 0;
     width: 100%;
 }
+
 .foot-tx div img {
     max-width: 100%;
 }
@@ -376,11 +392,17 @@ hr,
     .inner {
         width: 92.1875%;
     }
+
     .gnb {
         display: none;
     }
+
     .btn-menu {
         display: block;
+    }
+
+    .mobile-gnb {
+        width: 30rem;
     }
 }
 
@@ -388,6 +410,7 @@ hr,
     .inner {
         width: 90.6976%;
     }
+
     .icon {
         width: 100%;
         /* gap: 40px; */
