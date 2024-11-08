@@ -212,7 +212,7 @@ hr,
 .gnb li a {
     display: block;
     padding: 1rem 3rem;
-    font-weight: 600;
+    font-weight: 500;
     font-size: 1.8rem;
     color: var(--title-color);
     position: relative;
@@ -246,8 +246,9 @@ hr,
     color: var(--bh_color_main);
 }
 
-.gnb li a.active_tab {
+#header .active_tab {
     color: var(--bh_color_main);
+    font-weight: 700;
 }
 
 .gnb li a.active_tab::after {
@@ -266,6 +267,7 @@ hr,
     overflow-y: auto;
     z-index: 100;
     transition: 0.4s;
+    padding-top: 40px;
 }
 
 .mobile-gnb.active {
@@ -281,6 +283,26 @@ hr,
     z-index: 90;
 }
 
+
+.mobile-gnb li {
+    border-bottom: 1px solid var(--bh_color_gray_300);
+}
+
+
+
+.mobile-gnb li a {
+    display: block;
+    font-weight: 400;
+    padding: 20px 10px;
+    color: var(--bh_color_gray_900);
+    font-size: 16px;
+    letter-spacing: -1px;
+    border-radius: 0;
+    font-size: 19px;
+    line-height: 1;
+    letter-spacing: -0.8px;
+    text-align: center;
+}
 
 #footer {
     background: url(../img/common/foot-bg.png) no-repeat;
