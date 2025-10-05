@@ -1,0 +1,842 @@
+[
+    {
+        "character": "소라",
+        "name": "팝핀 하트 스타리 네온",
+        "image": "img/1탄/4성/소라_팝핀 하트 스타리 네온.png",
+        "owned": true,
+        "count": 1
+    },
+    {
+        "character": "소라",
+        "name": "팝핀 하트 스타리 네온 (사인ver.)",
+        "image": "img/1탄/4성/소라_팝핀 하트 스타리 네온 (사인ver.).png",
+        "owned": false,
+        "count": 0
+    },
+    {
+        "character": "초아",
+        "name": "미라클 문 스타리 네온",
+        "image": "img/1탄/4성/초아_미라클 문 스타리 네온.png",
+        "owned": false,
+        "count": 0
+    },
+    {
+        "character": "초아",
+        "name": "미라클 문 스타리 네온 (사인ver.)",
+        "image": "img/1탄/4성/초아_미라클 문 스타리 네온 (사인ver.).png",
+        "owned": false,
+        "count": 0
+    },
+    {
+        "character": "세빈",
+        "name": "스칼렛 버터플라이 스타리 네온",
+        "image": "img/1탄/4성/세빈_스칼렛 버터플라이 스타리 네온.png",
+        "owned": false,
+        "count": 0
+    },
+    {
+        "character": "세빈",
+        "name": "스칼렛 버터플라이 스타리 네온 (사인ver.)",
+        "image": "img/1탄/4성/세빈_스칼렛 버터플라이 스타리 네온 (사인ver.).png",
+        "owned": false,
+        "count": 0
+    },
+    {
+        "character": "소라",
+        "name": "큐티 래빗",
+        "image": "img/1탄/4성/소라_큐티 래빗.png",
+        "owned": false,
+        "count": 0
+    },
+    {
+        "character": "소라",
+        "name": "큐티 래빗 (사인ver.)",
+        "image": "img/1탄/4성/소라_큐티 래빗 (사인ver.).png",
+        "owned": false,
+        "count": 0
+    },
+    {
+        "character": "초아",
+        "name": "큐티 래빗 블루",
+        "image": "img/1탄/4성/초아_큐티 래빗 블루.png",
+        "owned": false,
+        "count": 0
+    },
+    {
+        "character": "소라",
+        "name": "도넛 파티시에르",
+        "image": "img/1탄/4성/소라_도넛 파티시에르.png",
+        "owned": false,
+        "count": 0
+    },
+    {
+        "character": "초아",
+        "name": "도넛 파티시에르",
+        "image": "img/1탄/4성/초아_도넛 파티시에르.png",
+        "owned": false,
+        "count": 0
+    },
+    {
+        "character": "초아",
+        "name": "말랑말랑 젤리 소다",
+        "image": "img/1탄/4성/초아_말랑말랑 젤리 소다.png",
+        "owned": false,
+        "count": 0
+    },
+    {
+        "character": "소라",
+        "name": "말랑말랑 젤리 소다",
+        "image": "img/1탄/4성/소라_말랑말랑 젤리 소다.png",
+        "owned": false,
+        "count": 0
+    },
+    {
+        "character": "세빈",
+        "name": "리치베리 타르트",
+        "image": "img/1탄/4성/세빈_리치베리 타르트.png",
+        "owned": false,
+        "count": 0
+    },
+    {
+        "character": "세빈",
+        "name": "리치베리 타르트",
+        "image": "img/1탄/4성/세빈_리치베리 타르트.png",
+        "owned": false,
+        "count": 0
+    },
+    {
+        "character": "소라",
+        "name": "웰컴 체리",
+        "image": "img/1탄/4성/소라_웰컴 체리.png",
+        "owned": false,
+        "count": 0
+    },
+    {
+        "character": "초아",
+        "name": "웰컴 체리 블루",
+        "image": "img/1탄/4성/초아_웰컴 체리 블루.png",
+        "owned": false,
+        "count": 0
+    },
+    {
+        "character": "초아",
+        "name": "반짝반짝 젤리피쉬 블루",
+        "image": "img/1탄/4성/초아_반짝반짝 젤리피쉬 블루.png",
+        "owned": false,
+        "count": 0
+    },
+    {
+        "character": "세빈",
+        "name": "반짝반짝 젤리피쉬 핑크",
+        "image": "img/1탄/4성/세빈_반짝반짝 젤리피쉬 핑크.png",
+        "owned": false,
+        "count": 0
+    },
+    {
+        "character": "세빈",
+        "name": "버터플라이 매직",
+        "image": "img/1탄/4성/세빈_버터플라이 매직.png",
+        "owned": false,
+        "count": 0
+    },
+    {
+        "character": "세빈",
+        "name": "버터플라이 매직 크림슨",
+        "image": "img/1탄/4성/세빈_버터플라이 매직 크림슨.png",
+        "owned": false,
+        "count": 0
+    },
+    {
+        "character": "소라",
+        "name": "해피 버스데이!",
+        "image": "img/1탄/4성/소라_해피 버스데이! 소라.png",
+        "owned": false,
+        "count": 0
+    },
+    {
+        "character": "소라",
+        "name": "해피 버스데이! (사인ver.)",
+        "image": "img/1탄/4성/소라_해피 버스데이! 소라 (사인ver.).png",
+        "owned": false,
+        "count": 0
+    },
+    {
+        "character": "초아",
+        "name": "해피 버스데이!",
+        "image": "img/1탄/4성/초아_해피 버스데이! 초아.png",
+        "owned": false,
+        "count": 0
+    },
+    {
+        "character": "소라",
+        "name": "아이프리 버스 팝핀 하트",
+        "image": "img/1탄/3성/소라_아이프리 버스 팝핀 하트.png",
+        "owned": false,
+        "count": 0
+    },
+    {
+        "character": "소라",
+        "name": "아이프리버스 팝핀 하트 그린",
+        "image": "img/1탄/3성/소라_아이프리버스 팝핀 하트 그린.png",
+        "owned": false,
+        "count": 0
+    },
+    {
+        "character": "초아",
+        "name": "아이프리버스 미라클 문",
+        "image": "img/1탄/3성/초아_아이프리버스 미라클 문.png",
+        "owned": false,
+        "count": 0
+    },
+    {
+        "character": "초아",
+        "name": "아이프리버스 미라클 문 오렌지",
+        "image": "img/1탄/3성/초아_아이프리버스 미라클 문 오렌지.png",
+        "owned": false,
+        "count": 0
+    },
+    {
+        "character": "세빈",
+        "name": "아이프리버스 스칼렛 버터플라이",
+        "image": "img/1탄/3성/세빈_아이프리버스 스칼렛 버터플라이.png",
+        "owned": false,
+        "count": 0
+    },
+    {
+        "character": "세빈",
+        "name": "아이프리버스 스칼렛 버터플라이",
+        "image": "img/1탄/3성/세빈_아이프리버스 스칼렛 버터플라이.png",
+        "owned": false,
+        "count": 0
+    },
+    {
+        "character": "소라",
+        "name": "플라워 튤",
+        "image": "img/1탄/3성/소라_플라워 튤.png",
+        "owned": false,
+        "count": 0
+    },
+    {
+        "character": "초아",
+        "name": "플라워 튤",
+        "image": "img/1탄/3성/초아_플라워 튤.png",
+        "owned": false,
+        "count": 0
+    },
+    {
+        "character": "초아",
+        "name": "플라워 튤 민트",
+        "image": "img/1탄/3성/초아_플라워 튤 민트.png",
+        "owned": false,
+        "count": 0
+    },
+    {
+        "character": "소라",
+        "name": "플라워 튤 민트",
+        "image": "img/1탄/3성/소라_플라워 튤 민트.png",
+        "owned": false,
+        "count": 0
+    },
+    {
+        "character": "세빈",
+        "name": "고저스 비즈",
+        "image": "img/1탄/3성/세빈_고저스 비즈.png",
+        "owned": false,
+        "count": 0
+    },
+    {
+        "character": "세빈",
+        "name": "고저스 비즈",
+        "image": "img/1탄/3성/세빈_고저스 비즈.png",
+        "owned": false,
+        "count": 0
+    },
+    {
+        "character": "초아",
+        "name": "허니비",
+        "image": "img/1탄/3성/초아_허니비.png",
+        "owned": false,
+        "count": 0
+    },
+    {
+        "character": "소라",
+        "name": "허니비",
+        "image": "img/1탄/3성/소라_허니비.png",
+        "owned": false,
+        "count": 0
+    },
+    {
+        "character": "초아",
+        "name": "스타 멜로디",
+        "image": "img/1탄/3성/초아_스타 멜로디.png",
+        "owned": false,
+        "count": 0
+    },
+    {
+        "character": "소라",
+        "name": "스타 멜로디",
+        "image": "img/1탄/3성/소라_스타 멜로디.png",
+        "owned": false,
+        "count": 0
+    },
+    {
+        "character": "소라",
+        "name": "하트 멜로디",
+        "image": "img/1탄/3성/소라_하트 멜로디.png",
+        "owned": false,
+        "count": 0
+    },
+    {
+        "character": "초아",
+        "name": "하트 멜로디",
+        "image": "img/1탄/3성/초아_하트 멜로디.png",
+        "owned": false,
+        "count": 0
+    },
+    {
+        "character": "소라",
+        "name": "스타 파티",
+        "image": "img/1탄/3성/소라_스타 파티.png",
+        "owned": false,
+        "count": 0
+    },
+    {
+        "character": "초아",
+        "name": "스타 파티 딸기 초콜릿",
+        "image": "img/1탄/3성/초아_스타 파티 딸기 초콜릿.png",
+        "owned": false,
+        "count": 0
+    },
+    {
+        "character": "소라",
+        "name": "파라다이스 학교 중등부 1학년 교복",
+        "image": "img/1탄/2성/소라_파라다이스 학교 중등부 1학년 교복.png",
+        "owned": false,
+        "count": 0
+    },
+    {
+        "character": "초아",
+        "name": "파라다이스 학교 중등부 1학년 교복",
+        "image": "img/1탄/2성/초아_파라다이스 학교 중등부 1학년 교복.png",
+        "owned": false,
+        "count": 0
+    },
+    {
+        "character": "세빈",
+        "name": "파라다이스 학교 중등부 2학년 교복",
+        "image": "img/1탄/2성/세빈_파라다이스 학교 중등부 2학년 교복.png",
+        "owned": false,
+        "count": 0
+    },
+    {
+        "character": "소라",
+        "name": "러블리 아이돌 핑크",
+        "image": "img/1탄/2성/소라_러블리 아이돌 핑크.png",
+        "owned": false,
+        "count": 0
+    },
+    {
+        "character": "소라",
+        "name": "러블리 아이돌 핑크",
+        "image": "img/1탄/2성/소라_러블리 아이돌 핑크.png",
+        "owned": false,
+        "count": 0
+    },
+    {
+        "character": "초아",
+        "name": "러블리 아이돌 블루",
+        "image": "img/1탄/2성/초아_러블리 아이돌 블루.png",
+        "owned": false,
+        "count": 0
+    },
+    {
+        "character": "초아",
+        "name": "러블리 아이돌 블루",
+        "image": "img/1탄/2성/초아_러블리 아이돌 블루.png",
+        "owned": false,
+        "count": 0
+    },
+    {
+        "character": "소라",
+        "name": "쿨 아이돌 핑크",
+        "image": "img/1탄/2성/소라_쿨 아이돌 핑크.png",
+        "owned": false,
+        "count": 0
+    },
+    {
+        "character": "소라",
+        "name": "쿨 아이돌 핑크",
+        "image": "img/1탄/2성/소라_쿨 아이돌 핑크.png",
+        "owned": false,
+        "count": 0
+    },
+    {
+        "character": "초아",
+        "name": "쿨 아이돌 블루",
+        "image": "img/1탄/2성/초아_쿨 아이돌 블루.png",
+        "owned": false,
+        "count": 0
+    },
+    {
+        "character": "초아",
+        "name": "쿨 아이돌 블루",
+        "image": "img/1탄/2성/초아_쿨 아이돌 블루.png",
+        "owned": false,
+        "count": 0
+    },
+    {
+        "character": "세빈",
+        "name": "쿨 아이돌 레드",
+        "image": "img/1탄/2성/세빈_쿨 아이돌 레드.png",
+        "owned": false,
+        "count": 0
+    },
+    {
+        "character": "소라",
+        "name": "해피 치어 핑크",
+        "image": "img/1탄/2성/소라_해피 치어 핑크.png",
+        "owned": false,
+        "count": 0
+    },
+    {
+        "character": "소라",
+        "name": "해피 치어 핑크",
+        "image": "img/1탄/2성/소라_해피 치어 핑크.png",
+        "owned": false,
+        "count": 0
+    },
+    {
+        "character": "초아",
+        "name": "해피 치어 블루",
+        "image": "img/1탄/2성/초아_해피 치어 블루.png",
+        "owned": false,
+        "count": 0
+    },
+    {
+        "character": "초아",
+        "name": "해피 치어 블루",
+        "image": "img/1탄/2성/초아_해피 치어 블루.png",
+        "owned": false,
+        "count": 0
+    },
+    {
+        "character": "소라",
+        "name": "세일러 캐주얼 핑크",
+        "image": "img/1탄/2성/소라_세일러 캐주얼 핑크.png",
+        "owned": false,
+        "count": 0
+    },
+    {
+        "character": "소라",
+        "name": "세일러 캐주얼 핑크",
+        "image": "img/1탄/2성/소라_세일러 캐주얼 핑크.png",
+        "owned": false,
+        "count": 0
+    },
+    {
+        "character": "초아",
+        "name": "세일러 캐주얼 블루",
+        "image": "img/1탄/2성/초아_세일러 캐주얼 블루.png",
+        "owned": false,
+        "count": 0
+    },
+    {
+        "character": "초아",
+        "name": "세일러 캐주얼 블루",
+        "image": "img/1탄/2성/초아_세일러 캐주얼 블루.png",
+        "owned": false,
+        "count": 0
+    },
+    {
+        "character": "리리아",
+        "name": "플라워 마치 스타리 네온",
+        "image": "img/2탄/4성/리리아_플라워 마치 스타리 네온.png",
+        "owned": false,
+        "count": 0
+    },
+    {
+        "character": "태리",
+        "name": "로젯션 스타리 네온",
+        "image": "img/2탄/4성/태리_로젯션 스타리 네온.png",
+        "owned": false,
+        "count": 0
+    },
+    {
+        "character": "소라",
+        "name": "팝핀 하트 스타리 네온",
+        "image": "img/2탄/4성/소라_팝핀 하트 스타리 네온.png",
+        "owned": false,
+        "count": 0
+    },
+    {
+        "character": "세빈",
+        "name": "스칼렛 버터플라이 스타리 네온",
+        "image": "img/2탄/4성/세빈_스칼렛 버터플라이 스타리 네온.png",
+        "owned": false,
+        "count": 0
+    },
+    {
+        "character": "세빈",
+        "name": "로즈 그랑프리",
+        "image": "img/2탄/4성/세빈_로즈 그랑프리.png",
+        "owned": false,
+        "count": 0
+    },
+    {
+        "character": "태리",
+        "name": "로즈 그랑프리",
+        "image": "img/2탄/4성/태리_로즈 그랑프리.png",
+        "owned": false,
+        "count": 0
+    },
+    {
+        "character": "소라",
+        "name": "프레시 레몬 핑크",
+        "image": "img/2탄/4성/소라_프레시 레몬 핑크.png",
+        "owned": false,
+        "count": 0
+    },
+    {
+        "character": "초아",
+        "name": "프레시 레몬 블루",
+        "image": "img/2탄/4성/초아_프레시 레몬 블루.png",
+        "owned": false,
+        "count": 0
+    },
+    {
+        "character": "초아",
+        "name": "매지션 캣",
+        "image": "img/2탄/4성/초아_매지션 캣.png",
+        "owned": false,
+        "count": 0
+    },
+    {
+        "character": "소라",
+        "name": "매지션 캣",
+        "image": "img/2탄/4성/소라_매지션 캣.png",
+        "owned": false,
+        "count": 0
+    },
+    {
+        "character": "리리아",
+        "name": "플라워 메모리",
+        "image": "img/2탄/4성/리리아_플라워 메모리.png",
+        "owned": false,
+        "count": 0
+    },
+    {
+        "character": "리리아",
+        "name": "플라워 메모리 퍼플",
+        "image": "img/2탄/4성/리리아_플라워 메모리 퍼플.png",
+        "owned": false,
+        "count": 0
+    },
+    {
+        "character": "태리",
+        "name": "엘레강트 쥬얼 블루",
+        "image": "img/2탄/4성/태리_엘레강트 쥬얼 블루.png",
+        "owned": false,
+        "count": 0
+    },
+    {
+        "character": "세빈",
+        "name": "엘레강트 쥬얼 레드",
+        "image": "img/2탄/4성/세빈_엘레강트 쥬얼 레드.png",
+        "owned": false,
+        "count": 0
+    },
+    {
+        "character": "리리아",
+        "name": "리틀 페어리",
+        "image": "img/2탄/4성/리리아_리틀 페어리.png",
+        "owned": false,
+        "count": 0
+    },
+    {
+        "character": "소라",
+        "name": "리틀 페어리",
+        "image": "img/2탄/4성/소라_리틀 페어리.png",
+        "owned": false,
+        "count": 0
+    },
+    {
+        "character": "세빈",
+        "name": "체크 메이트",
+        "image": "img/2탄/4성/세빈_체크 메이트.png",
+        "owned": false,
+        "count": 0
+    },
+    {
+        "character": "태리",
+        "name": "체크 메이트",
+        "image": "img/2탄/4성/태리_체크 메이트.png",
+        "owned": false,
+        "count": 0
+    },
+    {
+        "character": "태리",
+        "name": "로맨스 샹들리에",
+        "image": "img/2탄/4성/태리_로맨스 샹들리에.png",
+        "owned": false,
+        "count": 0
+    },
+    {
+        "character": "초아",
+        "name": "로맨스 샹들리에",
+        "image": "img/2탄/4성/초아_로맨스 샹들리에.png",
+        "owned": false,
+        "count": 0
+    },
+    {
+        "character": "리리아",
+        "name": "아이프리버스 플라워 마치",
+        "image": "img/2탄/3성/리리아_아이프리버스 플라워 마치.png",
+        "owned": false,
+        "count": 0
+    },
+    {
+        "character": "태리",
+        "name": "아이프리버스 로젯션",
+        "image": "img/2탄/3성/태리_아이프리버스 로젯션.png",
+        "owned": false,
+        "count": 0
+    },
+    {
+        "character": "소라",
+        "name": "아이프리버스 팝핀 하트",
+        "image": "img/2탄/3성/소라_아이프리버스 팝핀 하트.png",
+        "owned": false,
+        "count": 0
+    },
+    {
+        "character": "초아",
+        "name": "아이프리버스 미라클 문",
+        "image": "img/2탄/3성/초아_아이프리버스 미라클 문.png",
+        "owned": false,
+        "count": 0
+    },
+    {
+        "character": "세빈",
+        "name": "아이프리버스 스칼렛 버터플라이",
+        "image": "img/2탄/3성/세빈_아이프리버스 스칼렛 버터플라이.png",
+        "owned": false,
+        "count": 0
+    },
+    {
+        "character": "소라",
+        "name": "해바라기 서머",
+        "image": "img/2탄/3성/소라_해바라기 서머.png",
+        "owned": false,
+        "count": 0
+    },
+    {
+        "character": "초아",
+        "name": "해바라기 서머",
+        "image": "img/2탄/3성/초아_해바라기 서머.png",
+        "owned": false,
+        "count": 0
+    },
+    {
+        "character": "리리아",
+        "name": "방울방울 은방울꽃",
+        "image": "img/2탄/3성/리리아_방울방울 은방울꽃.png",
+        "owned": false,
+        "count": 0
+    },
+    {
+        "character": "소라",
+        "name": "방울방울 은방울꽃",
+        "image": "img/2탄/3성/소라_방울방울 은방울꽃.png",
+        "owned": false,
+        "count": 0
+    },
+    {
+        "character": "태리",
+        "name": "로즈 프린스",
+        "image": "img/2탄/3성/태리_로즈 프린스.png",
+        "owned": false,
+        "count": 0
+    },
+    {
+        "character": "세빈",
+        "name": "로즈 프린스",
+        "image": "img/2탄/3성/세빈_로즈 프린스.png",
+        "owned": false,
+        "count": 0
+    },
+    {
+        "character": "초아",
+        "name": "밀키 웨이",
+        "image": "img/2탄/3성/초아_밀키 웨이.png",
+        "owned": false,
+        "count": 0
+    },
+    {
+        "character": "리리아",
+        "name": "밀키 웨이",
+        "image": "img/2탄/3성/리리아_밀키 웨이.png",
+        "owned": false,
+        "count": 0
+    },
+    {
+        "character": "리리아",
+        "name": "아기새 메르헨",
+        "image": "img/2탄/3성/리리아_아기새 메르헨.png",
+        "owned": false,
+        "count": 0
+    },
+    {
+        "character": "소라",
+        "name": "아기새 메르헨",
+        "image": "img/2탄/3성/소라_아기새 메르헨.png",
+        "owned": false,
+        "count": 0
+    },
+    {
+        "character": "리리아",
+        "name": "클로버 멜로디",
+        "image": "img/2탄/3성/리리아_클로버 멜로디.png",
+        "owned": false,
+        "count": 0
+    },
+    {
+        "character": "태리",
+        "name": "번뜩이는 탐정",
+        "image": "img/2탄/3성/태리_번뜩이는 탐정.png",
+        "owned": false,
+        "count": 0
+    },
+    {
+        "character": "소라",
+        "name": "번뜩이는 탐정",
+        "image": "img/2탄/3성/소라_번뜩이는 탐정.png",
+        "owned": false,
+        "count": 0
+    },
+    {
+        "character": "소라",
+        "name": "하츠네 미쿠 코디",
+        "image": "img/2탄/3성/소라_하츠네 미쿠 코디.png",
+        "owned": false,
+        "count": 0
+    },
+    {
+        "character": "초아",
+        "name": "하츠네 미쿠 코디",
+        "image": "img/2탄/3성/초아_하츠네 미쿠 코디.png",
+        "owned": false,
+        "count": 0
+    },
+    {
+        "character": "태리",
+        "name": "파라다이스 학교 중등부 2학년 교복",
+        "image": "img/2탄/2성/태리_파라다이스 학교 중등부 2학년 교복.png",
+        "owned": false,
+        "count": 0
+    },
+    {
+        "character": "소라",
+        "name": "파라다이스 학교 중등부 1학년 교복",
+        "image": "img/2탄/2성/소라_파라다이스 학교 중등부 1학년 교복.png",
+        "owned": false,
+        "count": 0
+    },
+    {
+        "character": "초아",
+        "name": "파라다이스 학교 중등부 1학년 교복",
+        "image": "img/2탄/2성/초아_파라다이스 학교 중등부 1학년 교복.png",
+        "owned": false,
+        "count": 0
+    },
+    {
+        "character": "세빈",
+        "name": "파라다이스 학교 중등부 2학년 교복",
+        "image": "img/2탄/2성/세빈_파라다이스 학교 중등부 2학년 교복.png",
+        "owned": false,
+        "count": 0
+    },
+    {
+        "character": "리리아",
+        "name": "러블리 아이돌 옐로",
+        "image": "img/2탄/2성/리리아_러블리 아이돌 옐로.png",
+        "owned": false,
+        "count": 0
+    },
+    {
+        "character": "태리",
+        "name": "러블리 아이돌 네이비",
+        "image": "img/2탄/2성/태리_러블리 아이돌 네이비.png",
+        "owned": false,
+        "count": 0
+    },
+    {
+        "character": "세빈",
+        "name": "쿨 아이돌 레드",
+        "image": "img/2탄/2성/세빈_쿨 아이돌 레드.png",
+        "owned": false,
+        "count": 0
+    },
+    {
+        "character": "리리아",
+        "name": "해피 치어 옐로",
+        "image": "img/2탄/2성/리리아_해피 치어 옐로.png",
+        "owned": false,
+        "count": 0
+    },
+    {
+        "character": "태리",
+        "name": "세일러 캐주얼 네이비",
+        "image": "img/2탄/2성/태리_세일러 캐주얼 네이비.png",
+        "owned": false,
+        "count": 0
+    },
+    {
+        "character": "소라",
+        "name": "튤립 핑크",
+        "image": "img/2탄/2성/소라_튤립 핑크.png",
+        "owned": false,
+        "count": 0
+    },
+    {
+        "character": "초아",
+        "name": "튤립 블루",
+        "image": "img/2탄/2성/초아_튤립 블루.png",
+        "owned": false,
+        "count": 0
+    },
+    {
+        "character": "리리아",
+        "name": "튤립 옐로",
+        "image": "img/2탄/2성/리리아_튤립 옐로.png",
+        "owned": false,
+        "count": 0
+    },
+    {
+        "character": "세빈",
+        "name": "튤립 레드",
+        "image": "img/2탄/2성/세빈_튤립 레드.png",
+        "owned": false,
+        "count": 0
+    },
+    {
+        "character": "태리",
+        "name": "튤립 네이비",
+        "image": "img/2탄/2성/태리_튤립 네이비.png",
+        "owned": false,
+        "count": 0
+    },
+    {
+        "character": "소라",
+        "name": "러블리 아이돌 핑크",
+        "image": "img/2탄/2성/소라_러블리 아이돌 핑크.png",
+        "owned": false,
+        "count": 0
+    },
+    {
+        "character": "초아",
+        "name": "러블리 아이돌 블루",
+        "image": "img/2탄/2성/초아_러블리 아이돌 블루.png",
+        "owned": false,
+        "count": 0
+    }
+]

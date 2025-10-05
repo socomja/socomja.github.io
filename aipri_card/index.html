@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+    <meta charset="UTF-8">
+    <title>카드 목록</title>
+    <link rel="stylesheet" href="https://unpkg.com/swiper/swiper-bundle.min.css">
+    <link rel="stylesheet" href="style.css">
+    <!-- Swiper CSS -->
+</head>
+
+<body>
+    <div class="inner">
+        <div class="tetle"><img src="img/card_tit_img.png" alt=""></div>
+
+        <!-- Swiper 구조 -->
+        <div class="TAN">
+            <div class="swiper set-swiper">
+                <div class="swiper-wrapper">
+                    <div class="swiper-slide">
+                        <a href="#" class="button active" onclick="changeSet(1)"><span>1탄</span></a>
+                    </div>
+                    <div class="swiper-slide">
+                        <a href="#" class="button" onclick="changeSet(2)"><span>2탄</span></a>
+                    </div>
+                    <div class="swiper-slide">
+                        <a href="#" class="button" onclick="changeSet(3)"><span>3탄</span></a>
+                    </div>
+                    <div class="swiper-slide">
+                        <a href="#" class="button" onclick="changeSet(4)"><span>4탄</span></a>
+                    </div>
+                    <div class="swiper-slide">
+                        <a href="#" class="button" onclick="changeSet(5)"><span>5탄</span></a>
+                    </div>
+                </div>
+
+                <div class="swiper-button-prev"></div>
+                <div class="swiper-button-next"></div>
+            </div>
+        </div>
+
+
+
+        <div class="test"></div>
+        <div class="test2">
+            <div id="card-container"></div>
+        </div>
+    </div>
+
+    <!-- Swiper JS -->
+    <script src="https://unpkg.com/swiper/swiper-bundle.min.js"></script>
+    <script src="cards.js"></script>
+
+    <script>
+        const swiper = new Swiper('.set-swiper', {
+            // slidesPerView: 'auto',
+            spaceBetween: 14,
+            navigation: {
+                nextEl: '.swiper-button-next',
+                prevEl: '.swiper-button-prev',
+            },
+            freeMode: true,
+        });
+
+    </script>
+</body>
+
+</html>
