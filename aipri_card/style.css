@@ -75,6 +75,10 @@ ol, ul {
     z-index: 1;
 }
 
+.TAN ul{
+    margin-left: 25px !important;
+}
+
 /* .set-list{
     position: relative;
     width: 100%;

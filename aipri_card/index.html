@@ -11,35 +11,43 @@
 
 <body>
     <div class="inner">
-        <div class="tetle"><img src="img/기타/card_tit_img.png" alt=""></div>
+        <!-- 🔹 JSON 저장 / 불러오기 버튼 -->
+        <div style="text-align:center; margin:30px 0;">
+            <button id="loadJsonBtn">📂 JSON 불러오기</button>
+            <button id="saveJsonBtn">💾 JSON 저장</button>
+            <input type="file" id="loadJsonInput" accept=".json" style="display:none;">
+            <script src="loadsave.js"></script>
+        </div>
+
+        <div class="tetle">
+            <img src="img/기타/card_tit_img.png" alt="">
+        </div>
 
         <!-- Swiper 구조 -->
         <div class="TAN">
             <div class="swiper set-swiper">
-                <div class="swiper-wrapper">
-                    <div class="swiper-slide">
+                <ul class="swiper-wrapper">
+                    <li class="swiper-slide">
                         <a href="#" class="button active" onclick="changeSet(1)"><span>1탄</span></a>
-                    </div>
-                    <div class="swiper-slide">
+                    </li>
+                    <li class="swiper-slide">
                         <a href="#" class="button" onclick="changeSet(2)"><span>2탄</span></a>
-                    </div>
-                    <div class="swiper-slide">
+                    </li>
+                    <li class="swiper-slide">
                         <a href="#" class="button" onclick="changeSet(3)"><span>3탄</span></a>
-                    </div>
-                    <div class="swiper-slide">
+                    </li>
+                    <li class="swiper-slide">
                         <a href="#" class="button" onclick="changeSet(4)"><span>4탄</span></a>
-                    </div>
-                    <div class="swiper-slide">
+                    </li>
+                    <li class="swiper-slide">
                         <a href="#" class="button" onclick="changeSet(5)"><span>5탄</span></a>
-                    </div>
-                </div>
+                    </li>
+                </ul>
 
                 <div class="swiper-button-prev"></div>
                 <div class="swiper-button-next"></div>
             </div>
         </div>
-
-
 
         <div class="test"></div>
         <div class="test2">
@@ -50,7 +58,7 @@
     <!-- Swiper JS -->
     <script src="https://unpkg.com/swiper/swiper-bundle.min.js"></script>
     <script src="cards.js"></script>
-
+    <script src="app.js"></script>
     <script>
         const swiper = new Swiper('.set-swiper', {
             // slidesPerView: 'auto',
